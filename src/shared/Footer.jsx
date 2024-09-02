@@ -1,4 +1,3 @@
-import React from "react";
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -57,7 +56,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="container mx-auto mt-10 text-center border-t border-gray-700 pt-6">
-        <a href="#" className="hover:text-gray-400" text-sm>Terms & Conditions and Privacy Policy</a>
+        <a href="#" className="hover:text-gray-400 text-sm" >Terms & Conditions and Privacy Policy</a>
         <p className="text-sm mt-2">© Bloombiz Creatives. All Rights Reserved. 2024</p>
       </div>
     </footer>
