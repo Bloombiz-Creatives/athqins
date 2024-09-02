@@ -108,14 +108,14 @@ const Hero = () => {
                 </div>
             </div>
 
-            <div className="absolute bottom-0 left-0 w-1/2 h-32 bg-black bg-opacity-80 flex items-center justify-between px-16">
+            <div className="absolute bottom-0 left-0 w-[70%] md:w-1/2 h-32 bg-black bg-opacity-80 flex items-center justify-between md:px-16 px-7">
                 <div className="text-white">
-                    <span className="text-3xl font-bold">${slides[activeSlide]?.price}</span>
+                    <span className="md:text-3xl font-bold text-[12px]">${slides[activeSlide]?.price}</span>
                 </div>
                 <div className="flex items-center">
-                    <a href="#" className="relative text-white font-bold uppercase tracking-wider group flex items-center">
+                    <a href="#" className="relative text-white font-light md:font-bold uppercase tracking-wider group flex items-center">
                         View Details
-                        <span className="ml-2 inline-block h-0.5 w-10 bg-white transition-all duration-300 ease-in-out group-hover:w-20"></span>
+                        <span className="ml-2 inline-block h-0.5 w-5 md:w-10 bg-white transition-all duration-300 ease-in-out md:group-hover:w-20 group-hover:w-10"></span>
                     </a>
                 </div>
             </div>
