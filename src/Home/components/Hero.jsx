@@ -1,7 +1,3 @@
-
-
-
-
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchHomeHero } from '../../action/ecomAction';
@@ -88,7 +84,7 @@ const Hero = () => {
             </div>
 
             <div className="absolute inset-0 flex items-center">
-                <div className="container mx-auto px-4">
+                <div className="container mx-auto px-8">
                     <div className="max-w-2xl">
                         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
                             {slides[activeSlide]?.title}
@@ -112,7 +108,7 @@ const Hero = () => {
                 </div>
             </div>
 
-            <div className="absolute bottom-0 left-0 w-1/2 h-32 bg-black bg-opacity-80 flex items-center justify-between px-8">
+            <div className="absolute bottom-0 left-0 w-1/2 h-32 bg-black bg-opacity-80 flex items-center justify-between px-16">
                 <div className="text-white">
                     <span className="text-3xl font-bold">${slides[activeSlide]?.price}</span>
                 </div>
