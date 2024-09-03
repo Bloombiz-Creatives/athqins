@@ -1,3 +1,6 @@
+
+
+
 import React from 'react';
 import im1 from '../../assets/blogs/1.jpg';
 import im2 from '../../assets/blogs/2.jpg';
@@ -27,17 +30,17 @@ const Blogs = () => {
             link: "single-post.html",
         },
     ];
+
     return (
         <div className="container mx-auto">
-            <div className='px-12'>
+            <div className="px-12">
                 <h2 className="text-3xl font-bold">From Our Blog</h2>
                 <p className="text-gray-600">Read our latest articles on real estate.</p>
-                <div className=" flex gap-6 mt-4 md:mt-5">
+                <div className="flex flex-wrap gap-6 mt-4 md:mt-5">
                     {posts.map((post, index) => (
-                        // <div key={index} className="col-sm-12 col-md-6 col-lg-4">
-                        <div key={index} className="flex justify-center items-center">
-                            <a href={post.href} className="block mb-[30px] group">
-                                <div className="rounded-t-[.3rem] h-[260px] w-[350px] overflow-hidden">
+                        <div key={index} className="flex-1 min-w-[300px]">
+                            <a href={post.link} className="block mb-[30px] group">
+                                <div className="rounded-t-[.3rem] h-[260px] overflow-hidden">
                                     <div
                                         className="w-full h-full transition-all duration-1000 ease-in-out bg-cover"
                                         style={{ backgroundImage: `url(${post.imgSrc})` }}
@@ -61,11 +64,10 @@ const Blogs = () => {
                         </div>
                     ))}
                 </div>
-                <a href="blog.html" className="pxp-primary-cta text-uppercase mt-2 mt-md-4 pxp-animate">Read More</a>
+                <a href="blog.html" className="text-uppercase mt-2 md:mt-4 pxp-animate">Read More</a>
             </div>
-
         </div>
-    )
-}
+    );
+};
 
-export default Blogs
+export default Blogs;
