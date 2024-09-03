@@ -114,7 +114,7 @@ const Navbar = () => {
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </div>
-          <ul className="text-center text-[17px] space-y-2 flex flex-col mt-5">
+          <ul className="text-center text-[17px] space-y-6 flex flex-col mt-5">
             <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
               <a href="#home">HOME</a>
             </li>
