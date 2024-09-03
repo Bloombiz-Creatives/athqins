@@ -1,4 +1,3 @@
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -26,6 +25,22 @@ const testimonials = [
         location: 'Washington, MD',
         message:
             "And it's no wonder Athqins has shaken things up: As anyone who's ever tried to rent or buy property in Washington knows, the experience is loaded with pain points.",
+    },
+    {
+        id: 3,
+        avatar: customer3,
+        name: 'Kenneth Spiers',
+        location: 'Cleveland, OH',
+        message:
+            "While Athqins functions like a traditional broker, the company's promise is using technology to reduce the time and friction of buying and selling house or apartment.",
+    },
+    {
+        id: 3,
+        avatar: customer3,
+        name: 'Kenneth Spiers',
+        location: 'Cleveland, OH',
+        message:
+            "While Athqins functions like a traditional broker, the company's promise is using technology to reduce the time and friction of buying and selling house or apartment.",
     },
     {
         id: 3,
@@ -64,12 +79,29 @@ const Testimonials = () => {
                         pagination={{ clickable: true }}
                         autoplay={{ delay: 5000, disableOnInteraction: false }}
                         className="swiper-container"
+                        breakpoints={{
+                            320:{
+                                slidesPerView: 1,
+                            },
+                            375:{
+                                slidesPerView: 1,
+                            },
+                            425: {
+                                slidesPerView: 2, 
+                            },
+                            768: {
+                                slidesPerView: 3, 
+                            },
+                            1024: {
+                                slidesPerView: 3, 
+                            },
+                        }}
                     >
                         {testimonials.map((testimonial) => (
-                            <SwiperSlide key={testimonial.id}>
-                                <div className="bg-black rounded-lg shadow-lg h-[340px] w-[280px] flex flex-col items-center p-4">
+                            <SwiperSlide key={testimonial.id} style={{ paddingBottom: '40px' }}>
+                                <div className="bg-black rounded-lg shadow-lg h-[340px]  flex flex-col items-center p-4" >
                                     <div
-                                        className="w-24 h-24 bg-cover bg-center rounded-full mb-4"
+                                        className="md:w-24 md:h-24 w-20 h-20 bg-cover bg-center rounded-full mb-4"
                                         style={{ backgroundImage: `url(${testimonial.avatar})` }}
                                     ></div>
                                     <h3 className="text-xl font-bold text-center mb-1 text-white">
