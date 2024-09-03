@@ -7,6 +7,7 @@ import Testimonials from '../components/Testimonials'
 import Cards from '../components/Cards'
 import OurStrenth from '../components/OurStrenth'
 import Blogs from '../components/Blogs'
+import SubscribeSection from '../components/SubscribeSection'
 
 const HomeContents = () => {
   return (
@@ -20,6 +21,7 @@ const HomeContents = () => {
       <Cards/>
       <OurStrenth/>
       <Blogs/>
+      <SubscribeSection/>
     </div>
   )
 }
