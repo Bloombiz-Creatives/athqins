@@ -110,7 +110,7 @@ const BestSellers = () => {
                         <div className="flex justify-center items-center ">
                             <img src={bst8} alt="Best Seller 2" className="w-full h-full object-cover rounded-lg" />
                         </div>
-                        <p className="text-lg font-semibold ">G2S BPAP System</p>
+                        <p className="text-lg font-semibold ">G2S BPAP</p>
                         <p className="text-xl">$24.99</p>
                     </div>
                 </SwiperSlide>
