@@ -1,6 +1,3 @@
-
-
-
 import React from 'react';
 import im1 from '../../assets/blogs/1.jpg';
 import im2 from '../../assets/blogs/2.jpg';
@@ -38,7 +35,7 @@ const Blogs = () => {
                 <p className="text-gray-600">Read our latest articles on real estate.</p>
                 <div className="flex flex-wrap gap-6 mt-4 md:mt-5">
                     {posts.map((post, index) => (
-                        <div key={index} className="flex-1 min-w-[300px]">
+                        <div key={index} className="flex-1 xl:min-w-[300px] lg:min-w-[270px]">
                             <a href={post.link} className="block mb-[30px] group">
                                 <div className="rounded-t-[.3rem] h-[260px] overflow-hidden">
                                     <div
