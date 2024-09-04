@@ -23,6 +23,9 @@ export default {
         roate360: 'roate360 10s linear infinite',
         upndown: 'upndown 10s linear infinite',
       },
+      padding: {
+        'calc-pl': 'calc((100% - 1140px) / 2 + 15px)',
+      },
     },
   },
   plugins: [],

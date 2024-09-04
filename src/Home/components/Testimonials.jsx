@@ -8,7 +8,6 @@ import customer1 from '../../assets/test.jpg';
 import customer2 from '../../assets/test.jpg';
 import customer3 from '../../assets/test.jpg';
 import testimBg from '../../assets/intro-bg.jpg';
-import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 
 const testimonials = [
     {
@@ -81,20 +80,20 @@ const Testimonials = () => {
                         autoplay={{ delay: 5000, disableOnInteraction: false }}
                         className="swiper-container"
                         breakpoints={{
-                            320:{
+                            320: {
                                 slidesPerView: 1,
                             },
-                            375:{
+                            375: {
                                 slidesPerView: 1,
                             },
                             425: {
-                                slidesPerView: 2, 
+                                slidesPerView: 2,
                             },
                             768: {
-                                slidesPerView: 3, 
+                                slidesPerView: 3,
                             },
                             1024: {
-                                slidesPerView: 3, 
+                                slidesPerView: 3,
                             },
                         }}
                     >
@@ -118,7 +117,6 @@ const Testimonials = () => {
                             </SwiperSlide>
                         ))}
                     </Swiper>
-                    
                 </div>
             </div>
         </div>
