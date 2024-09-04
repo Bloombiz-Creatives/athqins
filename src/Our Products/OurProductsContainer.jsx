@@ -136,10 +136,6 @@ const OurProductsContainer = () => {
                     ))}
                   </ul>
                 </div>
-
-                <div className="shop-sidebar__box rounded-lg">
-                  <img src="/images/newone.jpegf" alt="Sidebar Image" className="rounded-lg" />
-                </div>
               </div>
             </div>
             {/* Sidebar End */}
@@ -214,4 +210,5 @@ const OurProductsContainer = () => {
 };
 
 export default OurProductsContainer;
+
 

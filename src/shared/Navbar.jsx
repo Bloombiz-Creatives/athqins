@@ -215,7 +215,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center justify-center text-white space-y-6 text-lg transition-all duration-300 transform md:relative md:flex-row md:space-y-0 md:text-[10px] md:gap-3 lg:text-[16px]">
+        <ul className="hidden md:flex items-center justify-center text-white space-y-6 text-lg transition-all duration-300 transform md:relative md:flex-row md:space-y-0 md:text-[12px] md:gap-8 lg:text-[16px]">
           <li className="underline-animation"><Link to="/" >HOME</Link></li>
           <li
             className="relative underline-animation"
@@ -259,7 +259,7 @@ const Navbar = () => {
           <li className="underline-animation"><Link >CONTACT US</Link></li>
         </ul>
 
-        <div className="hidden md:flex text-white items-center space-x-2 border-b-2 border-white">
+        {/* <div className="hidden md:flex text-white items-center space-x-2 border-b-2 border-white">
           <input
             type="text"
             placeholder="Search.."
@@ -279,7 +279,7 @@ const Navbar = () => {
               />
             </svg>
           </button>
-        </div>
+        </div> */}
       </div>
     </nav>
   );
