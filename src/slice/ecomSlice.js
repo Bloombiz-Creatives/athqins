@@ -101,6 +101,68 @@ const ecomSlice = createSlice({
                 error:action.payload
             }
         },
+        brandGetAllRequest(state,action){
+            return {
+                ...state,
+                loading:true,
+            }
+        },
+        brandGetAllSuccess(state,action){
+            return {
+                ...state,
+                loading:false,
+                brand:action.payload,
+                error:null
+            }
+        },
+        brandGetAllFail(state, action){
+            return {
+                ...state,
+                error:action.payload
+            }
+        },
+        getSubCatRequest(state, action){
+            return {
+                ...state,
+                loading:true,
+                error:null
+            }
+        },
+        getSubCatSuccess(state, action){
+            return {
+                ...state,
+                loading:false,
+                subcategory:action.payload,
+                error:null
+            }
+        },
+        getSubCatFail(state,action){
+            return{
+                ...state,
+                error:action.payload
+            }
+        },
+        productGetRequest(state, action){
+            return {
+                ...state,
+                loading:true
+            }
+        },
+        productGetSuccess(state, action){
+            return {
+                ...state,
+                loading:false,
+                // products:action.payload,
+                productss:action.payload,
+                error:null
+            }
+        },
+        productGetFail(state, action){
+            return {
+                ...state,
+                error:action.payload
+            }
+        },
 
     }
 })
@@ -121,6 +183,16 @@ export const {
     cardGetRequest,
     cardGetSuccess,
     cardGetFail,
+    brandGetAllRequest,
+    brandGetAllSuccess,
+    brandGetAllFail,
+    getSubCatRequest,
+    getSubCatSuccess,
+    getSubCatFail,
+    productGetRequest,
+    productGetSuccess,
+    productGetFail,
+
 } = actions;
 
 export default reducer;

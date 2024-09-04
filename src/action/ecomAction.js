@@ -1,4 +1,4 @@
-import { cardGetFail, cardGetRequest, cardGetSuccess, featuredGetFail, featuredGetSuccess, homeHeroGetFail, homeHeroGetRequest, homeHeroGetSuccess, pgcntntGetFail, pgcntntGetRequets, pgcntntGetSuccess, testimonialGetAllFail, testimonialGetAllRequest, testimonialGetAllSuccess } from "../slice/ecomSlice";
+import { brandGetAllFail, brandGetAllRequest, brandGetAllSuccess, cardGetFail, cardGetRequest, cardGetSuccess, featuredGetFail, featuredGetSuccess, getSubCatFail, getSubCatRequest, getSubCatSuccess, homeHeroGetFail, homeHeroGetRequest, homeHeroGetSuccess, pgcntntGetFail, pgcntntGetRequets, pgcntntGetSuccess, productGetFail, productGetRequest, productGetSuccess, testimonialGetAllFail, testimonialGetAllRequest, testimonialGetAllSuccess } from "../slice/ecomSlice";
 import {globalGetService} from "../utils/globalApiServices";
 
 export const fetchHomeHero = () => {
@@ -62,6 +62,48 @@ export const getCard = () => {
             dispatch(cardGetSuccess(response.data))
         } catch (error) {
             dispatch(cardGetFail(error))
+        }
+    }
+}
+
+export const fetchBrand = (query) => {
+    return async (dispatch) => {
+        try {
+            dispatch(brandGetAllRequest());
+            const response = await globalGetService('/brand', query);
+            dispatch(brandGetAllSuccess(response.data));
+            return response.data;
+        } catch (error) {
+            dispatch(brandGetAllFail(error))
+        }
+    }
+}
+
+
+
+export const fetchSubCategory = () => {
+    return async (dispatch) => {
+        try {
+            dispatch(getSubCatRequest())
+            const response = await globalGetService('/subcategory');
+            dispatch(getSubCatSuccess(response.data));
+            return response.data;
+        } catch (error) {
+            dispatch(getSubCatFail(error))
+        }
+    }
+}
+
+
+export const fetchProduct = (query) => {
+    return async (dispatch) => {
+        try {
+            dispatch(productGetRequest());
+            const response = await globalGetService('/pro', query);
+            dispatch(productGetSuccess(response.data));
+            return response.data
+        } catch (error) {
+            dispatch(productGetFail(error))
         }
     }
 }
