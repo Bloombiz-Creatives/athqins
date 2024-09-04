@@ -61,6 +61,26 @@ const ecomSlice = createSlice({
                 error: action.payload
             }
         },
+        testimonialGetAllRequest(state, action){
+            return {
+                ...state,
+                loading:true
+            }
+        },
+        testimonialGetAllSuccess(state, action){
+            return {
+                ...state,
+                loading:false,
+                testimonial:action.payload,
+                error:null
+            }
+        },
+        testimonialGetAllFail(state, action){
+            return {
+                ...state,
+                error:action.payload
+            }
+        },
 
     }
 })
@@ -75,6 +95,9 @@ export const {
     pgcntntGetRequets,
     pgcntntGetSuccess,
     pgcntntGetFail,
+    testimonialGetAllRequest,
+    testimonialGetAllSuccess,
+    testimonialGetAllFail,
 } = actions;
 
 export default reducer;

@@ -1,4 +1,4 @@
-import { featuredGetFail, featuredGetSuccess, homeHeroGetFail, homeHeroGetRequest, homeHeroGetSuccess, pgcntntGetFail, pgcntntGetRequets, pgcntntGetSuccess } from "../slice/ecomSlice";
+import { featuredGetFail, featuredGetSuccess, homeHeroGetFail, homeHeroGetRequest, homeHeroGetSuccess, pgcntntGetFail, pgcntntGetRequets, pgcntntGetSuccess, testimonialGetAllFail, testimonialGetAllRequest, testimonialGetAllSuccess } from "../slice/ecomSlice";
 import {globalGetService} from "../utils/globalApiServices";
 
 export const fetchHomeHero = () => {
@@ -35,6 +35,20 @@ export const fetchHomePageContent = () => {
             dispatch(pgcntntGetSuccess(response.data))            
         } catch (error) {
             dispatch(pgcntntGetFail(error))
+        }
+    }
+}
+
+
+export const fetchHomeTestimonial = () => {
+    return async (dispatch) => {
+        try {
+            dispatch(testimonialGetAllRequest());
+            const response = await globalGetService('/testimonial');
+            dispatch(testimonialGetAllSuccess(response.data))
+            return response.data
+        } catch (error) {
+            dispatch(testimonialGetAllFail(error))
         }
     }
 }

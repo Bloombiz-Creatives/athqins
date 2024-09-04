@@ -3,56 +3,23 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
-import customer1 from '../../assets/test.jpg';
-import customer2 from '../../assets/test.jpg';
-import customer3 from '../../assets/test.jpg';
 import testimBg from '../../assets/intro-bg.jpg';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchHomeTestimonial } from '../../action/ecomAction';
 
-const testimonials = [
-    {
-        id: 1,
-        avatar: customer1,
-        name: 'Derek Cotner',
-        location: 'Houston, TX',
-        message:
-            "While Athqins functions like a traditional broker, the company's promise is using technology to reduce the time and friction of buying and selling house or apartment.",
-    },
-    {
-        id: 2,
-        avatar: customer2,
-        name: 'Rebecca Eason',
-        location: 'Washington, MD',
-        message:
-            "And it's no wonder Athqins has shaken things up: As anyone who's ever tried to rent or buy property in Washington knows, the experience is loaded with pain points.",
-    },
-    {
-        id: 3,
-        avatar: customer3,
-        name: 'Kenneth Spiers',
-        location: 'Cleveland, OH',
-        message:
-            "While Athqins functions like a traditional broker, the company's promise is using technology to reduce the time and friction of buying and selling house or apartment.",
-    },
-    {
-        id: 3,
-        avatar: customer3,
-        name: 'Kenneth Spiers',
-        location: 'Cleveland, OH',
-        message:
-            "While Athqins functions like a traditional broker, the company's promise is using technology to reduce the time and friction of buying and selling house or apartment.",
-    },
-    {
-        id: 3,
-        avatar: customer3,
-        name: 'Kenneth Spiers',
-        location: 'Cleveland, OH',
-        message:
-            "While Athqins functions like a traditional broker, the company's promise is using technology to reduce the time and friction of buying and selling house or apartment.",
-    },
-];
 
 const Testimonials = () => {
+
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        dispatch(fetchHomeTestimonial())
+    },[dispatch])
+
+    const {testimonial} = useSelector((state) => state.ecomState);
+    const testimonials = testimonial?.testimonial || []
+    
     return (
         <div
             className="relative bg-center bg-cover bg-no-repeat py-24 px-4"
@@ -97,21 +64,21 @@ const Testimonials = () => {
                             },
                         }}
                     >
-                        {testimonials.map((testimonial) => (
-                            <SwiperSlide key={testimonial.id} style={{ paddingBottom: '40px' }}>
+                        {testimonials.map((testimonial,index) => (
+                            <SwiperSlide key={index} style={{ paddingBottom: '40px' }}>
                                 <div className="bg-black rounded-lg shadow-lg h-[340px]  flex flex-col items-center p-4" >
                                     <div
                                         className="md:w-24 md:h-24 w-20 h-20 bg-cover bg-center rounded-full mb-4"
-                                        style={{ backgroundImage: `url(${testimonial.avatar})` }}
+                                        style={{ backgroundImage: `url(${testimonial.profile})` }}
                                     ></div>
                                     <h3 className="text-xl font-bold text-center mb-1 text-white">
                                         {testimonial.name}
                                     </h3>
                                     <p className="text-sm text-center text-gray-400 mb-4">
-                                        {testimonial.location}
+                                        {testimonial.place}
                                     </p>
                                     <p className="text-sm text-center text-white">
-                                        {testimonial.message}
+                                        {testimonial.text}
                                     </p>
                                 </div>
                             </SwiperSlide>
