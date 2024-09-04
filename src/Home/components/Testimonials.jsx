@@ -8,6 +8,7 @@ import customer1 from '../../assets/test.jpg';
 import customer2 from '../../assets/test.jpg';
 import customer3 from '../../assets/test.jpg';
 import testimBg from '../../assets/intro-bg.jpg';
+import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 
 const testimonials = [
     {
@@ -117,6 +118,7 @@ const Testimonials = () => {
                             </SwiperSlide>
                         ))}
                     </Swiper>
+                    
                 </div>
             </div>
         </div>
@@ -124,3 +126,4 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
+

@@ -27,6 +27,20 @@ const ecomSlice = createSlice({
                 error: action.payload
             }
         },
+        featuredGetSuccess(state, action){
+            return {
+                ...state,
+                loading:false,
+                category:action.payload,
+            }
+        },
+        featuredGetFail(state, action){
+            return {
+                ...state,
+                error: action.payload
+            }
+        },
+
     }
 })
 
@@ -35,6 +49,8 @@ export const {
     homeHeroGetRequest,
     homeHeroGetSuccess,
     homeHeroGetFail,
+    featuredGetSuccess,
+    featuredGetFail,
 } = actions;
 
 export default reducer;
