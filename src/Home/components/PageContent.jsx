@@ -18,7 +18,7 @@ const PageContent = () => {
     return (
         <div className="container mx-auto">
             <div className="relative overflow-hidden max-w-full mx-auto my-5 h-[70vh] md:block hidden">
-                <a href="#" className="block">
+                <div className="block">
                     <div className="relative w-full h-full">
                         <img
                             src={pagecnt}
@@ -37,11 +37,11 @@ const PageContent = () => {
                             </a>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
 
             <div className="relative overflow-hidden max-w-full mx-auto my-5 h-[70vh] md:hidden block">
-                <a href="#">
+                <div>
                     <div className="relative w-full h-full">
                         <img
                             src={pagecnt}
@@ -63,7 +63,7 @@ const PageContent = () => {
                             </span>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
     );

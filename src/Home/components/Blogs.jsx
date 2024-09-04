@@ -1,4 +1,3 @@
-import React from 'react';
 import im1 from '../../assets/blogs/1.jpg';
 import im2 from '../../assets/blogs/2.jpg';
 import im3 from '../../assets/blogs/3.jpg';
@@ -37,9 +36,9 @@ const Blogs = () => {
                     {posts.map((post, index) => (
                         <div key={index} className="flex-1 xl:min-w-[300px] lg:min-w-[270px]">
                             <a href={post.link} className="block mb-[30px] group">
-                                <div className="rounded-t-[.3rem] h-[260px] overflow-hidden">
+                                <div className="rounded-t-[.3rem] h-[260px] overflow-hidden relative">
                                     <div
-                                        className="w-full h-full transition-all duration-1000 ease-in-out bg-cover"
+                                        className="w-full h-full transition-all duration-1000 ease-in-out bg-cover group-hover:scale-105"
                                         style={{ backgroundImage: `url(${post.imgSrc})` }}
                                     ></div>
                                 </div>

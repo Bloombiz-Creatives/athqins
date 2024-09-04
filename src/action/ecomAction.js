@@ -1,4 +1,4 @@
-import { featuredGetFail, featuredGetSuccess, homeHeroGetFail, homeHeroGetRequest, homeHeroGetSuccess, pgcntntGetFail, pgcntntGetRequets, pgcntntGetSuccess, testimonialGetAllFail, testimonialGetAllRequest, testimonialGetAllSuccess } from "../slice/ecomSlice";
+import { cardGetFail, cardGetRequest, cardGetSuccess, featuredGetFail, featuredGetSuccess, homeHeroGetFail, homeHeroGetRequest, homeHeroGetSuccess, pgcntntGetFail, pgcntntGetRequets, pgcntntGetSuccess, testimonialGetAllFail, testimonialGetAllRequest, testimonialGetAllSuccess } from "../slice/ecomSlice";
 import {globalGetService} from "../utils/globalApiServices";
 
 export const fetchHomeHero = () => {
@@ -49,6 +49,19 @@ export const fetchHomeTestimonial = () => {
             return response.data
         } catch (error) {
             dispatch(testimonialGetAllFail(error))
+        }
+    }
+}
+
+
+export const getCard = () => {
+    return async (dispatch) => {
+        try {
+            dispatch(cardGetRequest());
+            const response = await globalGetService('/cards')
+            dispatch(cardGetSuccess(response.data))
+        } catch (error) {
+            dispatch(cardGetFail(error))
         }
     }
 }

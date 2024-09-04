@@ -1,33 +1,45 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { getCard } from '../../action/ecomAction';
 
 const Cards = () => {
 
-    const products = [
-        {
-            name: 'S60',
-            description: 'Intelligence Empowers More',
-            imgSrc: 'https://www.sonoscape.com/uploadfile/2020/0716/20200716110127968.jpg',
-            alt: 'P60',
-        },
-        {
-            name: 'P60 Exp',
-            description: 'Intelligent Future Attainable',
-            imgSrc: 'https://www.sonoscape.com/uploadfile/2018/1105/20181105090452716.jpg',
-            alt: 'S50 Elite',
-        },
-        {
-            name: 'P60',
-            description: 'Intelligence Articulated',
-            imgSrc: 'https://www.sonoscape.com/uploadfile/2020/0716/20200716110127968.jpg',
-            alt: 'P60',
-        },
-        {
-            name: 'S50 Elite',
-            description: 'Discover and Embrace ELITE',
-            imgSrc: 'https://www.sonoscape.com/uploadfile/2018/1105/20181105090452716.jpg',
-            alt: 'S50 Elite',
-        },
-    ];
+    // const products = [
+    //     {
+    //         name: 'S60',
+    //         description: 'Intelligence Empowers More',
+    //         imgSrc: 'https://www.sonoscape.com/uploadfile/2020/0716/20200716110127968.jpg',
+    //         alt: 'P60',
+    //     },
+    //     {
+    //         name: 'P60 Exp',
+    //         description: 'Intelligent Future Attainable',
+    //         imgSrc: 'https://www.sonoscape.com/uploadfile/2018/1105/20181105090452716.jpg',
+    //         alt: 'S50 Elite',
+    //     },
+    //     {
+    //         name: 'P60',
+    //         description: 'Intelligence Articulated',
+    //         imgSrc: 'https://www.sonoscape.com/uploadfile/2020/0716/20200716110127968.jpg',
+    //         alt: 'P60',
+    //     },
+    //     {
+    //         name: 'S50 Elite',
+    //         description: 'Discover and Embrace ELITE',
+    //         imgSrc: 'https://www.sonoscape.com/uploadfile/2018/1105/20181105090452716.jpg',
+    //         alt: 'S50 Elite',
+    //     },
+    // ];
+
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        dispatch(getCard())
+    },[dispatch])
+
+    const {cards} = useSelector((state) => state.ecomState);
+   const products = cards?.cards || []
+    
 
   return (
     <div className='container mx-auto'>
@@ -39,12 +51,12 @@ const Cards = () => {
                             NEW
                         </div>
                         <img
-                            src={product.imgSrc}
+                            src={product.image}
                             alt={product.alt}
                             className="max-w-4/5 h-auto mx-auto"
                         />
-                        <div className="font-bold mt-2">{product.name}</div>
-                        <div className="text-sm text-gray-600">{product.description}</div>
+                        <div className="font-bold mt-2">{product.heading}</div>
+                        <div className="text-sm text-gray-600">{product.text}</div>
                     </div>
                 </a>
             ))}

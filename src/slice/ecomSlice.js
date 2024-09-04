@@ -81,6 +81,26 @@ const ecomSlice = createSlice({
                 error:action.payload
             }
         },
+        cardGetRequest(state, action){
+            return {
+                ...state,
+                loading:true
+            }
+        },
+        cardGetSuccess(state, action){
+            return {
+                ...state,
+                loading:false,
+                cards:action.payload,
+                error:null
+            }
+        }, 
+        cardGetFail(state, action){
+            return {
+                ...state,
+                error:action.payload
+            }
+        },
 
     }
 })
@@ -98,6 +118,9 @@ export const {
     testimonialGetAllRequest,
     testimonialGetAllSuccess,
     testimonialGetAllFail,
+    cardGetRequest,
+    cardGetSuccess,
+    cardGetFail,
 } = actions;
 
 export default reducer;

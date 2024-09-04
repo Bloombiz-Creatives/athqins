@@ -22,7 +22,7 @@ const Testimonials = () => {
     
     return (
         <div
-            className="relative bg-center bg-cover bg-no-repeat py-24 px-4"
+            className="relative bg-center bg-contain bg-no-repeat py-24 px-4"
             style={{ backgroundImage: `url(${testimBg})` }}
         >
             <div className="max-w-7xl container mx-auto flex flex-col lg:flex-row items-start">

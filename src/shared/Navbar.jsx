@@ -1,6 +1,7 @@
 import './navbar.css';
 import { useState, useEffect, useRef } from 'react';
 import Logo from "../assets/favicons.png";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -116,14 +117,14 @@ const Navbar = () => {
           </div>
           <ul className="text-center text-[17px] space-y-6 flex flex-col mt-5">
             <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
-              <a href="#home">HOME</a>
+              <Link to='/'>HOME</Link>
             </li>
             <li className="w-full">
               <div
                 className="flex justify-between items-center cursor-pointer hover:text-#1b1bd6 transition-colors duration-300"
                 onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
               >
-                <a href="#solutions" className="flex-grow">SOLUTIONS</a>
+                <Link className="flex-grow">SOLUTIONS</Link>
                 <svg
                   className={`w-6 h-6 transform transition-transform duration-300 ${isSolutionsOpen ? 'rotate-180' : ''}`}
                   fill="none"
@@ -140,39 +141,39 @@ const Navbar = () => {
               {isSolutionsOpen && (
                 <ul className="mt-2 space-y-2 pl-6 flex flex-col justify-center items-center">
                   <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300 hover:">
-                    <a href="#solution1">ICU</a>
+                    <Link>ICU</Link>
                   </li>
                   <li className="underline-animation hover:text-#1b1bd66 transition-colors duration-300">
-                    <a href="#solution2">NICU</a>
+                    <Link>NICU</Link>
                   </li>
                   <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
-                    <a href="#solution3">OPERATION THEATRE</a>
+                    <Link>OPERATION THEATRE</Link>
                   </li>
                   <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300 hover:">
-                    <a href="#solution1">CARDIOLOGY</a>
+                    <Link>CARDIOLOGY</Link>
                   </li>
                   <li className="underline-animation hover:text-#1b1bd66 transition-colors duration-300">
-                    <a href="#solution2">REFURBISHED</a>
+                    <Link>REFURBISHED</Link>
                   </li>
                   <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
-                    <a href="#solution3">ACCESSORIES & CONSUMABLES</a>
+                    <Link>ACCESSORIES & CONSUMABLES</Link>
                   </li>
                   <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
-                    <a href="#solution3">ULTRA SOUND</a>
+                    <Link>ULTRA SOUND</Link>
                   </li>
                 </ul>
               )}
             </li>
 
             <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
-              <a href="#products">OUR PRODUCTS</a>
+              <Link to="/our_products">OUR PRODUCTS</Link>
             </li>
             <li className="w-full">
               <div
                 className="flex justify-between items-center cursor-pointer hover:text-#1b1bd6 transition-colors duration-300"
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
               >
-                <a href="#services" className="flex-grow">SERVICES</a>
+                <Link className="flex-grow">SERVICES</Link>
                 <svg
                   className={`w-6 h-6 transform transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`}
                   fill="none"
@@ -189,54 +190,54 @@ const Navbar = () => {
               {isServicesOpen && (
                 <ul className="mt-2 space-y-2 pl-6 flex flex-col justify-center items-center">
                   <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
-                  <a href="#service1">SONOSCAPE</a>
+                  <Link>SONOSCAPE</Link>
                   </li>
                   <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
-                    <a href="#service2">EDAN</a>
+                    <Link>EDAN</Link>
                   </li>
                   <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
-                    <a href="#service3">AEONMED</a>
+                    <Link>AEONMED</Link>
                   </li>
                   <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
-                    <a href="#service3">MAGNAMED</a>
+                    <Link>MAGNAMED</Link>
                   </li>
                 </ul>
               )}
             </li>
 
             <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
-              <a href="#blog">BLOG</a>
+              <Link>BLOG</Link>
             </li>
             <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
-              <a href="#contact">CONTACT US</a>
+              <Link>CONTACT US</Link>
             </li>
           </ul>
         </div>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center justify-center text-white space-y-6 text-lg transition-all duration-300 transform md:relative md:flex-row md:space-y-0 md:text-[10px] md:gap-3 lg:text-[16px]">
-          <li className="underline-animation"><a href="#home" >HOME</a></li>
+          <li className="underline-animation"><Link to="/" >HOME</Link></li>
           <li
             className="relative underline-animation"
             onMouseEnter={() => setIsSolutionsDropdownOpen(true)}
             onMouseLeave={() => setIsSolutionsDropdownOpen(false)}
             ref={solutionsRef}
           >
-            <a href="#solutions" >SOLUTIONS</a>
+            <Link >SOLUTIONS</Link>
             {isSolutionsDropdownOpen && (
               <ul className="absolute left-0 mt-2 w-48 bg-gray-800 text-white rounded-md shadow-lg">
-                <li className="py-2 px-4 hover:bg-gray-700"><a href="#icu">ICU</a></li>
-                <li className="py-2 px-4 hover:bg-gray-700"><a href="#nicu">NICU</a></li>
-                <li className="py-2 px-4 hover:bg-gray-700"><a href="#operation-theatre">OPERATION THEATRE</a></li>
-                <li className="py-2 px-4 hover:bg-gray-700"><a href="#cardiology">CARDIOLOGY</a></li>
-                <li className="py-2 px-4 hover:bg-gray-700"><a href="#refurbished">REFURBISHED</a></li>
-                <li className="py-2 px-4 hover:bg-gray-700"><a href="#accessories">ACCESSORIES & CONSUMABLES</a></li>
-                <li className="py-2 px-4 hover:bg-gray-700"><a href="#ultrasound">ULTRA SOUND</a></li>
+                <li className="py-2 px-4 hover:bg-gray-700"><Link>ICU</Link></li>
+                <li className="py-2 px-4 hover:bg-gray-700"><Link>NICU</Link></li>
+                <li className="py-2 px-4 hover:bg-gray-700"><Link>OPERATION THEATRE</Link></li>
+                <li className="py-2 px-4 hover:bg-gray-700"><Link>CARDIOLOGY</Link></li>
+                <li className="py-2 px-4 hover:bg-gray-700"><Link>REFURBISHED</Link></li>
+                <li className="py-2 px-4 hover:bg-gray-700"><Link>ACCESSORIES & CONSUMABLES</Link></li>
+                <li className="py-2 px-4 hover:bg-gray-700"><Link>ULTRA SOUND</Link></li>
               </ul>
             )}
           </li>
 
-          <li className="underline-animation"><a href="#products" >OUR PRODUCTS</a></li>
+          <li className="underline-animation"><Link to='/our_products'>OUR PRODUCTS</Link></li>
 
           <li
             className="relative underline-animation"
@@ -244,18 +245,18 @@ const Navbar = () => {
             onMouseLeave={() => setIsServicesDropdownOpen(false)}
             ref={servicesRef}
           >
-            <a href="#services" >SERVICES</a>
+            <Link >SERVICES</Link>
             {isServicesDropdownOpen && (
               <ul className="absolute left-0 mt-2 w-48 bg-gray-800 text-white rounded-md shadow-lg">
-                <li className="py-2 px-4 hover:bg-gray-700"><a href="#consulting">SONOSCAPE</a></li>
-                <li className="py-2 px-4 hover:bg-gray-700"><a href="#support">EDAN</a></li>
-                <li className="py-2 px-4 hover:bg-gray-700"><a href="#training">AEONMED</a></li>
-                <li className="py-2 px-4 hover:bg-gray-700"><a href="#implementation">SKYLA</a></li>
+                <li className="py-2 px-4 hover:bg-gray-700"><Link>SONOSCAPE</Link></li>
+                <li className="py-2 px-4 hover:bg-gray-700"><Link>EDAN</Link></li>
+                <li className="py-2 px-4 hover:bg-gray-700"><Link>AEONMED</Link></li>
+                <li className="py-2 px-4 hover:bg-gray-700"><Link>SKYLA</Link></li>
               </ul>
             )}
           </li>
-          <li className="underline-animation"><a href="#blog" >BLOG</a></li>
-          <li className="underline-animation"><a href="#contact" >CONTACT US</a></li>
+          <li className="underline-animation"><Link >BLOG</Link></li>
+          <li className="underline-animation"><Link >CONTACT US</Link></li>
         </ul>
 
         <div className="hidden md:flex text-white items-center space-x-2 border-b-2 border-white">
