@@ -27,14 +27,35 @@ const ecomSlice = createSlice({
                 error: action.payload
             }
         },
-        featuredGetSuccess(state, action){
+        featuredGetSuccess(state, action) {
             return {
                 ...state,
-                loading:false,
-                category:action.payload,
+                loading: false,
+                category: action.payload,
             }
         },
-        featuredGetFail(state, action){
+        featuredGetFail(state, action) {
+            return {
+                ...state,
+                error: action.payload
+            }
+        },
+        pgcntntGetRequets(state, action) {
+            return {
+                ...state,
+                loading: true,
+                errorr: null
+            }
+        },
+        pgcntntGetSuccess(state, action) {
+            return {
+                ...state,
+                loading: false,
+                pageContent: action.payload,
+                error: null
+            }
+        },
+        pgcntntGetFail(state, action) {
             return {
                 ...state,
                 error: action.payload
@@ -51,6 +72,9 @@ export const {
     homeHeroGetFail,
     featuredGetSuccess,
     featuredGetFail,
+    pgcntntGetRequets,
+    pgcntntGetSuccess,
+    pgcntntGetFail,
 } = actions;
 
 export default reducer;
