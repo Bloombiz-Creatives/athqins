@@ -163,6 +163,25 @@ const ecomSlice = createSlice({
                 error:action.payload
             }
         },
+        enquiryPostRequest(state, action){
+            return {
+                ...state,
+                loading:true
+            }
+        },
+        enquiryPostSuccess(state, action){
+            return {
+                ...state,
+                loading:false,
+                enquiry:action.payload,
+            }
+        },
+        enquiryPostFail(state, action){
+            return {
+                ...state,
+                error:action.payload
+            }
+        },
 
     }
 })
@@ -192,6 +211,9 @@ export const {
     productGetRequest,
     productGetSuccess,
     productGetFail,
+    enquiryPostRequest,
+    enquiryPostSuccess,
+    enquiryPostFail,
 
 } = actions;
 
