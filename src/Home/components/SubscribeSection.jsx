@@ -75,8 +75,9 @@ const SubscribeSection = () => {
       className="relative sm:h-[580px] h-[680px] bg-cover bg-center "
       style={{ backgroundImage: `url(${foot})` }}
     >
-      <div className=' ' >
-      <div className="absolute container mx-auto inset-0 bg-black bg-opacity-50  flex items-center justify-start xl:px-18 md:px-14 px-6 ">
+      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+
+      <div className="absolute container mx-auto inset-0   flex items-center justify-start xl:px-18 md:px-14 px-6 ">
         <div className="text-left max-w-xl w-full">
           <h1 className="text-white text-3xl font-bold mb-4">Get the Best Hospital Machinery and Equipment</h1>
           <p className="text-gray-300 mb-8">Looking to equip your medical facility with top-quality machinery? Fill out the form below to get in touch with our experts and receive detailed information on our products and pricing.</p>
@@ -123,7 +124,6 @@ const SubscribeSection = () => {
             </button>
           </form>
         </div>
-      </div>
       </div>
     </div>
   );
