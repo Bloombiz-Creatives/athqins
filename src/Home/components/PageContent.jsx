@@ -40,7 +40,8 @@ const PageContent = () => {
                 </div>
             </div>
 
-            <div className="relative overflow-hidden max-w-full mx-auto my-5 h-[70vh] md:hidden block">
+            {/* mobile view */}
+            {/* <div className="relative overflow-hidden max-w-full mx-auto my-5 h-[70vh] md:hidden block">
                 <div>
                     <div className="relative w-full h-full">
                         <img
@@ -50,9 +51,9 @@ const PageContent = () => {
                         />
                         <div
                             id="banner-details"
-                            className="absolute inset-0 flex flex-col justify-center items-center text-center text-gray-800 p-5 bg-white bg-opacity-80 sm:bg-opacity-90 md:bg-opacity-80"
+                            className="absolute inset-0 flex flex-col justify-center items-center text-center text-gray-800 p-5  bg-white bg-opacity-80 sm:bg-opacity-90 md:bg-opacity-80"
                         >
-                            <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold uppercase mb-2 leading-tight">
+                            <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold uppercase mb-2 leading-tight  mt-20">
                                 {pageCntnt.heading || "Default Heading"}
                             </h3>
                             <p className="text-xs sm:text-sm md:text-base mb-4 leading-relaxed">
@@ -64,7 +65,25 @@ const PageContent = () => {
                         </div>
                     </div>
                 </div>
+            </div> */}
+
+            <div
+                className="relative overflow-hidden max-w-full mx-auto my-5 h-[70vh] md:hidden block bg-cover bg-center"
+                style={{ backgroundImage: `url(${pagecnt})` }}
+            >
+                <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-gray-800 p-5 bg-white bg-opacity-80">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold uppercase mb-2 leading-tight">
+                        {pageCntnt.heading || "Default Heading"}
+                    </h3>
+                    <p className="text-xs sm:text-sm md:text-base mb-4 leading-relaxed">
+                        {pageCntnt.text || "Default description text."}
+                    </p>
+                    <span className="inline-block px-3 sm:px-4 py-2 border border-gray-800 text-gray-800 text-xs sm:text-sm md:text-base transition-colors duration-300 ease-in-out hover:bg-gray-800 hover:text-white">
+                        {pageCntnt.button || "Shop Now"}
+                    </span>
+                </div>
             </div>
+
         </div>
     );
 };

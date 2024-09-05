@@ -30,7 +30,7 @@ const BestSellers = () => {
                     320:{
                         slidesPerView: 1,
                     },
-                    375: {
+                    425: {
                         slidesPerView: 2, // 2 slides per view on mobile devices
                     },
                     768: {

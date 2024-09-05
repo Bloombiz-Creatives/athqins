@@ -186,7 +186,7 @@ const FeaturedProperties = () => {
 
     return (
         <div className="md:mt-24 mt-10 relative py-6">
-            <div className="flex flex-col md:flex-row items-center md:mb-8 md:pl-10 overflow-hidden">
+            <div className="flex flex-col md:flex-row md:items-center md:mb-8 md:pl-14 pl-6 overflow-hidden">
                 <div className="md:w-1/4">
                     <h2 className="lg:text-3xl md:text-2xl text-3xl font-bold">
                         Featured <br /> Properties
@@ -197,7 +197,7 @@ const FeaturedProperties = () => {
                         <span className="ml-2 inline-block h-0.5 w-5 md:w-10 bg-[#333] transition-all duration-300 ease-in-out md:group-hover:w-20 group-hover:w-10"></span>
                     </a>
                 </div>
-                <div className="md:w-3/4 w-3/4 mt-8 md:mt-0 relative">
+                <div className="md:w-3/4  mt-8 md:mt-0 relative">
                     {canScrollLeft && (
                         <button
                             onClick={scrollLeft}

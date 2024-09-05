@@ -1,6 +1,6 @@
 import './navbar.css';
 import { useState, useEffect, useRef } from 'react';
-import Logo from "../assets/favicons.png";
+import Logo from "../assets/Atqins.png";
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -62,9 +62,9 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 flex  justify-center items-center ${scrolled ? 'bg-black' : 'bg-transparent'}`}>
-      <div className="container flex justify-between items-center md:p-6 px-4 md:px-16">
+      <div className="container flex justify-between items-center md:p-6 px-4 md:px-16 py-2">
         <div className="text-white font-bold text-xl">
-          <img src={Logo} alt="Logo" className="h-8" />
+          <img src={Logo} alt="Logo" className="lg:h-8 h-6" />
         </div>
 
         <div className="flex items-center  md:hidden">
@@ -215,7 +215,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center justify-center text-white space-y-6 text-lg transition-all duration-300 transform md:relative md:flex-row md:space-y-0 md:text-[12px] md:gap-8 lg:text-[16px]">
+        <ul className="hidden md:flex items-center justify-center text-white space-y-6 text-lg transition-all duration-300 transform md:relative md:flex-row md:space-y-0 md:text-[12px] md:gap-4 lg:gap-8 lg:text-[16px]">
           <li className="underline-animation"><Link to="/" >HOME</Link></li>
           <li
             className="relative underline-animation"
