@@ -71,12 +71,9 @@ const SubscribeSection = () => {
       const response = await dispatch(addEnquiry(dataToSubmit));
       if (response.status === 200) {
         setSuccessMessage('Your enquiry has been successfully submitted.');
-      } else {
-        console.log('Enquiry data submitted:', response.data);
       }
     } catch (error) {
       console.error('Error submitting enquiry:', error);
-      // Optionally, you could set an error message here
     }
   };
 
