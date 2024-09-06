@@ -4,6 +4,7 @@ import Footer from './shared/Footer';
 import Home from './Pages/home';
 import OurProducts from './Pages/OurProducts';
 import ProductDetails from './Pages/ProductDetails';
+import Products from './Our Products/Products';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Route path='/' element={<Home/>} />
       <Route path='/our_products' element={<OurProducts/>} />
       <Route path='/product_details' element={<ProductDetails/>} />
+      <Route path='/products' element={<Products/>} />
       </Routes>
       <Footer />
     </Router>
