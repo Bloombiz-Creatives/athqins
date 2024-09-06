@@ -38,6 +38,14 @@ const Products = () => {
     }, [location.state]);
 
     useEffect(() => {
+        if (location.state?.selectedBrand) {
+            setSelectedBrand(location.state.selectedBrand);
+        }
+    }, [location.state]);
+
+
+
+    useEffect(() => {
         const query = {
             category: selectedCategory,
             sub_cat: selectedSubCategory,

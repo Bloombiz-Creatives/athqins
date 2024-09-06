@@ -36,6 +36,12 @@ const Navbar = () => {
     setIsSolutionsDropdownOpen(false);
   };
 
+ const handleBrandClick = (brandId) => {
+    navigate('/products', {state : {selectedBrand: brandId}})
+    setIsNavOpen(false);
+    setIsSolutionsDropdownOpen(false);
+  }
+
 
   useEffect(() => {
     if (isNavOpen) {
@@ -163,10 +169,6 @@ const Navbar = () => {
               {isSolutionsOpen && (
                 <ul className="mt-2 space-y-2 pl-6 flex flex-col justify-center items-center cursor-pointer">
               {Category.map((cat) => (
-                  // <li key={cat._id} className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
-                  //   <Link to={`/our_products?category=${cat?._id}`}>{cat?.name}</Link>
-                  // </li>
-
                   <li key={cat._id} className="py-2 px-4 hover:bg-gray-700 cursor-pointer" onClick={() => handleCategoryClick(cat._id)}>
                   {cat.name}
                 </li>
@@ -202,9 +204,13 @@ const Navbar = () => {
                 <ul className="mt-2 space-y-2 pl-6 flex flex-col justify-center items-center">
                  
                      {Brands.map((brand) => (
-                  <li key={brand?._id} className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
-                    <Link to={`/services/${brand?._id}`}>{brand?.name}</Link>
-                  </li>
+                  // <li key={brand?._id} className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
+                  //   <Link to={`/services/${brand?._id}`}>{brand?.name}</Link>
+                  // </li>
+
+                  <li key={brand?._id} className="py-2 px-4 hover:bg-gray-700" onClick={() => handleBrandClick(brand?._id)}>
+                  {brand?.name}
+                </li>
                 ))}
                 </ul>
               )}
@@ -234,8 +240,6 @@ const Navbar = () => {
               <ul className="absolute left-0 mt-2 w-48 bg-gray-800 text-white rounded-md shadow-lg">
                 {Category.map((cat) => (
                   <li key={cat._id} className="py-2 px-4 hover:bg-gray-700" onClick={() => handleCategoryClick(cat?._id)}>
-                    {/* <Link to={`/our_products?category=${cat?._id}`}>{cat?.name}</Link> */}
-                    {/* <Link to="/our_products" onClick={() => handleCategoryClick(cat?._id)}>{cat?.name}</Link> */}
                     {cat?.name}
                   </li>
                 ))}
@@ -255,9 +259,13 @@ const Navbar = () => {
             {isServicesDropdownOpen && (
               <ul className="absolute left-0 mt-2 w-48 bg-gray-800 text-white rounded-md shadow-lg">
                 {Brands.map((brand) => (
-                  <li key={brand?._id} className="py-2 px-4 hover:bg-gray-700">
-                    <Link to={`/services/${brand?._id}`}>{brand?.name}</Link>
-                  </li>
+                  // <li key={brand?._id} className="py-2 px-4 hover:bg-gray-700">
+                  //   <Link to={`/services/${brand?._id}`}>{brand?.name}</Link>
+                  // </li>
+
+                  <li key={brand?._id} className="py-2 px-4 hover:bg-gray-700" onClick={() => handleBrandClick(brand?._id)}>
+                  {brand?.name}
+                </li>
                 ))}
               </ul>
             )}
