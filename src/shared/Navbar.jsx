@@ -31,13 +31,13 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const handleCategoryClick = (categoryId) => {
-    navigate('/products', { state: { selectedCategory: categoryId } });
+    navigate('/products/solutions', { state: { selectedCategory: categoryId } });
     setIsNavOpen(false);
     setIsSolutionsDropdownOpen(false);
   };
 
  const handleBrandClick = (brandId) => {
-    navigate('/products', {state : {selectedBrand: brandId}})
+    navigate('/products/services', {state : {selectedBrand: brandId}})
     setIsNavOpen(false);
     setIsSolutionsDropdownOpen(false);
   }
