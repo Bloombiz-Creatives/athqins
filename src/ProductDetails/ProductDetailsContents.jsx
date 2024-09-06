@@ -16,7 +16,8 @@ import DesktopWindowsOutlinedIcon from '@mui/icons-material/DesktopWindowsOutlin
 import VideoCameraBackOutlinedIcon from '@mui/icons-material/VideoCameraBackOutlined';
 import MedicalServicesOutlinedIcon from '@mui/icons-material/MedicalServicesOutlined';
 import { BatteryFullOutlined, DeviceHubOutlined, HighQualityOutlined, MobileFriendlyOutlined, SettingsOutlined, ScreenShareOutlined } from '@mui/icons-material';
-
+import PlayCircleFilledOutlinedIcon from '@mui/icons-material/PlayCircleFilledOutlined';
+import introbg from '../assets/intro-bg.jpg';
 
 export const ProductDetailsContents = () => {
 
@@ -95,32 +96,32 @@ export const ProductDetailsContents = () => {
 
     const featuredDataThree = [
         {
-            Icon: <HighQualityOutlined  style={{ fontSize: '3rem' }}/>,
+            Icon: <HighQualityOutlined style={{ fontSize: '3rem' }} />,
             title: 'High-Resolution Imaging',
             description: 'The device offers high-definition imaging technology, ensuring clear and detailed images for precise diagnosis.'
         },
         {
-            Icon: <DeviceHubOutlined  style={{ fontSize: '3rem' }}/>,
+            Icon: <DeviceHubOutlined style={{ fontSize: '3rem' }} />,
             title: 'Comprehensive Probes',
             description: 'A variety of probes available for diverse clinical needs, including abdominal, vascular, cardiac, and obstetric applications.'
         },
         {
-            Icon: <SettingsOutlined  style={{ fontSize: '3rem' }}/>,
+            Icon: <SettingsOutlined style={{ fontSize: '3rem' }} />,
             title: 'Touchscreen Interface',
             description: 'Features an intuitive touchscreen interface for easy navigation and adjustments during examinations.'
         },
         {
-            Icon: <MobileFriendlyOutlined  style={{ fontSize: '3rem' }}/>,
+            Icon: <MobileFriendlyOutlined style={{ fontSize: '3rem' }} />,
             title: 'Needle Guidance',
             description: 'Advanced needle guidance technology for precise procedures, such as biopsies or injections.'
         },
         {
-            Icon: <BatteryFullOutlined  style={{ fontSize: '3rem' }}/>,
+            Icon: <BatteryFullOutlined style={{ fontSize: '3rem' }} />,
             title: 'Compact Design',
             description: 'Designed for portability and ease of maneuverability in clinical settings.'
         },
         {
-            Icon: <ScreenShareOutlined  style={{ fontSize: '3rem' }}/>,
+            Icon: <ScreenShareOutlined style={{ fontSize: '3rem' }} />,
             title: 'Long Battery Life',
             description: 'Equipped with a durable battery, supporting extended usage in mobile or emergency contexts.'
         }
@@ -249,51 +250,51 @@ export const ProductDetailsContents = () => {
 
             {/* details 2 */}
             <div className='mt-6'>
-            <div style={{ backgroundImage: `url(${bgimage})` , backgroundSize: 'cover',  display:'flex', alignItems: 'center', justifyContent: 'center'}} className='lg:h-[700px] md:h-[800px] h-[900px]'>
-                <div className="container mx-auto">
-                    <div className="flex flex-wrap lg:px-10 md:px-12 px-4 ">
-                        <div className="w-full lg:w-1/2">
-                            <div className="right-content-area">
-                                <div className="list-feature-wrap">
-                                    <ul>
-                                        {featuresDataTwo.map((feature, index) => (
-                                            <li className="mb-5" key={index}>
-                                                <div className="single-list-feature-item flex items-start transition-transform duration-300 ease-in-out group text-white">
-                                                    <div
-                                                        className="icon text-white mr-5 group-hover:scale-125 transition-transform duration-300 ease-in-out"
-                                                        style={{ transform: 'rotateY(0deg)', transition: 'transform 0.3s ease' }}
-                                                        onMouseEnter={(e) => (e.currentTarget.style.transform = 'rotateY(180deg)')}
-                                                        onMouseLeave={(e) => (e.currentTarget.style.transform = 'rotateY(0deg)')}
-                                                    >
-                                                        {feature.Icon}
+                <div style={{ backgroundImage: `url(${bgimage})`, backgroundSize: 'cover', display: 'flex', alignItems: 'center', justifyContent: 'center' }} className='lg:h-[700px] md:h-[800px] h-[900px]'>
+                    <div className="container mx-auto">
+                        <div className="flex flex-wrap lg:px-10 md:px-12 px-4 ">
+                            <div className="w-full lg:w-1/2">
+                                <div className="right-content-area">
+                                    <div className="list-feature-wrap">
+                                        <ul>
+                                            {featuresDataTwo.map((feature, index) => (
+                                                <li className="mb-5" key={index}>
+                                                    <div className="single-list-feature-item flex items-start transition-transform duration-300 ease-in-out group text-white">
+                                                        <div
+                                                            className="icon text-white mr-5 group-hover:scale-125 transition-transform duration-300 ease-in-out"
+                                                            style={{ transform: 'rotateY(0deg)', transition: 'transform 0.3s ease' }}
+                                                            onMouseEnter={(e) => (e.currentTarget.style.transform = 'rotateY(180deg)')}
+                                                            onMouseLeave={(e) => (e.currentTarget.style.transform = 'rotateY(0deg)')}
+                                                        >
+                                                            {feature.Icon}
+                                                        </div>
+                                                        <div className="content flex-1">
+                                                            <h4 className="md:text-2xl text-[20px] mb-2 font-semibold transition-colors duration-300 ">
+                                                                {feature.heading}
+                                                            </h4>
+                                                            <p>{feature.description}</p>
+                                                        </div>
                                                     </div>
-                                                    <div className="content flex-1">
-                                                        <h4 className="md:text-2xl text-[20px] mb-2 font-semibold transition-colors duration-300 ">
-                                                            {feature.heading}
-                                                        </h4>
-                                                        <p>{feature.description}</p>
-                                                    </div>
-                                                </div>
 
-                                            </li>
-                                        ))}
-                                    </ul>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div className="w-full lg:w-1/2 flex justify-center items-center">
-                            <div className="img-wrap">
-                                <img
-                                    src="/path-to-image/list-feature-image.png"
-                                    alt="list feature"
-                                    className="animate-bounce"
-                                />
+                            <div className="w-full lg:w-1/2 flex justify-center items-center">
+                                <div className="img-wrap">
+                                    <img
+                                        src="/path-to-image/list-feature-image.png"
+                                        alt="list feature"
+                                        className="animate-bounce"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
 
 
@@ -305,10 +306,10 @@ export const ProductDetailsContents = () => {
                         {featuredDataThree.map((feature, index) => (
                             <div className="w-full lg:w-1/3 md:w-1/2 px-4 mb-6" key={index}>
                                 <div className="flex items-start mb-6 transition-transform duration-300 hover:scale-110">
-                                    <div className="text-indigo-500 mr-4 " 
-                                     style={{ transform: 'rotateY(0deg)', transition: 'transform 0.3s ease' }}
-                                     onMouseEnter={(e) => (e.currentTarget.style.transform = 'rotateY(180deg)')}
-                                     onMouseLeave={(e) => (e.currentTarget.style.transform = 'rotateY(0deg)')}
+                                    <div className="text-indigo-500 mr-4 "
+                                        style={{ transform: 'rotateY(0deg)', transition: 'transform 0.3s ease' }}
+                                        onMouseEnter={(e) => (e.currentTarget.style.transform = 'rotateY(180deg)')}
+                                        onMouseLeave={(e) => (e.currentTarget.style.transform = 'rotateY(0deg)')}
                                     >
                                         {feature.Icon}
                                     </div>
@@ -327,7 +328,26 @@ export const ProductDetailsContents = () => {
             </div>
 
 
-
+            {/* video */}
+            <div className="relative bg-cover bg-center text-center py-[150px] pb-[130px]" style={{ backgroundImage: `url(${introbg})` }}>
+                <div className="absolute inset-0 bg-black bg-opacity-60 z-[-1]"></div>
+                <div className="container mx-auto">
+                    <div className="flex justify-center items-center">
+                        <div className='flex flex-col justify-center items-center'>
+                            <a
+                                href="https://www.youtube.com/watch?v=HVFgMNclzcw"
+                                className="bg-[#5369f0] text-white w-[100px] h-[100px] flex justify-center items-center text-[30px] rounded-full mb-[36px] relative"
+                            >
+                                <PlayCircleFilledOutlinedIcon />
+                                <span className="absolute inset-0 flex justify-center items-center text-[30px] text-white"> {/* Optional overlay styling */}
+                                    <PlayCircleFilledOutlinedIcon />
+                                </span>
+                            </a>
+                            <h2 className="text-[48px] leading-[58px] font-semibold text-white">About Our Features</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
     )
