@@ -143,6 +143,7 @@ const Navbar = () => {
               <line x1="6" y1="6" x2="18" y2="18" />
             </svg>
           </div>
+          <div className=' overflow-y-auto'>
           <ul className="text-center text-[17px] space-y-6 flex flex-col mt-5">
             <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
               <Link to='/'>HOME</Link>
@@ -223,6 +224,7 @@ const Navbar = () => {
               <Link>CONTACT US</Link>
             </li>
           </ul>
+          </div>
         </div>
 
         {/* Desktop Menu */}

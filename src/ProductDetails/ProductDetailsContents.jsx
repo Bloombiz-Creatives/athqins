@@ -15,11 +15,27 @@ import SyncOutlinedIcon from '@mui/icons-material/SyncOutlined';
 import DesktopWindowsOutlinedIcon from '@mui/icons-material/DesktopWindowsOutlined';
 import VideoCameraBackOutlinedIcon from '@mui/icons-material/VideoCameraBackOutlined';
 import MedicalServicesOutlinedIcon from '@mui/icons-material/MedicalServicesOutlined';
-import { BatteryFullOutlined, DeviceHubOutlined, HighQualityOutlined, MobileFriendlyOutlined, SettingsOutlined, ScreenShareOutlined } from '@mui/icons-material';
+import { BatteryFullOutlined, DeviceHubOutlined, HighQualityOutlined, MobileFriendlyOutlined, SettingsOutlined, ScreenShareOutlined, ChevronRight, ChevronLeft } from '@mui/icons-material';
 import PlayCircleFilledOutlinedIcon from '@mui/icons-material/PlayCircleFilledOutlined';
 import introbg from '../assets/intro-bg.jpg';
+import { useState } from 'react';
+import { Autoplay, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+
+
 
 export const ProductDetailsContents = () => {
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleModal = () => {
+        setIsOpen(!isOpen);
+    };
+
 
     const features = [
         {
@@ -127,11 +143,130 @@ export const ProductDetailsContents = () => {
         }
     ]
 
+
+    const products = [
+        { img: 'https://images.luxuryescapes.com/q_auto:good/2qadgy03vpr2tghsh8x', name: 'SonoScape S22', price: '$34', oldPrice: '$55' },
+        { img: 'https://images.luxuryescapes.com/q_auto:good/2qadgy03vpr2tghsh8x', name: 'Endoscopy', price: '$34', oldPrice: '$55' },
+        { img: 'https://images.luxuryescapes.com/q_auto:good/2qadgy03vpr2tghsh8x', name: 'P20', price: '$34', oldPrice: '$55' },
+        { img: 'https://images.luxuryescapes.com/q_auto:good/2qadgy03vpr2tghsh8x', name: 'Sonoscape e1', price: '$34', oldPrice: '$55' },
+        { img: 'https://images.luxuryescapes.com/q_auto:good/2qadgy03vpr2tghsh8x', name: 'SonoScape E2', price: '$34', oldPrice: '$55' },
+        { img: 'https://images.luxuryescapes.com/q_auto:good/2qadgy03vpr2tghsh8x', name: 'Sonoscape P9', price: '$34', oldPrice: '$55' },
+        { img: 'https://images.luxuryescapes.com/q_auto:good/2qadgy03vpr2tghsh8x', name: 'SonoScape S2', price: '$34', oldPrice: '$55' },
+        { img: 'https://images.luxuryescapes.com/q_auto:good/2qadgy03vpr2tghsh8x', name: 'Sonoscape S9', price: '$34', oldPrice: '$55' }
+    ];
+
+    const testimonials = [
+        {
+            name: 'Mark Anthony',
+            position: 'Director',
+            image: '/api/placeholder/50/50',
+            text: 'They provide innovative solutions with the best. tempor incididunt utla bore et dolor tempor incididunt .'
+        },
+        {
+            name: 'Mark Anthony',
+            position: 'Director',
+            image: '/api/placeholder/50/50',
+            text: 'They provide innovative solutions with the best. tempor incididunt utla bore et dolor tempor incididunt .'
+        },
+        {
+            name: 'Mark Anthony',
+            position: 'Director',
+            image: '/api/placeholder/50/50',
+            text: 'They provide innovative solutions with the best. tempor incididunt utla bore et dolor tempor incididunt .'
+        },
+        {
+            name: 'Mark Anthony',
+            position: 'Director',
+            image: '/api/placeholder/50/50',
+            text: 'They provide innovative solutions with the best. tempor incididunt utla bore et dolor tempor incididunt .'
+        },
+    ];
+
+    const [swiper, setSwiper] = useState(null);
+
+    const nextSlide = () => {
+        if (swiper) {
+            swiper.slideNext();
+        }
+    };
+
+    const prevSlide = () => {
+        if (swiper) {
+            swiper.slidePrev();
+        }
+    };
+
+    const faqItems = [
+        {
+            question: 'Agreed but expect repair she nay sir silent person',
+            answer: 'My possible peculiar together to. Desire so better am cannot he up before points.',
+        },
+        {
+            question: 'It surprise informed mr advanced do outweigh.',
+            answer: 'Remember mistaken opinions it pleasure of debating. Court front maids forty if aware their at.',
+        },
+        {
+            question: 'Appetite welcomed interest the goodness boy not',
+            answer: 'Desire so better am cannot he up before points.',
+        },
+        {
+            question: 'Expenses as material breeding insisted building to',
+            answer: 'Court front maids forty if aware their at.',
+        },
+        {
+            question: 'No in he real Wandered or strictly raillery stanhill a',
+            answer: 'Chicken use are pressed removed.',
+        },
+    ];
+
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const toggleAccordion = (index) => {
+        setActiveIndex(activeIndex === index ? -1 : index);
+    };
+
     return (
         <div >
+
+            {/* folding */}
+
+            {/* <div className="fixed inset-0 z-50 flex items-center justify-center bg-white">
+                <div className="relative flex items-center justify-center w-full h-full">
+                    <div className="absolute bottom-8 right-8">
+                        <a
+                            href="#"
+                            className="bg-blue-600 text-white font-semibold text-sm px-6 py-2 rounded-full hover:bg-gray-800 transition-all duration-300"
+                        >
+                            Cancel Preloader
+                        </a>
+                    </div>
+
+                    <div
+                        className="relative flex items-center justify-center rotate-45"
+                        style={{ width: '80px', height: '80px' }}
+                    >
+                        {Array.from({ length: 4 }).map((_, i) => (
+                            <div
+                                key={i}
+                                className="absolute w-1/2 h-1/2"
+                                style={{
+                                    transform: `rotateZ(${i * 90}deg) scale(1.1)`,
+                                    backgroundColor: '#5369f0',
+                                    animation: 'sk-foldCubeAngle 2.4s infinite linear',
+                                    animationDelay: `${i * 0.3}s`,
+                                    transformOrigin: '100% 100%',
+                                }}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div> */}
+
+
+
+            {/* banner */}
             <div className="container mx-auto">
                 <div className="flex flex-col  md:px-12 px-4 py-12">
-
                     <div className="relative z-0 ">
                         <div className="absolute bottom-[100px] left-[45%] animate-roate360">
                             <img src={square} alt="square" />
@@ -250,10 +385,10 @@ export const ProductDetailsContents = () => {
 
             {/* details 2 */}
             <div className='mt-6'>
-                <div style={{ backgroundImage: `url(${bgimage})`, backgroundSize: 'cover', display: 'flex', alignItems: 'center', justifyContent: 'center' }} className='lg:h-[700px] md:h-[800px] h-[900px]'>
+                <div style={{ backgroundImage: `url(${bgimage})` }} className='lg:h-[700px] md:h-[800px] h-[900px] flex justify-center items-center bg-cover '>
                     <div className="container mx-auto">
                         <div className="flex flex-wrap lg:px-10 md:px-12 px-4 ">
-                            <div className="w-full lg:w-1/2">
+                            <div className="w-full lg:w-1/2 md:-order-1 order-2">
                                 <div className="right-content-area">
                                     <div className="list-feature-wrap">
                                         <ul>
@@ -329,25 +464,222 @@ export const ProductDetailsContents = () => {
 
 
             {/* video */}
-            <div className="relative bg-cover bg-center text-center py-[150px] pb-[130px]" style={{ backgroundImage: `url(${introbg})` }}>
-                <div className="absolute inset-0 bg-black bg-opacity-60 z-[-1]"></div>
+            <div className="relative bg-cover bg-center text-center md:py-[150px] py-[100px] md:pb-[130px]" style={{ backgroundImage: `url(${introbg})` }}>
+                <div className="absolute inset-0 bg-black bg-opacity-60 z-0"></div>
                 <div className="container mx-auto">
                     <div className="flex justify-center items-center">
-                        <div className='flex flex-col justify-center items-center'>
+                        <div className="flex flex-col justify-center items-center">
                             <a
-                                href="https://www.youtube.com/watch?v=HVFgMNclzcw"
-                                className="bg-[#5369f0] text-white w-[100px] h-[100px] flex justify-center items-center text-[30px] rounded-full mb-[36px] relative"
+                                href="#"
+                                onClick={toggleModal}
+                                className="bg-[#5369f0] text-white w-[100px] h-[100px] flex justify-center items-center text-[30px] rounded-full mb-[36px] relative animate-pulse-border"
                             >
                                 <PlayCircleFilledOutlinedIcon />
-                                <span className="absolute inset-0 flex justify-center items-center text-[30px] text-white"> {/* Optional overlay styling */}
-                                    <PlayCircleFilledOutlinedIcon />
+                                <span className="absolute inset-0 flex justify-center items-center text-[30px] text-white">
+                                    <PlayCircleFilledOutlinedIcon style={{ fontSize: 30 }} />
                                 </span>
                             </a>
                             <h2 className="text-[48px] leading-[58px] font-semibold text-white">About Our Features</h2>
                         </div>
                     </div>
                 </div>
+                {isOpen && (
+                    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+                        <div className="bg-white w-[80%] h-[80%] relative">
+                            <button
+                                className="absolute top-2 right-2 text-black bg-gray-300 rounded-full p-2"
+                                onClick={toggleModal}
+                            >
+                                X
+                            </button>
+                            <iframe
+                                width="100%"
+                                height="100%"
+                                src="https://www.youtube.com/embed/HVFgMNclzcw"
+                                title="YouTube video player"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            ></iframe>
+                        </div>
+                    </div>
+                )}
             </div>
+
+
+            {/* our-products */}
+            <div className="py-16">
+                <div className="container mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl font-bold mb-4">Our Products</h2>
+                        <p className="text-lg text-gray-600 md:px-32 px-4">
+                            Advancing healthcare through innovative technology, our range of medical equipment empowers healthcare professionals to deliver superior patient care and achieve breakthrough outcomes.
+                        </p>
+                    </div>
+                    <div className="relative md:px-16 px-4">
+                        <Swiper
+                            modules={[Autoplay, Navigation]}
+                            spaceBetween={30}
+                            slidesPerView={1}
+                            autoplay={{ delay: 3000, disableOnInteraction: false }}
+                            navigation={{
+                                prevEl: '.swiper-button-prev',
+                                nextEl: '.swiper-button-next',
+                            }}
+                            breakpoints={{
+                                640: { slidesPerView: 2, spaceBetween: 20 },
+                                768: { slidesPerView: 3, spaceBetween: 30 },
+                                1024: { slidesPerView: 4, spaceBetween: 40 },
+                            }}
+                            className="mySwiper"
+                        >
+                            {products.map((product, index) => (
+                                <SwiperSlide key={index}>
+                                    <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+                                        <img src={product.img} alt={product.name} className="w-full h-48 object-cover" />
+                                        <div className="p-6 text-center">
+                                            <h4 className="text-xl font-semibold mb-2">
+                                                <a href="#" className="hover:text-blue-600">{product.name}</a>
+                                            </h4>
+                                            <div className="text-lg font-bold mb-4">
+                                                <span className="text-gray-800">{product.price}</span>{' '}
+                                                <del className="text-gray-500">{product.oldPrice}</del>
+                                            </div>
+                                            <a href="#" className="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-800 transition duration-300">
+                                                Buy Now
+                                            </a>
+                                        </div>
+                                    </div>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+
+                        {/* <button className="swiper-button-prev absolute left-0 top-1/2 transform -translate-y-1/2  z-5 w-4 h-4 flex items-center justify-center">
+                        </button>
+                        <button className="swiper-button-next absolute right-0 top-1/2 transform -translate-y-1/2  z-10 w-4 h-4 flex items-center justify-center ">
+                        </button> */}
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            {/* user slider */}
+            <div className="lg:h-[700px] md:h-[800px] h-[600px] flex justify-center items-center bg-cover "
+                style={{
+                    backgroundImage: `url(${bgimage})`,
+
+                }}>
+                <div className=' container mx-auto md:p-6 p-4'>
+                    <h2 className="text-4xl font-bold text-white text-center mb-4">What Users Says</h2>
+                    <p className="text-white text-center mb-8">
+                        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        <br />
+                        dolor tempor incididunt ut labore et dolore
+                    </p>
+                    <div className="relative md:px-12 px-6 ">
+                        <Swiper
+                            modules={[Navigation]}
+                            spaceBetween={30}
+                            slidesPerView={3}
+                            onSwiper={setSwiper}
+                            breakpoints={{
+                                320: {
+                                    slidesPerView: 1,
+                                },
+                                640: {
+                                    slidesPerView: 1,
+                                },
+                                768: {
+                                    slidesPerView: 2,
+                                },
+                                1024: {
+                                    slidesPerView: 3,
+                                },
+                            }}
+                            className="mySwiper"
+                        >
+                            {testimonials.map((testimonial, index) => (
+                                <SwiperSlide key={index}>
+                                    <div className="bg-white p-6 rounded-lg shadow-lg">
+                                        <p className="text-gray-700 mb-4">{testimonial.text}</p>
+                                        <div className="flex items-center">
+                                            <img
+                                                src={testimonial.image}
+                                                alt={testimonial.name}
+                                                className="w-12 h-12 rounded-full mr-4"
+                                            />
+                                            <div>
+                                                <h3 className="font-semibold text-lg">{testimonial.name}</h3>
+                                                <p className="text-gray-600">{testimonial.position}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                        <button
+                            onClick={prevSlide}
+                            className="absolute top-1/2 left-2 -translate-y-1/2 bg-white rounded-full p-1 shadow-md border border-gray-200 z-10"
+                            aria-label="Previous slide"
+                        >
+                            <ChevronLeft size={20} />
+                        </button>
+                        <button
+                            onClick={nextSlide}
+                            className="absolute top-1/2 right-2 -translate-y-1/2 bg-white rounded-full p-1 shadow-md border border-gray-200 z-10"
+                            aria-label="Next slide"
+                        >
+                            <ChevronRight size={20} />
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            {/* Frequently Asked Questions */}
+            <div className="faq-area pt-28 pb-32" id="faq">
+                <div className="container mx-auto">
+                    <div className="flex justify-center">
+                        <div className="lg:w-1/2">
+                            <div className="text-center mb-8">
+                                <h2 className="text-3xl font-bold">Frequently Asked Questions</h2>
+                                <p className="mt-4">
+                                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor tempor
+                                    incididunt ut labore et dolore
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex flex-wrap justify-center">
+                        <div className="lg:w-7/12 w-full">
+                            <div className="accordion-wrapper">
+                                {faqItems.map((item, index) => (
+                                    <div key={index} className="mb-6">
+                                        <div className="cursor-pointer bg-gray-100 p-4" onClick={() => toggleAccordion(index)}>
+                                            <h5 className="font-semibold text-lg">{item.question}</h5>
+                                        </div>
+                                        {activeIndex === index && (
+                                            <div className="bg-gray-100 p-4">
+                                                <p>{item.answer}</p>
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="lg:w-5/12 w-full">
+                            <div className="right-content-area text-center">
+                                <div className="img-wrapper">
+                                    <img src="assets/img/faq-image.png" alt="faq" className="inline-block" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 
         </div>
     )
