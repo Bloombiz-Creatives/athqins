@@ -44,7 +44,6 @@ export const ProductDetailsContents = () => {
     };
 
 
-    //form submission
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -106,7 +105,7 @@ export const ProductDetailsContents = () => {
         }
 
         const dataToSubmit = { ...formData };
-        clearForm(); // Clear the form immediately after clicking the button
+        clearForm(); 
 
         try {
             const response = await dispatch(addEnquiry(dataToSubmit));
