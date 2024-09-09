@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBrand, fetchCategory, fetchProduct, fetchSubCategory } from '../action/ecomAction';
+import { useNavigate } from 'react-router-dom';
 
 const OurProductsContainer = () => {
   const dispatch = useDispatch();
 
-  // State to hold selected filters
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedSubCategory, setSelectedSubCategory] = useState('');
   const [selectedBrand, setSelectedBrand] = useState('');
@@ -13,7 +13,8 @@ const OurProductsContainer = () => {
   const [query, setQuery] = useState('');
   const [debouncedQuery, setDebouncedQuery] = useState(query);
 
-  // Fetch brands, categories, and subcategories on component mount
+  const navigate = useNavigate();
+
   useEffect(() => {
     dispatch(fetchBrand());
     dispatch(fetchSubCategory());
@@ -52,9 +53,24 @@ const OurProductsContainer = () => {
   const SubCategory = subcategory?.subcategory || [];
   const prdcts = productss?.productss || [];
 
+    const handleViewClick = (pro) => {
+      const brandId = pro?.brand;
+      console.log('Product:', pro);
+      console.log('Brand ID:', brandId);
+      if (brandId === '66a731ab90c55f41aac002ee' || brandId === '66a731d090c55f41aac002f2') {
+        navigate(`/product_details/${pro?._id}`); // Navigate to product details with the product's ID
+      } else {
+        navigate('/products/details'); // Navigate to the general product details page
+      }
+    };
+    
+
+
+  
+
   return (
     <div className='container mx-auto'>
-      <section className="py-28 px-12">
+      <section className="py-28 md:px-12 px-4 ">
         <div className="container mx-auto">
           <div className="flex flex-wrap -mx-4">
             {/* Sidebar Start */}
@@ -202,7 +218,7 @@ const OurProductsContainer = () => {
                         <span className="text-gray-900 font-semibold text-lg">₹20,000</span>
                       </div>
                       <div className='w-full'>
-                        <button className="bg-gray-200 w-full text-black font-semibold py-2 px-4 rounded-lg hover:bg-green-500 hover:text-white">
+                        <button className="bg-gray-200 w-full text-black font-semibold py-2 px-4 rounded-lg hover:bg-green-500 hover:text-white" onClick={() => handleViewClick(pro)}>
                           View
                         </button>
                       </div>
@@ -215,6 +231,9 @@ const OurProductsContainer = () => {
           </div>
         </div>
       </section>
+
+
+      
     </div>
   );
 };
