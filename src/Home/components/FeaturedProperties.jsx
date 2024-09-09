@@ -128,12 +128,18 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCategory } from '../../action/ecomAction';
+import { Link, useNavigate } from 'react-router-dom';
 
 const FeaturedProperties = () => {
     const scrollRef = useRef(null);
     const dispatch = useDispatch();
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(true);
+    const navigate = useNavigate();  
+
+    const handlePropertyClick = (categoryId) => {
+        navigate('/products/solutions', { state: { selectedCategory: categoryId } });
+    };
 
     const scrollLeft = () => {
         if (scrollRef.current) {
@@ -192,10 +198,10 @@ const FeaturedProperties = () => {
                         Featured <br /> Properties
                     </h2>
                     <p className="text-[#333] opacity-70">Browse our latest hot offers</p>
-                    <a href="#" className="relative md:text-[10px] lg:text-[16px] mt-10 text-[#333] font-light md:font-bold uppercase tracking-wider group flex items-center">
+                    <Link to='/our_products' className="relative md:text-[10px] lg:text-[16px] mt-10 text-[#333] font-light md:font-bold uppercase tracking-wider group flex items-center">
                         View Details
                         <span className="ml-2 inline-block h-0.5 w-5 md:w-10 bg-[#333] transition-all duration-300 ease-in-out md:group-hover:w-20 group-hover:w-10"></span>
-                    </a>
+                    </Link>
                 </div>
                 <div className="md:w-3/4  mt-8 md:mt-0 relative">
                     {canScrollLeft && (
@@ -213,9 +219,10 @@ const FeaturedProperties = () => {
                         className="flex space-x-4 overflow-x-auto scrollbar-hide"
                         style={{ scrollBehavior: 'smooth' }}
                     >
-                        {properties.map((property, index) => (
+                        {properties.map((property) => (
                             <div
-                                key={index}
+                                key={property._id}
+                                // value={property._id}
                                 className="group bg-gray-800 text-white rounded-lg overflow-hidden flex-none w-64 h-96 relative"
                             >
                                 <div
@@ -224,7 +231,7 @@ const FeaturedProperties = () => {
                                 >
                                     <div className="absolute bottom-0 left-0 right-0 p-5 rounded-b-lg transition-transform duration-400 ease-in-out z-10 group-hover:translate-y-[-30%]">
                                         <div className="text-xl font-extrabold">{property.name}</div>
-                                        <div className="absolute bottom-0 left-3 cursor-pointer right-0 p-2 text-xs font-light uppercase tracking-wider opacity-0 transition-transform duration-400 ease-in-out transform translate-y-[400%] group-hover:translate-y-0 group-hover:opacity-100">
+                                        <div className="absolute bottom-0 left-3 cursor-pointer right-0 p-2 text-xs font-light uppercase tracking-wider opacity-0 transition-transform duration-400 ease-in-out transform translate-y-[400%] group-hover:translate-y-0 group-hover:opacity-100" onClick={() => handlePropertyClick(property._id)}>
                                             View Details
                                         </div>
                                     </div>
