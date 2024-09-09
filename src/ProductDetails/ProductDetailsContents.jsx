@@ -18,7 +18,7 @@ import MedicalServicesOutlinedIcon from '@mui/icons-material/MedicalServicesOutl
 import { BatteryFullOutlined, DeviceHubOutlined, HighQualityOutlined, MobileFriendlyOutlined, SettingsOutlined, ScreenShareOutlined, ChevronRight, ChevronLeft } from '@mui/icons-material';
 import PlayCircleFilledOutlinedIcon from '@mui/icons-material/PlayCircleFilledOutlined';
 import introbg from '../assets/intro-bg.jpg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -28,8 +28,9 @@ import contact from '../assets/contact.jpg';
 import HouseIcon from '@mui/icons-material/House';
 import MailIcon from '@mui/icons-material/Mail';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import { addEnquiry } from '../../src/action/ecomAction';
-import { useDispatch } from 'react-redux';
+import { addEnquiry, getSingleProduct } from '../../src/action/ecomAction';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 
 
@@ -37,7 +38,22 @@ import { useDispatch } from 'react-redux';
 
 export const ProductDetailsContents = () => {
 
+    const dispatch = useDispatch();
+    const { id } = useParams();
+
+
+    useEffect(() => {
+        if (id) {
+            dispatch(getSingleProduct(id));
+        }
+        // dispatch(fetchCategory());
+        // dispatch(fetchBrand());
+        // dispatch(fetchSubCategory());
+    }, [id, dispatch]);
     const [isOpen, setIsOpen] = useState(false);
+
+    const { product } = useSelector((state) => state.ecomState);
+    const ProductsDatas = product?.product || {};
 
     const toggleModal = () => {
         setIsOpen(!isOpen);
@@ -54,7 +70,7 @@ export const ProductDetailsContents = () => {
     const [errors, setErrors] = useState({});
     const [successMessage, setSuccessMessage] = useState('');
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -362,7 +378,8 @@ export const ProductDetailsContents = () => {
                                         <div className="col-lg-6">
                                             <div className="pb-2 pt-0">
                                                 <h1 className="xl:text-[72px] lg:text-[60px]  md:text-[50px] text-[35px] xl:leading-[90px] leading-none font-semibold mb-[40px] tracking-[-2px] wow fadeInDown">
-                                                    S60 Color Doppler Diagnostic Ultrasound System
+                                                    {/* S60 Color Doppler Diagnostic Ultrasound System */}
+                                                    {ProductsDatas?.description}
                                                 </h1>
                                                 <div className="mt-[35px] wow shake">
                                                     <a href="#" className="btn rounded-full bg-blue-500 text-white font-semibold md:px-8 md:py-4 py-3 px-4 inline-flex items-center space-x-2 hover:bg-blue-600 transition duration-200 ease-in-out">
@@ -377,7 +394,7 @@ export const ProductDetailsContents = () => {
                             </div>
                             <div className="md:flex absolute right-[5%]  wow fadeInUp w-[30%]  hidden">
                                 <div className="header-right-image-animation  animate-upndown">
-                                    <img src={im3} alt="" />
+                                    <img src={ProductsDatas?.image} alt="" />
                                 </div>
                             </div>
 
@@ -502,7 +519,7 @@ export const ProductDetailsContents = () => {
                             <div className="w-full lg:w-1/2 flex justify-center items-center">
                                 <div className="img-wrap">
                                     <img
-                                        src="/path-to-image/list-feature-image.png"
+                                        src={ProductsDatas?.gallery}
                                         alt="list feature"
                                         className="animate-bounce"
                                     />
