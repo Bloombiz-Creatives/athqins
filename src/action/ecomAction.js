@@ -1,4 +1,4 @@
-import { brandGetAllFail, brandGetAllRequest, brandGetAllSuccess, cardGetFail, cardGetRequest, cardGetSuccess, enquiryPostFail, enquiryPostRequest, enquiryPostSuccess, featuredGetFail, featuredGetSuccess, getSubCatFail, getSubCatRequest, getSubCatSuccess, homeHeroGetFail, homeHeroGetRequest, homeHeroGetSuccess, pgcntntGetFail, pgcntntGetRequets, pgcntntGetSuccess, productGetFail, productGetRequest, productGetSuccess, testimonialGetAllFail, testimonialGetAllRequest, testimonialGetAllSuccess } from "../slice/ecomSlice";
+import { brandGetAllFail, brandGetAllRequest, brandGetAllSuccess, cardGetFail, cardGetRequest, cardGetSuccess, enquiryPostFail, enquiryPostRequest, enquiryPostSuccess, featuredGetFail, featuredGetSuccess, getProductByIdFail, getProductByIdRequest, getProductByIdSuccess, getSubCatFail, getSubCatRequest, getSubCatSuccess, homeHeroGetFail, homeHeroGetRequest, homeHeroGetSuccess, pgcntntGetFail, pgcntntGetRequets, pgcntntGetSuccess, productGetFail, productGetRequest, productGetSuccess, testimonialGetAllFail, testimonialGetAllRequest, testimonialGetAllSuccess } from "../slice/ecomSlice";
 import {globalGetService, globalPostService} from "../utils/globalApiServices";
 
 
@@ -122,6 +122,19 @@ export const addEnquiry = (formData) => {
         } catch (error) {
             dispatch(enquiryPostFail(error));
             throw error; 
+        }
+    }
+}
+
+
+export const getSingleProduct = (id) => {
+    return async (dispatch) => {
+        try {
+            dispatch(getProductByIdRequest());
+            const response = await globalGetService(`/pro/${id}`);
+            dispatch(getProductByIdSuccess(response.data))
+        } catch (error) {
+            dispatch(getProductByIdFail(error))
         }
     }
 }

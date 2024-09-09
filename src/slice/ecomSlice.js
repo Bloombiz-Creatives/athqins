@@ -182,6 +182,25 @@ const ecomSlice = createSlice({
                 error:action.payload
             }
         },
+        getProductByIdRequest(state, action){
+            return {
+                ...state,
+                loading:true
+            }
+        },
+        getProductByIdSuccess(state, action){
+            return {
+                ...state,
+                loading:false,
+                product:action.payload,
+            }
+        },
+        getProductByIdFail(state, action){
+            return {
+                ...state,
+                error:action.payload
+            }
+        }
 
     }
 })
@@ -214,6 +233,9 @@ export const {
     enquiryPostRequest,
     enquiryPostSuccess,
     enquiryPostFail,
+    getProductByIdRequest,
+    getProductByIdSuccess,
+    getProductByIdFail,
 
 } = actions;
 

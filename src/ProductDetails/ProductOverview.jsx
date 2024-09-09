@@ -1,14 +1,56 @@
 import FacebookIcon from '@mui/icons-material/Facebook';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addEnquiry } from '../action/ecomAction';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addEnquiry, fetchBrand, fetchCategory, fetchSubCategory, getSingleProduct } from '../action/ecomAction';
 import contact from '../assets/contact.jpg';
 import HouseIcon from '@mui/icons-material/House';
 import MailIcon from '@mui/icons-material/Mail';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import { useParams } from 'react-router-dom';
 
 const ProductOverview = () => {
+
+    const dispatch = useDispatch();
+    const { id } = useParams();
+
+
+    useEffect(() => {
+        if (id) {
+            dispatch(getSingleProduct(id));
+        }
+        dispatch(fetchCategory());
+        dispatch(fetchBrand());
+        dispatch(fetchSubCategory());
+    }, [id, dispatch]);
+
+    const { product } = useSelector((state) => state.ecomState);
+    const ProductsDatas = product?.product || {};
+
+    const { category } = useSelector((state) => state.ecomState);
+    const cat = Array.isArray(category?.category) ? category.category : [];
+
+    const getCategoryName = (categoryId) => {
+        const category = cat.find(lo => lo._id === categoryId);
+        return category ? category.name : 'Unknown';
+    };
+
+    const { brand } = useSelector((state) => state.ecomState);
+    const brnds = Array.isArray(brand?.brand) ? brand.brand : [];
+
+    const getBrandName = (brandId) => {
+        const brand = brnds.find(b => b._id === brandId);
+        return brand ? brand.name : 'Unknown';
+    };
+
+    const { subcategory } = useSelector((state) => state.ecomState);
+    const SubCategories = Array.isArray(subcategory?.subcategory) ? subcategory.subcategory : [];
+
+    const getSubCategoryName = (subCatId) => {
+        const subcategory = SubCategories.find(s => s._id === subCatId);
+        return subcategory ? subcategory.name : 'Unknown';
+    }
+
 
     const [formData, setFormData] = useState({
         name: '',
@@ -20,7 +62,8 @@ const ProductOverview = () => {
     const [errors, setErrors] = useState({});
     const [successMessage, setSuccessMessage] = useState('');
 
-    const dispatch = useDispatch();
+
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -90,77 +133,64 @@ const ProductOverview = () => {
                     <div className="lg:w-1/2">
                         <div className="border">
                             <img
-                                src="https://via.placeholder.com/400x400"
+                                src={ProductsDatas?.image}
                                 alt="Product"
-                                className="w-full h-full object-cover"
+                                className="w-full h-full  md:h-[500px] object-contain"
                             />
                         </div>
                         <div className="flex space-x-4 mt-4">
                             <img
-                                src="https://via.placeholder.com/100x100"
+                                src={ProductsDatas?.gallery1}
                                 alt="thumbnail"
                                 className="md:w-20 md:h-20 h-12 w-12 object-cover border"
                             />
                             <img
-                                src="https://via.placeholder.com/100x100"
+                                src={ProductsDatas?.gallery2}
                                 alt="thumbnail"
                                 className="md:w-20 md:h-20 h-12 w-12 object-cover border"
                             />
                             <img
-                                src="https://via.placeholder.com/100x100"
+                                src={ProductsDatas?.gallery3}
                                 alt="thumbnail"
                                 className="md:w-20 md:h-20 h-12 w-12 object-cover border"
                             />
                             <img
-                                src="https://via.placeholder.com/100x100"
+                                src={ProductsDatas?.gallery4}
                                 alt="thumbnail"
                                 className="md:w-20 md:h-20 h-12 w-12 object-cover border"
                             />
                             <img
-                                src="https://via.placeholder.com/100x100"
+                                src={ProductsDatas?.gallery5}
                                 alt="thumbnail"
                                 className="md:w-20 md:h-20 h-12 w-12 object-cover border"
                             />
                         </div>
                     </div>
 
-                    {/* Product Details */}
                     <div className="lg:w-1/2 lg:pl-12 mt-8 lg:mt-0">
                         <h1 className="text-3xl font-semibold">
-                            Overcoat Jacket Clothing Suitsupply Double
+                            {ProductsDatas?.name}
                         </h1>
                         <div className="flex items-center mt-2">
                             <span className="text-yellow-400">★★★★☆</span>
                         </div>
 
-                        {/* Pricing */}
-                        <div className="mt-4">
-                            <span className="text-2xl font-bold">$230.00</span>
-                            <span className="text-sm line-through text-gray-500 ml-3">$320.00</span>
-                            <span className="text-sm text-red-500 ml-3">-34%</span>
-                        </div>
-
-                        {/* Description */}
+                      
                         <p className="mt-4 text-gray-700">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                            ad minim veniam.
+                            {ProductsDatas?.description}
                         </p>
 
 
-                        {/* Categories and Tags */}
                         <div className="mt-4">
                             <p>
-                                <span className="font-semibold">Categories:</span> Tags clothing,
-                                e-commerce, fashion
+                                <span className="font-semibold">Categories:</span> {getCategoryName(ProductsDatas?.category)}, {getSubCategoryName(ProductsDatas?.sub_cat)}
                             </p>
                             <p className="mt-1">
-                                <span className="font-semibold">Brands:</span> Black, Brown, Red,
-                                Shoes, $0.00 - $150.00
+                                <span className="font-semibold">Brands:</span> 
+                                {getBrandName(ProductsDatas?.brand)}
                             </p>
                         </div>
 
-                        {/* Share buttons */}
                         <div className="flex items-center mt-4">
                             <span className="mr-2">Share:</span>
                             <div className="flex space-x-3">
@@ -204,7 +234,6 @@ const ProductOverview = () => {
                                 <p className="mt-4 text-gray-600">
                                     Feel free to reach out to us for any questions, product inquiries, or support. Our team is ready to assist you with all your hospital machinery needs. We're just one click or call away!                                </p>
                                 <ul className="mt-12 space-y-8">
-                                    {/* Address */}
                                     <li className="flex items-start">
                                         <div className="icon bg-gradient-to-br from-blue-400 to-purple-600 text-white w-12 h-12 flex items-center justify-center rounded-full">
                                             <HouseIcon />

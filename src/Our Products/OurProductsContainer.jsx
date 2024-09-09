@@ -58,9 +58,9 @@ const OurProductsContainer = () => {
       console.log('Product:', pro);
       console.log('Brand ID:', brandId);
       if (brandId === '66a731ab90c55f41aac002ee' || brandId === '66a731d090c55f41aac002f2') {
-        navigate(`/product_details/${pro?._id}`); // Navigate to product details with the product's ID
+        navigate(`/product_details/${pro?._id}`); 
       } else {
-        navigate('/products/details'); // Navigate to the general product details page
+        navigate(`/products/details/${pro?._id}`); 
       }
     };
     
