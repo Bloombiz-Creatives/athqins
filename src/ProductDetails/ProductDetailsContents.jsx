@@ -639,7 +639,7 @@ export const ProductDetailsContents = () => {
 
             {/* Frequently Asked Questions */}
             <div className="faq-area pt-28 pb-32" id="faq">
-                <div className="container mx-auto">
+                <div className="container mx-auto md:px-14 px-4">
                     <div className="flex justify-center">
                         <div className="lg:w-1/2">
                             <div className="text-center mb-8">
@@ -652,16 +652,39 @@ export const ProductDetailsContents = () => {
                         </div>
                     </div>
                     <div className="flex flex-wrap justify-center">
-                        <div className="lg:w-7/12 w-full">
+                        <div className="lg:w-7/12 w-full md:-order-1 order-2">
                             <div className="accordion-wrapper">
                                 {faqItems.map((item, index) => (
                                     <div key={index} className="mb-6">
-                                        <div className="cursor-pointer bg-gray-100 p-4" onClick={() => toggleAccordion(index)}>
-                                            <h5 className="font-semibold text-lg">{item.question}</h5>
+                                        <div
+                                            className="cursor-pointer bg-gray-100 p-4 flex items-center justify-start"
+                                            onClick={() => toggleAccordion(index)}
+                                        >
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                className={`h-6 w-6 mr-4 transform transition-transform duration-300 ${activeIndex === index ? 'rotate-180 text-blue-500' : 'rotate-0 text-black'
+                                                    }`}
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                stroke="currentColor"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth={2}
+                                                    d="M19 9l-7 7-7-7"
+                                                />
+                                            </svg>
+                                            <h5
+                                                className={`font-semibold md:text-lg text-[12px] transition-colors duration-300 ${activeIndex === index ? 'text-blue-500' : 'text-black'
+                                                    }`}
+                                            >
+                                                {item.question}
+                                            </h5>
                                         </div>
                                         {activeIndex === index && (
-                                            <div className="bg-gray-100 p-4">
-                                                <p>{item.answer}</p>
+                                            <div className="bg-gray-100 p-4 md:text-lg text-[12px]">
+                                                <p className='ml-10'>{item.answer}</p>
                                             </div>
                                         )}
                                     </div>
@@ -671,13 +694,15 @@ export const ProductDetailsContents = () => {
                         <div className="lg:w-5/12 w-full">
                             <div className="right-content-area text-center">
                                 <div className="img-wrapper">
-                                    <img src="assets/img/faq-image.png" alt="faq" className="inline-block" />
+                                    <img src="assets/img/faq-image.png" alt="faq" className="inline-block animate-upndown" />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
 
 
 
