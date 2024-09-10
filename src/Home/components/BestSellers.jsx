@@ -12,8 +12,18 @@ import bst5 from '../../assets/slider/bstseller5.jpg';
 import bst6 from '../../assets/slider/bstseller6.jpg';
 import bst7 from '../../assets/slider/bstseller7.jpg';
 import bst8 from '../../assets/slider/bstseller8.jpg';
+// import { useDispatch } from 'react-redux';
+// import { useEffect } from 'react';
+// import { BSTSellers } from '../../action/ecomAction';
 
 const BestSellers = () => {
+
+    // const dispatch = useDispatch();
+
+    // useEffect(() => {
+    //     dispatch(BSTSellers());
+    // },[dispatch])
+
     return (
         <div className="px-4 py-8">
             <div className="text-center text-4xl font-semibold ">Our Best Sellers...</div>

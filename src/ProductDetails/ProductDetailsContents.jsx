@@ -386,11 +386,11 @@ export const ProductDetailsContents = () => {
                         </div>
                         <div className='flex justify-between items-center'>
                             <div className="relative xl:pt-[200px] pt-[70px] pb-[100px] z-3 ">
-                                <div className="md:w-[60%] w-full">
+                                <div className="md:w-[80%] w-full">
                                     <div className="row">
                                         <div className="col-lg-6">
                                             <div className="pb-2 pt-0">
-                                                <h1 className="xl:text-[72px] lg:text-[60px]  md:text-[50px] text-[35px] xl:leading-[90px] leading-none font-semibold mb-[40px] tracking-[-2px] wow fadeInDown">
+                                                <h1 className="xl:text-[72px] lg:text-[60px]  md:text-[50px] text-[35px] xl:leading-[90px] leading-none font-semibold mb-[40px] tracking-[-2px] ">
                                                     {ProductsDatas?.name}
                                                 </h1>
                                                 <div className="mt-[35px] wow shake">

@@ -63,8 +63,6 @@ const OurProductsContainer = () => {
         navigate(`/products/details/${pro?._id}`); 
       }
     };
-    
-
 
   
 

@@ -200,7 +200,20 @@ const ecomSlice = createSlice({
                 ...state,
                 error:action.payload
             }
-        }
+        },
+        // getBstSellerSuccess(state, action){
+        //     return {
+        //         ...state,
+        //         loading:false,
+        //         Bestseller:action.payload
+        //     }
+        // },
+        // getBstSellerFail(state, action){
+        //     return {
+        //         ...state,
+        //         error:action.payload
+        //     }
+        // },
 
     }
 })
@@ -236,6 +249,8 @@ export const {
     getProductByIdRequest,
     getProductByIdSuccess,
     getProductByIdFail,
+    // getBstSellerSuccess,
+    // getBstSellerFail,
 
 } = actions;
 
