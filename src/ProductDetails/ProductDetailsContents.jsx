@@ -1,4 +1,3 @@
-import im3 from '../../src/assets/blogs/3.jpg';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import triangle from '../../src/assets/triangle.png';
 import square from '../../src/assets/square-shape.png';
@@ -28,11 +27,9 @@ import contact from '../assets/contact.jpg';
 import HouseIcon from '@mui/icons-material/House';
 import MailIcon from '@mui/icons-material/Mail';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import { addEnquiry, getSingleProduct } from '../../src/action/ecomAction';
+import { addEnquiry, fetchBrand, fetchProduct, getSingleProduct } from '../../src/action/ecomAction';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-
-
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 
@@ -40,6 +37,7 @@ export const ProductDetailsContents = () => {
 
     const dispatch = useDispatch();
     const { id } = useParams();
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -47,13 +45,17 @@ export const ProductDetailsContents = () => {
             dispatch(getSingleProduct(id));
         }
         // dispatch(fetchCategory());
-        // dispatch(fetchBrand());
+        dispatch(fetchBrand());
         // dispatch(fetchSubCategory());
+        dispatch(fetchProduct());
     }, [id, dispatch]);
     const [isOpen, setIsOpen] = useState(false);
 
-    const { product } = useSelector((state) => state.ecomState);
+    const { product , productss} = useSelector((state) => state.ecomState);
     const ProductsDatas = product?.product || {};
+    const AllProducts = productss?.productss || []
+    console.log(AllProducts,'All...');
+    
 
     const toggleModal = () => {
         setIsOpen(!isOpen);
@@ -241,16 +243,7 @@ export const ProductDetailsContents = () => {
     ]
 
 
-    const products = [
-        { img: 'https://images.luxuryescapes.com/q_auto:good/2qadgy03vpr2tghsh8x', name: 'SonoScape S22', price: '$34', oldPrice: '$55' },
-        { img: 'https://images.luxuryescapes.com/q_auto:good/2qadgy03vpr2tghsh8x', name: 'Endoscopy', price: '$34', oldPrice: '$55' },
-        { img: 'https://images.luxuryescapes.com/q_auto:good/2qadgy03vpr2tghsh8x', name: 'P20', price: '$34', oldPrice: '$55' },
-        { img: 'https://images.luxuryescapes.com/q_auto:good/2qadgy03vpr2tghsh8x', name: 'Sonoscape e1', price: '$34', oldPrice: '$55' },
-        { img: 'https://images.luxuryescapes.com/q_auto:good/2qadgy03vpr2tghsh8x', name: 'SonoScape E2', price: '$34', oldPrice: '$55' },
-        { img: 'https://images.luxuryescapes.com/q_auto:good/2qadgy03vpr2tghsh8x', name: 'Sonoscape P9', price: '$34', oldPrice: '$55' },
-        { img: 'https://images.luxuryescapes.com/q_auto:good/2qadgy03vpr2tghsh8x', name: 'SonoScape S2', price: '$34', oldPrice: '$55' },
-        { img: 'https://images.luxuryescapes.com/q_auto:good/2qadgy03vpr2tghsh8x', name: 'Sonoscape S9', price: '$34', oldPrice: '$55' }
-    ];
+   
 
     const testimonials = [
         {
@@ -322,6 +315,22 @@ export const ProductDetailsContents = () => {
         setActiveIndex(activeIndex === index ? -1 : index);
     };
 
+    const similarProducts = AllProducts.filter(product => product.brand === ProductsDatas.brand);
+    console.log(similarProducts, 'similar');
+
+
+    const handleViewClick = (pro) => {
+        const brandId = pro?.brand;
+        console.log('Product:', pro);
+        console.log('Brand ID:', brandId);
+        if (brandId === '66a731ab90c55f41aac002ee' || brandId === '66a731d090c55f41aac002f2') {
+          navigate(`/product_details/${pro?._id}`); 
+        } else {
+          navigate(`/products/details/${pro?._id}`); 
+        }
+      };
+    
+
     return (
         <div >
 
@@ -371,15 +380,14 @@ export const ProductDetailsContents = () => {
                         <div className="absolute  left-[200px] animate-roate360">
                             <img src={triangle} alt="triangle" />
                         </div>
-                        <div className='flex justify-center items-center'>
+                        <div className='flex justify-between items-center'>
                             <div className="relative xl:pt-[200px] pt-[70px] pb-[100px] z-3 ">
                                 <div className="md:w-[60%] w-full">
                                     <div className="row">
                                         <div className="col-lg-6">
                                             <div className="pb-2 pt-0">
                                                 <h1 className="xl:text-[72px] lg:text-[60px]  md:text-[50px] text-[35px] xl:leading-[90px] leading-none font-semibold mb-[40px] tracking-[-2px] wow fadeInDown">
-                                                    {/* S60 Color Doppler Diagnostic Ultrasound System */}
-                                                    {ProductsDatas?.description}
+                                                    {ProductsDatas?.name}
                                                 </h1>
                                                 <div className="mt-[35px] wow shake">
                                                     <a href="#" className="btn rounded-full bg-blue-500 text-white font-semibold md:px-8 md:py-4 py-3 px-4 inline-flex items-center space-x-2 hover:bg-blue-600 transition duration-200 ease-in-out">
@@ -410,8 +418,7 @@ export const ProductDetailsContents = () => {
                         <div className="lg:w-1/2 text-center">
                             <h2 className="text-3xl font-semibold">Amazing Features</h2>
                             <p className="mt-4 text-gray-600">
-                                P60, configured with SonoScape’s latest prominent Wis+ platform, is designed to provide more insightful and constructive evidence for diagnosis through authentic detail display, easy-but-effective intelligent analysis and streamlined workflow.
-                            </p>
+                            Experience unmatched precision and versatility with advanced imaging technology, designed for superior diagnostics across multiple specialties. Portable, user-friendly, and equipped with seamless connectivity, our systems enhance healthcare efficiency.                            </p>
                         </div>
                     </div>
 
@@ -426,7 +433,7 @@ export const ProductDetailsContents = () => {
                                     </div>
                                     <div className="content flex flex-col items-center justify-center">
                                         <h4 className="text-xl font-semibold mb-2 transition-colors hover:text-blue-600 md:text-[15px] xl:text-[20px]">{feature.title}</h4>
-                                        <p className="text-gray-500 text-center md:text-[14px] xl:text-[18px]">{feature.description_sono}</p>
+                                        <p className="text-gray-500 text-center md:text-[14px] xl:text-[18px]">{ProductsDatas?.brand === "66a731ab90c55f41aac002ee" ? feature.description_sono : feature.description_eden}</p>
                                     </div>
                                 </div>
                             </div>
@@ -441,9 +448,10 @@ export const ProductDetailsContents = () => {
                     <div className="w-full lg:w-1/2 flex justify-center items-center">
                         <div className="img-wrap">
                             <img
-                                src="/path-to-image/list-feature-image.png"
+                                src={ProductsDatas?.gallery1}
                                 alt="list feature"
-                                className="animate-bounce"
+                                // className="animate-bounce"
+                                className='animate-upndown'
                             />
                         </div>
                     </div>
@@ -519,9 +527,10 @@ export const ProductDetailsContents = () => {
                             <div className="w-full lg:w-1/2 flex justify-center items-center">
                                 <div className="img-wrap">
                                     <img
-                                        src={ProductsDatas?.gallery}
+                                        src={ProductsDatas?.gallery2}
                                         alt="list feature"
-                                        className="animate-bounce"
+                                        // className="animate-bounce"
+                                        className='animate-upndown'
                                     />
                                 </div>
                             </div>
@@ -554,7 +563,7 @@ export const ProductDetailsContents = () => {
                             </div>
                         ))}
                         <div className="w-full text-center mt-10">
-                            <img src='' alt="block feature" className="mx-auto" />
+                            <img src={ProductsDatas?.gallery3} alt="block feature" className="mx-auto" />
                         </div>
                     </div>
                 </div>
@@ -631,31 +640,26 @@ export const ProductDetailsContents = () => {
                             }}
                             className="mySwiper"
                         >
-                            {products.map((product, index) => (
+                            {similarProducts.map((product, index) => (
                                 <SwiperSlide key={index}>
                                     <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-                                        <img src={product.img} alt={product.name} className="w-full h-48 object-cover" />
+                                        <img src={product.image} alt={product.name} className="w-full h-48 object-contain" />
                                         <div className="p-6 text-center">
                                             <h4 className="text-xl font-semibold mb-2">
                                                 <a href="#" className="hover:text-blue-600">{product.name}</a>
                                             </h4>
-                                            <div className="text-lg font-bold mb-4">
+                                            {/* <div className="text-lg font-bold mb-4">
                                                 <span className="text-gray-800">{product.price}</span>{' '}
                                                 <del className="text-gray-500">{product.oldPrice}</del>
-                                            </div>
-                                            <a href="#" className="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-800 transition duration-300">
+                                            </div> */}
+                                            <button className="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-800 transition duration-300" onClick={() => handleViewClick(product)}>
                                                 Buy Now
-                                            </a>
+                                            </button>
                                         </div>
                                     </div>
                                 </SwiperSlide>
                             ))}
-                        </Swiper>
-
-                        {/* <button className="swiper-button-prev absolute left-0 top-1/2 transform -translate-y-1/2  z-5 w-4 h-4 flex items-center justify-center">
-                        </button>
-                        <button className="swiper-button-next absolute right-0 top-1/2 transform -translate-y-1/2  z-10 w-4 h-4 flex items-center justify-center ">
-                        </button> */}
+                        </Swiper>  
 
                     </div>
                 </div>
@@ -792,7 +796,7 @@ export const ProductDetailsContents = () => {
                         <div className="lg:w-5/12 w-full">
                             <div className="right-content-area text-center">
                                 <div className="img-wrapper">
-                                    <img src="assets/img/faq-image.png" alt="faq" className="inline-block animate-upndown" />
+                                    <img src={ProductsDatas?.gallery4} alt="faq" className="inline-block animate-upndown" />
                                 </div>
                             </div>
                         </div>
