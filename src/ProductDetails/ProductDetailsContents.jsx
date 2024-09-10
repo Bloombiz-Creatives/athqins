@@ -328,6 +328,10 @@ export const ProductDetailsContents = () => {
         } else {
           navigate(`/products/details/${pro?._id}`); 
         }
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth', // This adds a smooth scrolling effect
+        });
       };
     
 
@@ -390,7 +394,7 @@ export const ProductDetailsContents = () => {
                                                     {ProductsDatas?.name}
                                                 </h1>
                                                 <div className="mt-[35px] wow shake">
-                                                    <a href="#" className="btn rounded-full bg-blue-500 text-white font-semibold md:px-8 md:py-4 py-3 px-4 inline-flex items-center space-x-2 hover:bg-blue-600 transition duration-200 ease-in-out">
+                                                    <a href="#orderSection" className="btn rounded-full bg-blue-500 text-white font-semibold md:px-8 md:py-4 py-3 px-4 inline-flex items-center space-x-2 hover:bg-blue-600 transition duration-200 ease-in-out">
                                                         <ShoppingCartIcon />
                                                         <span>Order Now</span>
                                                     </a>
@@ -646,12 +650,9 @@ export const ProductDetailsContents = () => {
                                         <img src={product.image} alt={product.name} className="w-full h-48 object-contain" />
                                         <div className="p-6 text-center">
                                             <h4 className="text-xl font-semibold mb-2">
-                                                <a href="#" className="hover:text-blue-600">{product.name}</a>
+                                                <a href="#" className="hover:text-blue-600 link block text-ellipsis truncate overflow-hidden whitespace-nowrap">{product.name}</a>
                                             </h4>
-                                            {/* <div className="text-lg font-bold mb-4">
-                                                <span className="text-gray-800">{product.price}</span>{' '}
-                                                <del className="text-gray-500">{product.oldPrice}</del>
-                                            </div> */}
+                                           
                                             <button className="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-800 transition duration-300" onClick={() => handleViewClick(product)}>
                                                 Buy Now
                                             </button>
@@ -806,7 +807,7 @@ export const ProductDetailsContents = () => {
 
 
             {/* contact form */}
-            <div className="contact-area bg-cover py-32" id="contact" style={{ backgroundImage: `url(${contact})` }}>
+            <div className="contact-area bg-cover py-32" id="orderSection" style={{ backgroundImage: `url(${contact})` }}>
                 <div className="container mx-auto px-4 md:px-14">
                     <div className="flex flex-wrap -mx-4">
                         <div className="w-full lg:w-1/2 px-4 mb-8 lg:mb-0">

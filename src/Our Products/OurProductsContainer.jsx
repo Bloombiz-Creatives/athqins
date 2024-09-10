@@ -210,7 +210,7 @@ const OurProductsContainer = () => {
                     </a>
                     <div className="product-card__content mt-4">
                       <h6 className="title text-lg font-semibold mt-3 mb-2">
-                        <a href="aeonmed.html" className="link text-ellipsis overflow-hidden whitespace-nowrap">
+                        <a href="aeonmed.html" className="link block text-ellipsis truncate overflow-hidden whitespace-nowrap">
                           {pro?.name}
                         </a>
                       </h6>
