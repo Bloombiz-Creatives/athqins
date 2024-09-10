@@ -32,21 +32,37 @@ const Products = () => {
 
     useEffect(() => {
         if (location.state?.selectedCategory) {
+            console.log("Setting selected category:", location.state.selectedCategory);
             setSelectedCategory(location.state.selectedCategory);
         }
     }, [location.state]);
 
   
 
-    useEffect(() => {
-        const query = {
-            category: selectedCategory,
-            sub_cat: selectedSubCategory,
-            brand: selectedBrand,
-            name: debouncedQuery,
-        };
+    // useEffect(() => {
+    //     const query = {
+    //         category: selectedCategory,
+    //         sub_cat: selectedSubCategory,
+    //         brand: selectedBrand,
+    //         name: debouncedQuery,
+    //     };
+    //     console.log("Fetching products with query:", query);
 
-        dispatch(fetchProduct(query));
+    //     dispatch(fetchProduct(query));
+    // }, [selectedCategory, selectedSubCategory, selectedBrand, debouncedQuery, dispatch]);
+
+
+    useEffect(() => {
+        if (selectedCategory || selectedSubCategory || selectedBrand || debouncedQuery) {
+            const query = {
+                category: selectedCategory,
+                sub_cat: selectedSubCategory,
+                brand: selectedBrand,
+                name: debouncedQuery,
+            };
+            console.log("Fetching products with query:", query);
+            dispatch(fetchProduct(query));
+        }
     }, [selectedCategory, selectedSubCategory, selectedBrand, debouncedQuery, dispatch]);
 
     const handleSearchChange = (e) => {

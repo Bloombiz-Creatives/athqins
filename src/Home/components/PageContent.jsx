@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchHomePageContent } from "../../action/ecomAction";
 import pagecnt from "../../assets/demo22.jpg";
+import { Link } from "react-router-dom";
 
 const PageContent = () => {
     const dispatch = useDispatch();
@@ -32,9 +33,9 @@ const PageContent = () => {
                             <p className="text-sm md:text-base lg:text-lg mb-4 leading-relaxed">
                                 {pageCntnt.text || "Default description text."}
                             </p>
-                            <a href="#" className="inline-block px-4 py-2 border border-gray-800 text-gray-800 text-sm md:text-base lg:text-lg transition-colors duration-300 ease-in-out hover:bg-gray-800 hover:text-white">
+                            <Link to='our_products' className="inline-block px-4 py-2 border border-gray-800 text-gray-800 text-sm md:text-base lg:text-lg transition-colors duration-300 ease-in-out hover:bg-gray-800 hover:text-white">
                                 {pageCntnt.button || "Shop Now"}
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -78,9 +79,9 @@ const PageContent = () => {
                     <p className="text-xs sm:text-sm md:text-base mb-4 leading-relaxed">
                         {pageCntnt.text || "Default description text."}
                     </p>
-                    <span className="inline-block px-3 sm:px-4 py-2 border border-gray-800 text-gray-800 text-xs sm:text-sm md:text-base transition-colors duration-300 ease-in-out hover:bg-gray-800 hover:text-white">
-                        {pageCntnt.button || "Shop Now"}
-                    </span>
+                    <Link to={'/our_products'} className="inline-block px-3 sm:px-4 py-2 border border-gray-800 text-gray-800 text-xs sm:text-sm md:text-base transition-colors duration-300 ease-in-out hover:bg-gray-800 hover:text-white">
+                        {pageCntnt.button || "default "}
+                    </Link>
                 </div>
             </div>
 

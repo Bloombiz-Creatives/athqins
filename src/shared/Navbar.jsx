@@ -92,7 +92,7 @@ const Navbar = () => {
     <nav className={`fixed w-full z-50 transition-all duration-300 flex  justify-center items-center ${scrolled ? 'bg-black' : 'bg-transparent'}`}>
       <div className="container flex justify-between items-center md:p-6 px-4 md:px-16 py-2">
         <div className="text-white font-bold text-xl">
-          <img src={Logo} alt="Logo" className="lg:h-8 h-6" />
+         <Link to='/'><img src={Logo} alt="Logo" className="lg:h-8 h-6" /></Link>
         </div>
 
         <div className="flex items-center  md:hidden">
