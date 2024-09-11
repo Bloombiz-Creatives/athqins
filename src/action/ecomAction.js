@@ -1,4 +1,4 @@
-import { brandGetAllFail, brandGetAllRequest, brandGetAllSuccess, cardGetFail, cardGetRequest, cardGetSuccess, enquiryPostFail, enquiryPostRequest, enquiryPostSuccess, featuredGetFail, featuredGetSuccess,  getProductByIdFail, getProductByIdRequest, getProductByIdSuccess, getSubCatFail, getSubCatRequest, getSubCatSuccess, homeHeroGetFail, homeHeroGetRequest, homeHeroGetSuccess, pgcntntGetFail, pgcntntGetRequets, pgcntntGetSuccess, productGetFail, productGetRequest, productGetSuccess, testimonialGetAllFail, testimonialGetAllRequest, testimonialGetAllSuccess } from "../slice/ecomSlice";
+import { brandGetAllFail, brandGetAllRequest, brandGetAllSuccess, cardGetFail, cardGetRequest, cardGetSuccess, enquiryPostFail, enquiryPostRequest, enquiryPostSuccess, featuredGetFail, featuredGetSuccess,  getBstSellerFail,  getBstSellerSuccess,  getProductByIdFail, getProductByIdRequest, getProductByIdSuccess, getSubCatFail, getSubCatRequest, getSubCatSuccess, homeHeroGetFail, homeHeroGetRequest, homeHeroGetSuccess, pgcntntGetFail, pgcntntGetRequets, pgcntntGetSuccess, productGetFail, productGetRequest, productGetSuccess, testimonialGetAllFail, testimonialGetAllRequest, testimonialGetAllSuccess } from "../slice/ecomSlice";
 import {globalGetService, globalPostService} from "../utils/globalApiServices";
 
 
@@ -142,13 +142,13 @@ export const getSingleProduct = (id) => {
 
 
 
-// export const  BSTSellers = () => {
-//     return async (dispatch) => {
-//         try {
-//             const response = await globalGetService('/pro/bstseller');
-//             dispatch(getBstSellerSuccess(response.data))
-//         } catch (error) {
-//             dispatch(getBstSellerFail(error))
-//         }
-//     }
-// }
+export const  BSTSellers = () => {
+    return async (dispatch) => {
+        try {
+            const response = await globalGetService('/bestseller');
+            dispatch(getBstSellerSuccess(response.data))
+        } catch (error) {
+            dispatch(getBstSellerFail(error))
+        }
+    }
+}
