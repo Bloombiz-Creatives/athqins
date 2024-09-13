@@ -214,6 +214,20 @@ const ecomSlice = createSlice({
                 error:action.payload
             }
         },
+        getMachinarySuccess(state, action){
+            return {
+                ...state,
+                loading:false,
+                Machinary:action.payload
+            }
+        },
+        getMachinaryFail(state, action){
+            return {
+                ...state,
+                error:action.payload
+            }
+        },
+        
 
     }
 })
@@ -251,6 +265,8 @@ export const {
     getProductByIdFail,
     getBstSellerSuccess,
     getBstSellerFail,
+    getMachinarySuccess,
+    getMachinaryFail,
 
 } = actions;
 

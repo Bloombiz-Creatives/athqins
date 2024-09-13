@@ -21,7 +21,6 @@ const BestSellers = () => {
 
     const { Bestsellers } = useSelector((state) => state.ecomState);
     const Products = Bestsellers?.Bestsellers || [];
-    console.log(Products, 'bsttttt');
 
     const handleViewClick = (pro) => {
         const brandId = pro?.brand;
