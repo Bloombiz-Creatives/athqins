@@ -7,19 +7,33 @@ import './slide.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { BSTSellers } from '../../action/ecomAction';
+import { useNavigate } from 'react-router-dom';
 
 const BestSellers = () => {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         dispatch(BSTSellers());
-    },[dispatch])
+    }, [dispatch])
 
-    const {Bestsellers} = useSelector((state) => state.ecomState);
+    const { Bestsellers } = useSelector((state) => state.ecomState);
     const Products = Bestsellers?.Bestsellers || [];
-    console.log(Products,'bsttttt');
-    
+    console.log(Products, 'bsttttt');
+
+    const handleViewClick = (pro) => {
+        const brandId = pro?.brand;
+        console.log('Product:', pro);
+        console.log('Brand ID:', brandId);
+        if (brandId === '66a731ab90c55f41aac002ee' || brandId === '66a731d090c55f41aac002f2') {
+          navigate(`/product_details/${pro?._id}`); 
+        } else {
+          navigate(`/products/details/${pro?._id}`); 
+        }
+      };
+
 
     return (
         <div className="px-4 py-8">
@@ -34,7 +48,7 @@ const BestSellers = () => {
                 autoplay={{ delay: 3000, disableOnInteraction: false }}
                 className="swiper-container"
                 breakpoints={{
-                    320:{
+                    320: {
                         slidesPerView: 1,
                     },
                     425: {
@@ -44,17 +58,17 @@ const BestSellers = () => {
                         slidesPerView: 3, // 3 slides per view on tablets
                     },
                     1024: {
-                        slidesPerView: 3.5, // 3.5 slides per view on larger screens
+                        slidesPerView: 3.5, 
                     },
                 }}
             >
                 {Products.map((product) => (
                     <SwiperSlide key={product._id} className="swiper-slide" style={{ paddingBottom: '40px' }}>
-                        <div className="border border-gray-300 rounded-xl p-6 ">
+                        <div className="border border-gray-300 rounded-xl p-6 cursor-pointer " onClick={() => handleViewClick(product)}>
                             <div className="flex justify-center items-center ">
-                                <img 
-                                    src={product.image} 
-                                    alt={product.name} 
+                                <img
+                                    src={product.image}
+                                    alt={product.name}
                                     className="w-full h-64 object-cover rounded-lg"
                                 />
                             </div>
