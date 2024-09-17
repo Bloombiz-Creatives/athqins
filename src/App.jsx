@@ -46,7 +46,6 @@ const App = () => {
   return (
     <Router>
       <Navbar />
-      {/* Wrap Routes inside Suspense with a fallback UI */}
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path='/' element={<Home />} />
