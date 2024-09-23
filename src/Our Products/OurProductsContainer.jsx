@@ -213,7 +213,7 @@ const OurProductsContainer = () => {
                         </a>
                       </h6>
                       <div className="product-card__price my-5">
-                        <span className="text-gray-900 font-semibold text-lg">₹20,000</span>
+                        <span className="text-gray-900 font-semibold text-lg"></span>
                       </div>
                       <div className='w-full'>
                         <button className="bg-gray-200 w-full text-black font-semibold py-2 px-4 rounded-lg hover:bg-green-500 hover:text-white" onClick={() => handleViewClick(pro)}>

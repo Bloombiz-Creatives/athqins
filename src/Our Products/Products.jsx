@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBrand, fetchCategory, fetchProduct, fetchSubCategory } from '../action/ecomAction';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Products = () => {
 
     const dispatch = useDispatch();
     const location = useLocation();
+    const navigate = useNavigate();
+
 
     const [selectedCategory, setSelectedCategory] = useState('');
     const [selectedSubCategory, setSelectedSubCategory] = useState('');
@@ -74,6 +76,18 @@ const Products = () => {
     const Category = category?.category || [];
     const SubCategory = subcategory?.subcategory || [];
     const prdcts = productss?.productss || [];
+
+
+    const handleViewClick = (pro) => {
+        const brandId = pro?.brand;
+        console.log('Product:', pro);
+        console.log('Brand ID:', brandId);
+        if (brandId === '66a731ab90c55f41aac002ee' || brandId === '66a731d090c55f41aac002f2') {
+          navigate(`/product_details/${pro?._id}`); 
+        } else {
+          navigate(`/products/details/${pro?._id}`); 
+        }
+      };
 
 
     return (
@@ -219,15 +233,15 @@ const Products = () => {
                                         </a>
                                         <div className="product-card__content mt-4">
                                             <h6 className="title text-lg font-semibold mt-3 mb-2">
-                                                <a href="aeonmed.html" className="link text-ellipsis overflow-hidden whitespace-nowrap">
-                                                    {pro?.name}
+                                            <a href="aeonmed.html" className="link block text-ellipsis truncate overflow-hidden whitespace-nowrap">
+                                            {pro?.name}
                                                 </a>
                                             </h6>
                                             <div className="product-card__price my-5">
-                                                <span className="text-gray-900 font-semibold text-lg">₹20,000</span>
+                                                <span className="text-gray-900 font-semibold text-lg"></span>
                                             </div>
                                             <div className='w-full'>
-                                                <button className="bg-gray-200 w-full text-black font-semibold py-2 px-4 rounded-lg hover:bg-green-500 hover:text-white">
+                                                <button className="bg-gray-200 w-full text-black font-semibold py-2 px-4 rounded-lg hover:bg-green-500 hover:text-white" onClick={() => handleViewClick(pro)}>
                                                     View
                                                 </button>
                                             </div>
