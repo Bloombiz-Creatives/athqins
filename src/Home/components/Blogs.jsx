@@ -9,21 +9,21 @@ const Blogs = () => {
             category: "Interior Design",
             title: "What to Expect When Working with an Interior Designer",
             date: "April 9, 2021",
-            link: "single-post.html",
+            link: "/blog",
         },
         {
             imgSrc: im2,
             category: "Architecture",
             title: "Private Contemporary Home Balancing Openness",
             date: "April 9, 2021",
-            link: "single-post.html",
+            link: "/blog",
         },
         {
             imgSrc: im3,
             category: "Interior Design",
             title: "Stylish Modern Ranch Exuding a Welcoming Feel",
             date: "April 9, 2021",
-            link: "single-post.html",
+            link: "/blog",
         },
     ];
 
