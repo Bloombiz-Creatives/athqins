@@ -95,6 +95,8 @@ const ContactUs = () => {
                 </div>
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-l from-[rgba(6,23,56,0.6)] to-[rgba(17,151,68,0.6)] z-[-1]" />
             </div>
+
+
             <div className="contact-area bg-cover py-20" id="contact" style={{ backgroundImage: `url(${contact})` }}>
                 <div className="container mx-auto px-4 md:px-14">
                     <div className="flex flex-wrap -mx-4">
@@ -207,6 +209,23 @@ const ContactUs = () => {
                     </div>
                 </div>
             </div>
+
+            {/* map */}
+            <div className="w-full lg:full mt-10 lg:mt-0 px-4 md:px-14 ">
+            <div className="contact-map bg-white p-6 rounded-lg shadow-md ">
+              <iframe
+                // src="https://www.google.com/maps/embed?pb=!4m6!3m5!1s0x3ba6596a0aa0a169:0x8b5361640f171c3f!8m2!3d11.2480218!4d75.7930158!16s%2Fg%2F11c1qhhpzq?entry=ttu&g_ep=EgoyMDI0MDkxOC4xIKXMDSoASAFQAw%3D%3D"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.3406974350205!2d90.48469931445422!3d23.663771197998262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b0d5983f048d%3A0x754f30c82bcad3cd!2sJalkuri%20Bus%20Stop!5e0!3m2!1sen!2sbd!4v1605354966349!5m2!1sen!2sbd"
+                aria-hidden="false"
+                tabIndex="0"
+                className="w-full h-96 border-none rounded-lg"
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+
         </div>
     )
 }

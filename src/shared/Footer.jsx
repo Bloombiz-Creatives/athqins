@@ -1,6 +1,7 @@
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import { Link } from 'react-router-dom';
 
 
 const Footer = () => {
@@ -29,29 +30,25 @@ const Footer = () => {
         <div className="mb-6 md:mb-0">
           <h3 className="text-xl font-bold">Company</h3>
           <ul className="mt-4 space-y-2">
-            <li><a href="#" className="hover:text-gray-400">About Us</a></li>
-            <li><a href="#" className="hover:text-gray-400">Agents</a></li>
-            <li><a href="#" className="hover:text-gray-400">Blog</a></li>
-            <li><a href="#" className="hover:text-gray-400">Demos</a></li>
-            <li><a href="#" className="hover:text-gray-400">Contact Us</a></li>
+            <li><Link to='/' className="hover:text-gray-400">Home</Link></li>
+            <li><Link to='/products/solutions' className="hover:text-gray-400">Solutions</Link></li>
+            <li><Link to='/our_products' className="hover:text-gray-400">Our Products</Link></li>
+            <li><Link to='/products/services' className="hover:text-gray-400">Services</Link></li>
           </ul>
         </div>
         <div className="mb-6 md:mb-0">
           <h3 className="text-xl font-bold">Actions</h3>
           <ul className="mt-4 space-y-2">
-            <li><a href="#" className="hover:text-gray-400">Buy Properties</a></li>
-            <li><a href="#" className="hover:text-gray-400">Rent Properties</a></li>
-            <li><a href="#" className="hover:text-gray-400">Sell Properties</a></li>
+            <li><Link to='/' className="hover:text-gray-400">Blog</Link></li>
+            <li><Link to='/contact-us' className="hover:text-gray-400">Contact Us</Link></li>
           </ul>
         </div>
         <div>
           <h3 className="text-xl font-bold">Explore</h3>
           <ul className="mt-4 space-y-2">
-            <li><a href="#" className="hover:text-gray-400">Homes for Rent</a></li>
-            <li><a href="#" className="hover:text-gray-400">Apartments for Rent</a></li>
-            <li><a href="#" className="hover:text-gray-400">Homes for Sale</a></li>
-            <li><a href="#" className="hover:text-gray-400">Apartments for Sale</a></li>
-            <li><a href="#" className="hover:text-gray-400">CRM</a></li>
+            <li><Link to='/our_products' className="hover:text-gray-400">ICU Solutions</Link></li>
+            <li><Link to='/our_products' className="hover:text-gray-400">Operating Room Solutions</Link></li>
+            <li><Link to='/our_products' className="hover:text-gray-400">Cardiology Solutions</Link></li>
           </ul>
         </div>
       </div>

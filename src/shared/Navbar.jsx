@@ -273,7 +273,7 @@ const Navbar = () => {
             )}
           </li>
           <li className="underline-animation"><Link >BLOG</Link></li>
-          <li className="underline-animation"><Link >CONTACT US</Link></li>
+          <li className="underline-animation"><Link to='/contact-us'>CONTACT US</Link></li>
         </ul>       
       </div>
     </nav>
