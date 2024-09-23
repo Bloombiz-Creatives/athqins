@@ -42,6 +42,7 @@ const Products = lazy(() => import('./Our Products/Products'));
 const Services = lazy(() => import('./Our Products/Services'));
 const ProductOverview = lazy(() => import('./ProductDetails/ProductOverview'));
 const ContactUs = lazy(() => import('./Pages/ContactUs'));
+const Blog = lazy(() => import('./Pages/Blog'));
 
 const App = () => {
   return (
@@ -56,6 +57,7 @@ const App = () => {
           <Route path='/products/services' element={<Services />} />
           <Route path='/products/details/:id' element={<ProductOverview />} />
           <Route path='/contact-us' element={<ContactUs/>} />
+          <Route path='/blog' element={<Blog/>} />
         </Routes>
       </Suspense>
       <Footer />
