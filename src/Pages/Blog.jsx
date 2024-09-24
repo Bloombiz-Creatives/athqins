@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import blogb from '../assets/blogb.jpg';
+import blogb from '../assets/blog.jpg';
 import howtouse from '../assets/howtouse.jpg';
 import innovations from '../assets/innovation.jpg';
 import maintainance from '../assets/maintainance.jpg';
