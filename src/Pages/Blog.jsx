@@ -24,7 +24,7 @@ const Blog = () => {
             
 
             {/* Blog Content Section */}
-            <div className="container mx-auto my-16 px-4 lg:px-0">
+            <div className="container mx-auto my-16  px-4 md:px-16">
 
                   {/* Categories Section */}
                   <section className="mb-12">
