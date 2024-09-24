@@ -48,6 +48,9 @@ export default {
       padding: {
         'calc-pl': 'calc((100% - 1140px) / 2 + 15px)',
       },
+      screens: {
+        '2.5xl': '2560px', // Custom breakpoint for 2560px screens
+      },
     },
   },
   plugins: [],

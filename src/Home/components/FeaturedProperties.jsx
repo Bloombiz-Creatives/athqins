@@ -192,8 +192,8 @@ const FeaturedProperties = () => {
 
     return (
         <div className="md:mt-24 mt-10 relative py-6">
-            <div className="flex flex-col md:flex-row md:items-center md:mb-8 md:pl-14  pl-6 xl:pl-36 2xl:pl-[580px] overflow-hidden">
-                <div className="md:w-1/4">
+            <div className="flex flex-col md:flex-row md:items-center md:mb-8 md:pl-14  pl-6 xl:pl-36 2xl:pl-[100px] 2.5xl:pl-[80px] overflow-hidden">
+                <div className="md:w-1/4 ">
                     <h2 className="lg:text-3xl md:text-2xl text-3xl font-bold">
                         Featured <br /> Properties
                     </h2>
