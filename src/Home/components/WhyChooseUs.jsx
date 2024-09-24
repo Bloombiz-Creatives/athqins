@@ -16,10 +16,10 @@ const WhyChooseUs = () => {
       //   background: 'linear-gradient(90deg, #000 50%, #F7F7F7 50%)'
       // }}
       >
-        <div className='container mx-auto md:py-16 md:px-16 py-6 px-6'>
+        <div className='container mx-auto md:py-16 md:px-16 py-6 px-6 2.5xl:px-[560px]'>
           <h2 className='font-extrabold text-white text-[32px] py-100 box-border mb-2 leading-tight '>Why Choose Us </h2>
           <p className='text-[#fff] opacity-70'>We offer perfect real estate services</p>
-          <div className='lg:flex  gap-10 mt-14'>
+          <div className='lg:flex  gap-10  mt-14'>
             <div>
               <img src={why} alt="" className='lg:h-[540px] xl:w-full lg:w-[520px]  object-cover md:h-[240px] md:w-[690px]' />
             </div>
