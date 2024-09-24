@@ -87,6 +87,7 @@ const Blog = () => {
                     </form>
                 </section> */}
                 
+
             </div>
         </div>
     );
