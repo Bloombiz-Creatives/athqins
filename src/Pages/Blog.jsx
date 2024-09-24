@@ -86,6 +86,7 @@ const Blog = () => {
                         <button type="submit" className="w-full bg-green-500 text-white py-3 rounded-md font-bold">Subscribe</button>
                     </form>
                 </section> */}
+                
             </div>
         </div>
     );
