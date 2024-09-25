@@ -38,8 +38,8 @@ import Footer from './shared/Footer';
 const Home = lazy(() => import('./Pages/home'));
 const OurProducts = lazy(() => import('./Pages/OurProducts'));
 const ProductDetails = lazy(() => import('./Pages/ProductDetails'));
-const Products = lazy(() => import('./Our Products/Products'));
-const Services = lazy(() => import('./Our Products/Services'));
+const Products = lazy(() => import('./OurProducts/Products'));
+const Services = lazy(() => import('./OurProducts/Services'));
 const ProductOverview = lazy(() => import('./ProductDetails/ProductOverview'));
 const ContactUs = lazy(() => import('./Pages/ContactUs'));
 const Blog = lazy(() => import('./Pages/Blog'));
@@ -56,8 +56,8 @@ const App = () => {
           <Route path='/products/solutions' element={<Products />} />
           <Route path='/products/services' element={<Services />} />
           <Route path='/products/details/:id' element={<ProductOverview />} />
-          <Route path='/contact-us' element={<ContactUs/>} />
-          <Route path='/blog' element={<Blog/>} />
+          <Route path='/contact-us' element={<ContactUs />} />
+          <Route path='/blog' element={<Blog />} />
         </Routes>
       </Suspense>
       <Footer />

@@ -1,9 +1,9 @@
-import OurProductsContainer from '../Our Products/OurProductsContainer'
+import OurProductsContainer from '../OurProducts/OurProductsContainer'
 
 const OurProducts = () => {
   return (
     <div>
-      <OurProductsContainer/>
+      <OurProductsContainer />
     </div>
   )
 }
