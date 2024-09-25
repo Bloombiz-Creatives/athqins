@@ -1,4 +1,3 @@
-import React from 'react';
 import im1 from "../../assets/strengths/reliable.png";
 import im2 from "../../assets/strengths/quality.png";
 import im3 from "../../assets/strengths/economy.png";

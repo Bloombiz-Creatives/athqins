@@ -70,7 +70,7 @@ export const ProductDetailsContents = () => {
     });
 
     const [errors, setErrors] = useState({});
-    const [successMessage, setSuccessMessage] = useState('');
+    // const [successMessage, setSuccessMessage] = useState('');
 
     // const dispatch = useDispatch();
 
@@ -78,7 +78,7 @@ export const ProductDetailsContents = () => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
         setErrors({ ...errors, [name]: '' });
-        setSuccessMessage('');
+        // setSuccessMessage('');
     };
 
     const validateEmail = (email) => {
@@ -126,10 +126,10 @@ export const ProductDetailsContents = () => {
         clearForm(); 
 
         try {
-            const response = await dispatch(addEnquiry(dataToSubmit));
-            if (response.status === 200) {
-                setSuccessMessage('Your enquiry has been successfully submitted.');
-            }
+             await dispatch(addEnquiry(dataToSubmit));
+            // if (response.status === 200) {
+            //     setSuccessMessage('Your enquiry has been successfully submitted.');
+            // }
         } catch (error) {
             console.error('Error submitting enquiry:', error);
         }
@@ -814,7 +814,7 @@ export const ProductDetailsContents = () => {
                             <div className="contact-info-area">
                                 <h3 className="text-4xl font-semibold">Contact Us</h3>
                                 <p className="mt-4 text-gray-600">
-                                    Feel free to reach out to us for any questions, product inquiries, or support. Our team is ready to assist you with all your hospital machinery needs. We're just one click or call away!                                </p>
+                                    Feel free to reach out to us for any questions, product inquiries, or support. Our team is ready to assist you with all your hospital machinery needs. We&apos;re just one click or call away!                                </p>
                                 <ul className="mt-12 space-y-8">
                                     {/* Address */}
                                     <li className="flex items-start">

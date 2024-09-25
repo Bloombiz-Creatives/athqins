@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { getCard, Machinaries } from '../../action/ecomAction';
+import {  Machinaries } from '../../action/ecomAction';
 import { useNavigate } from 'react-router-dom';
 
 const Cards = () => {
@@ -10,7 +10,6 @@ const Cards = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        // dispatch(getCard())
         dispatch(Machinaries())
     }, [dispatch])
 

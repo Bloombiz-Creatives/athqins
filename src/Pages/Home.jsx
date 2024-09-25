@@ -1,4 +1,3 @@
-import React from 'react'
 import HomeContents from '../Home/contents/HomeContents'
 
 const Home = () => {

@@ -420,7 +420,7 @@ const ProductOverview = () => {
     });
 
     const [errors, setErrors] = useState({});
-    const [successMessage, setSuccessMessage] = useState('');
+    // const [successMessage, setSuccessMessage] = useState('');
 
 
 
@@ -429,7 +429,7 @@ const ProductOverview = () => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
         setErrors({ ...errors, [name]: '' });
-        setSuccessMessage('');
+        // setSuccessMessage('');
     };
 
     const validateEmail = (email) => {
@@ -477,10 +477,10 @@ const ProductOverview = () => {
         clearForm();
 
         try {
-            const response = await dispatch(addEnquiry(dataToSubmit));
-            if (response.status === 200) {
-                setSuccessMessage('Your enquiry has been successfully submitted.');
-            }
+            await dispatch(addEnquiry(dataToSubmit));
+            // if (response.status === 200) {
+            //     setSuccessMessage('Your enquiry has been successfully submitted.');
+            // }
         } catch (error) {
             console.error('Error submitting enquiry:', error);
         }
@@ -605,7 +605,7 @@ const ProductOverview = () => {
                             rel="noopener noreferrer"
                             className="mt-6 bg-green-700 text-white font-semibold px-6 py-3 rounded flex items-center"
                         >
-                            <span>Let's Talk — Send A Message</span>
+                            <span>Let&apos;s Talk — Send A Message</span>
                         </a>
 
 
@@ -624,7 +624,7 @@ const ProductOverview = () => {
                             <div className="contact-info-area">
                                 <h3 className="text-4xl font-semibold">Contact Us</h3>
                                 <p className="mt-4 text-gray-600">
-                                    Feel free to reach out to us for any questions, product inquiries, or support. Our team is ready to assist you with all your hospital machinery needs. We're just one click or call away!                                </p>
+                                    Feel free to reach out to us for any questions, product inquiries, or support. Our team is ready to assist you with all your hospital machinery needs. We&apos;re just one click or call away!                                </p>
                                 <ul className="mt-12 space-y-8">
                                     <li className="flex items-start">
                                         <div className="icon bg-gradient-to-br from-blue-400 to-purple-600 text-white w-12 h-12 flex items-center justify-center rounded-full">

@@ -7,7 +7,7 @@ const ecomSlice = createSlice({
         error: null,
     },
     reducers: {
-        homeHeroGetRequest(state, action) {
+        homeHeroGetRequest(state) {
             return {
                 ...state,
                 loading: true
@@ -40,7 +40,7 @@ const ecomSlice = createSlice({
                 error: action.payload
             }
         },
-        pgcntntGetRequets(state, action) {
+        pgcntntGetRequets(state) {
             return {
                 ...state,
                 loading: true,
@@ -61,7 +61,7 @@ const ecomSlice = createSlice({
                 error: action.payload
             }
         },
-        testimonialGetAllRequest(state, action){
+        testimonialGetAllRequest(state){
             return {
                 ...state,
                 loading:true
@@ -81,7 +81,7 @@ const ecomSlice = createSlice({
                 error:action.payload
             }
         },
-        cardGetRequest(state, action){
+        cardGetRequest(state){
             return {
                 ...state,
                 loading:true
@@ -101,7 +101,7 @@ const ecomSlice = createSlice({
                 error:action.payload
             }
         },
-        brandGetAllRequest(state,action){
+        brandGetAllRequest(state){
             return {
                 ...state,
                 loading:true,
@@ -121,7 +121,7 @@ const ecomSlice = createSlice({
                 error:action.payload
             }
         },
-        getSubCatRequest(state, action){
+        getSubCatRequest(state){
             return {
                 ...state,
                 loading:true,
@@ -142,7 +142,7 @@ const ecomSlice = createSlice({
                 error:action.payload
             }
         },
-        productGetRequest(state, action){
+        productGetRequest(state){
             return {
                 ...state,
                 loading:true
@@ -163,7 +163,7 @@ const ecomSlice = createSlice({
                 error:action.payload
             }
         },
-        enquiryPostRequest(state, action){
+        enquiryPostRequest(state){
             return {
                 ...state,
                 loading:true
@@ -182,7 +182,7 @@ const ecomSlice = createSlice({
                 error:action.payload
             }
         },
-        getProductByIdRequest(state, action){
+        getProductByIdRequest(state){
             return {
                 ...state,
                 loading:true

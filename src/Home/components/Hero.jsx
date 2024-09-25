@@ -12,7 +12,7 @@ const Hero = () => {
 
     const { banners } = useSelector((state) => state.ecomState);
     const bannerData = banners?.banners || [];
-    const bannerId = bannerData.length > 0 ? bannerData[0]._id : null;
+    // const bannerId = bannerData.length > 0 ? bannerData[0]._id : null;
 
     const slides = bannerData.flatMap(banner => [
         {
