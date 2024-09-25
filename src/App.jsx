@@ -35,7 +35,7 @@ import Navbar from './shared/Navbar';
 import Footer from './shared/Footer';
 
 // Lazy load components
-const Home = lazy(() => import('./Pages/home'));
+const Home = lazy(() => import('./Pages/Home'));
 const OurProducts = lazy(() => import('./Pages/OurProducts'));
 const ProductDetails = lazy(() => import('./Pages/ProductDetails'));
 const Products = lazy(() => import('./OurProducts/Products'));
