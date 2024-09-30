@@ -24,7 +24,7 @@ const Cards = () => {
         const brandId = pro?.brand;
         console.log('Product:', pro);
         console.log('Brand ID:', brandId);
-        if (brandId === '66a731ab90c55f41aac002ee' || brandId === '66a731d090c55f41aac002f2') {
+        if (brandId === '66fa5515128cbdb0a930d04e ' || brandId === '66fa552c128cbdb0a930d052') {
           navigate(`/product_details/${pro?._id}`); 
         } else {
           navigate(`/products/details/${pro?._id}`); 
