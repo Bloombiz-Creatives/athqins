@@ -2,7 +2,7 @@ import axios from "axios";
 import { getLocalStore } from "./index";
 
 var axiosInstance = axios.create({});
-axiosInstance.defaults.baseURL = "http://localhost:7006/api"
+axiosInstance.defaults.baseURL = "https://api.athqinshealthcare.com/api"
 let token = getLocalStore('accessToken');
 
 
