@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchBrand, fetchCategory, fetchProduct, fetchSubCategory } from '../action/ecomAction';
 import { useNavigate } from 'react-router-dom';
 
-const OurProductsContainer = () => {
+export const OurProductsContainer = () => {
   const dispatch = useDispatch();
 
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -236,6 +236,6 @@ const OurProductsContainer = () => {
   );
 };
 
-export default OurProductsContainer;
+// export default OurProductsContainer;
 
 
