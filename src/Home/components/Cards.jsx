@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import {  Machinaries } from '../../action/ecomAction';
 import { useNavigate } from 'react-router-dom';
 
-const Cards = () => {
+export const Cards = () => {
 
- 
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -17,8 +16,6 @@ const Cards = () => {
     const products = Machinary?.Machinary || [];
     console.log();
     
-    // const products = cards?.cards || []
-
 
     const handleViewClick = (pro) => {
         const brandId = pro?.brand;
@@ -67,4 +64,4 @@ const Cards = () => {
     )
 }
 
-export default Cards
+// export default Cards
