@@ -58,8 +58,11 @@ export const OurProductsContainer = () => {
       console.log('Product:', pro);
       console.log('Brand ID:', brandId);
       if (brandId === '66fa5515128cbdb0a930d04e' || brandId === '66fa552c128cbdb0a930d052') {
+<<<<<<< HEAD
       if (brandId === '66fa5515128cbdb0a930d04e  ' || brandId === '66fa552c128cbdb0a930d052') {
 
+=======
+>>>>>>> 103add4c43c7e6f536d5eba3226dfc6c2fd3c2ee
         navigate(`/product_details/${pro?._id}`); 
       } else {
         navigate(`/products/details/${pro?._id}`); 
