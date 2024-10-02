@@ -6,7 +6,6 @@ var axiosInstance = axios.create({});
 axiosInstance.defaults.baseURL = "https://api.athqinshealthcare.com/api"
 
 
-axiosInstance.defaults.baseURL = "https://api.athqinshealthcare.com/api"
 // axiosInstance.defaults.baseURL = "http://localhost:7006/api"
 
 let token = getLocalStore('accessToken');

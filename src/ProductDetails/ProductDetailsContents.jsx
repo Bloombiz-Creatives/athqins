@@ -44,9 +44,7 @@ export const ProductDetailsContents = () => {
         if (id) {
             dispatch(getSingleProduct(id));
         }
-        // dispatch(fetchCategory());
         dispatch(fetchBrand());
-        // dispatch(fetchSubCategory());
         dispatch(fetchProduct());
     }, [id, dispatch]);
     const [isOpen, setIsOpen] = useState(false);
@@ -338,42 +336,6 @@ export const ProductDetailsContents = () => {
     return (
         <div >
 
-            {/* folding */}
-
-            {/* <div className="fixed inset-0 z-50 flex items-center justify-center bg-white">
-                <div className="relative flex items-center justify-center w-full h-full">
-                    <div className="absolute bottom-8 right-8">
-                        <a
-                            href="#"
-                            className="bg-blue-600 text-white font-semibold text-sm px-6 py-2 rounded-full hover:bg-gray-800 transition-all duration-300"
-                        >
-                            Cancel Preloader
-                        </a>
-                    </div>
-
-                    <div
-                        className="relative flex items-center justify-center rotate-45"
-                        style={{ width: '80px', height: '80px' }}
-                    >
-                        {Array.from({ length: 4 }).map((_, i) => (
-                            <div
-                                key={i}
-                                className="absolute w-1/2 h-1/2"
-                                style={{
-                                    transform: `rotateZ(${i * 90}deg) scale(1.1)`,
-                                    backgroundColor: '#5369f0',
-                                    animation: 'sk-foldCubeAngle 2.4s infinite linear',
-                                    animationDelay: `${i * 0.3}s`,
-                                    transformOrigin: '100% 100%',
-                                }}
-                            />
-                        ))}
-                    </div>
-                </div>
-            </div> */}
-
-
-
             {/* banner */}
             <div className="container mx-auto">
                 <div className="flex flex-col  md:px-12 px-4 py-12">
@@ -422,7 +384,7 @@ export const ProductDetailsContents = () => {
                         <div className="lg:w-1/2 text-center">
                             <h2 className="text-3xl font-semibold">Amazing Features</h2>
                             <p className="mt-4 text-gray-600">
-                            Experience unmatched precision and versatility with advanced imaging technology, designed for superior diagnostics across multiple specialties. Portable, user-friendly, and equipped with seamless connectivity, our systems enhance healthcare efficiency.                            </p>
+                            Experience unmatched precision and versatility with advanced imaging technology, designed for superior diagnostics across multiple specialties. Portable, user-friendly, and equipped with seamless connectivity, our systems enhance healthcare efficiency. </p>
                         </div>
                     </div>
 
@@ -437,7 +399,7 @@ export const ProductDetailsContents = () => {
                                     </div>
                                     <div className="content flex flex-col items-center justify-center">
                                         <h4 className="text-xl font-semibold mb-2 transition-colors hover:text-blue-600 md:text-[15px] xl:text-[20px]">{feature.title}</h4>
-                                        <p className="text-gray-500 text-center md:text-[14px] xl:text-[18px]">{ProductsDatas?.brand === "66a731ab90c55f41aac002ee" ? feature.description_sono : feature.description_eden}</p>
+                                        <p className="text-gray-500 text-center md:text-[14px] xl:text-[18px]">{ProductsDatas?.brand === "66fa5515128cbdb0a930d04e" ? feature.description_sono : feature.description_eden}</p>
                                     </div>
                                 </div>
                             </div>
