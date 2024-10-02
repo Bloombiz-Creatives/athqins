@@ -17,7 +17,7 @@ const HomeContents = () => {
 
   useEffect(() => {
     // Connect to the Socket.IO server
-    const socket = io('http://localhost:7006');
+    const socket = io('https://api.athqinshealthcare.com/');
 
     // Listen for the 'newProduct' event from the server
     socket.on('newProduct', (data) => {
