@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {  Machinaries } from '../../action/ecomAction';
 import { useNavigate } from 'react-router-dom';
 
-export const Cards = () => {
+const Cards = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -60,4 +60,4 @@ export const Cards = () => {
     )
 }
 
-// export default Cards
+export default Cards;
