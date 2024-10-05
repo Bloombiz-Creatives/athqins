@@ -64,6 +64,14 @@ const OurProductsContainer = () => {
       }
     };
 
+
+      // Function to scroll to the top if screen width is less than 768px
+  const scrollToTopOnMobile = () => {
+    if (window.innerWidth < 768) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   
 
   return (
@@ -72,12 +80,12 @@ const OurProductsContainer = () => {
         <div className="container mx-auto">
           <div className="flex flex-wrap -mx-4">
             {/* Sidebar Start */}
-            <div className="w-full lg:w-1/4 px-4">
+            <div className="w-full lg:w-1/4 px-4 order-1 lg:order-none">
               <div className="shop-sidebar relative">
                 {/* Product Category Sidebar */}
-                <div className="shop-sidebar__box border border-gray-100 rounded-lg p-8 mb-8">
+                <div className="shop-sidebar__box border border-gray-100 rounded-lg p-4 mb-8">
                   <h6 className="text-xl border-b border-gray-100 pb-6 mb-6">Product Category</h6>
-                  <ul className="max-h-135 overflow-y-auto scrollbar-thin">
+                  <ul className=" overflow-y-auto max-h-[450px] scrollbar-thin">
                     {Category.map((category, index) => (
                       <li className="mb-6" key={index}>
                         <div className="form-check">
@@ -88,11 +96,12 @@ const OurProductsContainer = () => {
                             id={`category${index + 1}`}
                             value={category?._id}
                             checked={selectedCategory === category?._id}
-                            onChange={() =>
+                            onChange={() => {
                               selectedCategory === category?._id
                                 ? setSelectedCategory('') // Unselect if double-click
-                                : setSelectedCategory(category?._id)
-                            }
+                                : setSelectedCategory(category?._id);
+                              scrollToTopOnMobile(); // Scroll to top on mobile
+                            }}
                             onDoubleClick={() => setSelectedCategory('')} // Handle double-click to unselect
                           />
                           <label className="form-check-label ml-2" htmlFor={`category${index + 1}`}>
@@ -105,9 +114,10 @@ const OurProductsContainer = () => {
                 </div>
 
                 {/* SubCategory Filter Sidebar */}
-                <div className="shop-sidebar__box border border-gray-100 rounded-lg p-8 mb-8">
+                <div className="shop-sidebar__box border border-gray-100 rounded-lg p-4 mb-8">
                   <h6 className="text-xl border-b border-gray-100 pb-6 mb-6">Filter by SubCategory</h6>
-                  <ul className="max-h-135 overflow-y-auto scrollbar-thin">
+                  {/* <ul className="max-h-135 overflow-y-auto scrollbar-thin"> */}
+                  <ul className=" overflow-y-auto max-h-[380px] scrollbar-thin">
                     {SubCategory.map((subCategory, index) => (
                       <li className="mb-6" key={index}>
                         <div className="form-check">
@@ -118,11 +128,12 @@ const OurProductsContainer = () => {
                             id={`subCategory${index + 1}`}
                             value={subCategory?._id}
                             checked={selectedSubCategory === subCategory?._id}
-                            onChange={() =>
+                            onChange={() =>{
                               selectedSubCategory === subCategory?._id
                                 ? setSelectedSubCategory('') // Unselect if double-click
-                                : setSelectedSubCategory(subCategory?._id)
-                            }
+                                : setSelectedSubCategory(subCategory?._id);
+                                scrollToTopOnMobile();
+                            }}
                             onDoubleClick={() => setSelectedSubCategory('')} // Handle double-click to unselect
                           />
                           <label className="form-check-label ml-2" htmlFor={`subCategory${index + 1}`}>
@@ -135,9 +146,9 @@ const OurProductsContainer = () => {
                 </div>
 
                 {/* Brand Filter Sidebar */}
-                <div className="shop-sidebar__box border border-gray-100 rounded-lg p-8 mb-8">
+                <div className="shop-sidebar__box border border-gray-100 rounded-lg p-4 mb-8">
                   <h6 className="text-xl border-b border-gray-100 pb-6 mb-6">Filter by Brand</h6>
-                  <ul className="max-h-135 overflow-y-auto scrollbar-thin">
+                  <ul className=" overflow-y-auto max-h-80 scrollbar-thin">
                     {Brands.map((brand, index) => (
                       <li className="mb-6" key={index}>
                         <div className="form-check">
@@ -148,12 +159,12 @@ const OurProductsContainer = () => {
                             id={`brand${index + 1}`}
                             value={brand._id}
                             checked={selectedBrand === brand._id}
-                            // onChange={() => setSelectedBrand(brand._id)}
-                            onChange={() =>
+                            onChange={() =>{
                               selectedBrand === brand?._id
                                 ? setSelectedBrand('') // Unselect if clicked again
-                                : setSelectedBrand(brand?._id)
-                            }
+                                : setSelectedBrand(brand?._id);
+                                scrollToTopOnMobile();
+                            }}
                             onDoubleClick={() => setSelectedBrand('')} // Handle double-click to unselect
                           />
                           <label className="form-check-label ml-2" htmlFor={`brand${index + 1}`}>
@@ -208,7 +219,7 @@ const OurProductsContainer = () => {
                     </a>
                     <div className="product-card__content mt-4">
                       <h6 className="title text-lg font-semibold mt-3 mb-2">
-                        <a href="aeonmed.html" className="link block text-ellipsis truncate overflow-hidden whitespace-nowrap">
+                        <a className="link block text-ellipsis truncate overflow-hidden whitespace-nowrap cursor-pointer" onClick={() => handleViewClick(pro)}>
                           {pro?.name}
                         </a>
                       </h6>

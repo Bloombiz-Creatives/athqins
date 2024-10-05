@@ -51,7 +51,7 @@ const Cards = () => {
                                 className="max-w-4/5 h-auto mx-auto"
                             />
                             <div className="font-bold mt-2">{product?.name}</div>
-                            <div className="text-sm text-gray-600">{product?.description}</div>
+                            <div className="text-sm text-gray-600  block overflow-hidden"  style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{product?.description}</div>
                         </div>
                     </div>
                 ))}

@@ -36,8 +36,8 @@ const Navbar = () => {
     setIsSolutionsDropdownOpen(false);
   };
 
- const handleBrandClick = (brandId) => {
-    navigate('/products/services', {state : {selectedBrand: brandId}})
+  const handleBrandClick = (brandId) => {
+    navigate('/products/services', { state: { selectedBrand: brandId } })
     setIsNavOpen(false);
     setIsSolutionsDropdownOpen(false);
   }
@@ -92,7 +92,7 @@ const Navbar = () => {
     <nav className={`fixed w-full z-50 transition-all duration-300 flex  justify-center items-center ${scrolled ? 'bg-black' : 'bg-transparent'}`}>
       <div className="container flex justify-between items-center md:p-6 px-4 md:px-16 py-2">
         <div className="text-white font-bold text-xl">
-         <Link to='/'><img src={Logo} alt="Logo" className="lg:h-8 h-6" /></Link>
+          <Link to='/'><img src={Logo} alt="Logo" className="lg:h-8 h-6" /></Link>
         </div>
 
         <div className="flex items-center  md:hidden">
@@ -144,93 +144,89 @@ const Navbar = () => {
             </svg>
           </div>
           <div className=' overflow-y-auto'>
-          <ul className="text-center text-[17px] space-y-6 flex flex-col mt-5">
-            <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
-              <Link to='/'>HOME</Link>
-            </li>
-            <li className="w-full">
-              <div
-                className="flex justify-between items-center cursor-pointer hover:text-#1b1bd6 transition-colors duration-300"
-                onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
-              >
-                <Link className="flex-grow">SOLUTIONS</Link>
-                <svg
-                  className={`w-6 h-6 transform transition-transform duration-300 ${isSolutionsOpen ? 'rotate-180' : ''}`}
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  viewBox="0 0 24 24"
+            <ul className="text-center text-[17px] space-y-6 flex flex-col mt-5">
+              <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
+                <Link to='/' onClick={() => setIsNavOpen(false)}>HOME</Link>
+              </li>
+              <li className="w-full">
+                <div
+                  className="flex justify-between items-center cursor-pointer hover:text-#1b1bd6 transition-colors duration-300"
+                  onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
                 >
-                  <path d="M6 9l6 6 6-6"></path>
-                </svg>
-              </div>
+                  <Link className="flex-grow">SOLUTIONS</Link>
+                  <svg
+                    className={`w-6 h-6 transform transition-transform duration-300 ${isSolutionsOpen ? 'rotate-180' : ''}`}
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </div>
 
-              {isSolutionsOpen && (
-                <ul className="mt-2 space-y-2 pl-6 flex flex-col justify-center items-center cursor-pointer">
-              {Category.map((cat) => (
-                  <li key={cat._id} className="py-2 px-4 hover:bg-gray-700 cursor-pointer" onClick={() => handleCategoryClick(cat._id)}>
-                  {cat.name}
-                </li>
+                {isSolutionsOpen && (
+                  <ul className="mt-2 space-y-2 pl-6 flex flex-col justify-center items-center cursor-pointer">
+                    {Category.map((cat) => (
+                      <li key={cat._id} className="py-2 px-4 hover:bg-gray-700 cursor-pointer" onClick={() => handleCategoryClick(cat._id)}>
+                        {cat.name}
+                      </li>
 
-                ))}
-                 </ul>
-              )}
-            </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
 
-            <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
-              <Link to="/our_products">OUR PRODUCTS</Link>
-            </li>
-            <li className="w-full">
-              <div
-                className="flex justify-between items-center cursor-pointer hover:text-#1b1bd6 transition-colors duration-300"
-                onClick={() => setIsServicesOpen(!isServicesOpen)}
-              >
-                <Link className="flex-grow">SERVICES</Link>
-                <svg
-                  className={`w-6 h-6 transform transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`}
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  viewBox="0 0 24 24"
+              <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
+                <Link to="/our_products" onClick={() => setIsNavOpen(false)}>OUR PRODUCTS</Link>
+              </li>
+              <li className="w-full">
+                <div
+                  className="flex justify-between items-center cursor-pointer hover:text-#1b1bd6 transition-colors duration-300"
+                  onClick={() => setIsServicesOpen(!isServicesOpen)}
                 >
-                  <path d="M6 9l6 6 6-6"></path>
-                </svg>
-              </div>
+                  <Link className="flex-grow">SERVICES</Link>
+                  <svg
+                    className={`w-6 h-6 transform transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`}
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M6 9l6 6 6-6"></path>
+                  </svg>
+                </div>
 
-              {isServicesOpen && (
-                <ul className="mt-2 space-y-2 pl-6 flex flex-col justify-center items-center">
-                 
-                     {Brands.map((brand) => (
-                  // <li key={brand?._id} className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
-                  //   <Link to={`/services/${brand?._id}`}>{brand?.name}</Link>
-                  // </li>
+                {isServicesOpen && (
+                  <ul className="mt-2 space-y-2 pl-6 flex flex-col justify-center items-center">
 
-                  <li key={brand?._id} className="py-2 px-4 hover:bg-gray-700" onClick={() => handleBrandClick(brand?._id)}>
-                  {brand?.name}
-                </li>
-                ))}
-                </ul>
-              )}
-            </li>
+                    {Brands.map((brand) => (
+                      <li key={brand?._id} className="py-2 px-4 hover:bg-gray-700" onClick={() => handleBrandClick(brand?._id)}>
+                        {brand?.name}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
 
-            <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
-              <Link>BLOG</Link>
-            </li>
-            <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
-              <Link>CONTACT US</Link>
-            </li>
-          </ul>
+              <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
+                <Link to='/blog' onClick={() => setIsNavOpen(false)}>BLOG</Link>
+              </li>
+              <li className="underline-animation hover:text-#1b1bd6 transition-colors duration-300">
+                <Link to='/contact-us' onClick={() => setIsNavOpen(false)}>CONTACT US</Link>
+              </li>
+            </ul>
           </div>
         </div>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center justify-center text-white space-y-6 text-lg transition-all duration-300 transform md:relative md:flex-row md:space-y-0 md:text-[12px] md:gap-4 lg:gap-8 lg:text-[16px]">
           <li className="underline-animation"><Link to="/" >HOME</Link></li>
-         
+
           <li
             className="relative underline-animation"
             onMouseEnter={() => setIsSolutionsDropdownOpen(true)}
@@ -260,21 +256,17 @@ const Navbar = () => {
             <Link>SERVICES</Link>
             {isServicesDropdownOpen && (
               <ul className="absolute left-0 mt-2 w-48 bg-gray-800 text-white rounded-md shadow-lg">
-                {Brands.map((brand) => (
-                  // <li key={brand?._id} className="py-2 px-4 hover:bg-gray-700">
-                  //   <Link to={`/services/${brand?._id}`}>{brand?.name}</Link>
-                  // </li>
-
+                {Brands.map((brand) => (                
                   <li key={brand?._id} className="py-2 px-4 hover:bg-gray-700" onClick={() => handleBrandClick(brand?._id)}>
-                  {brand?.name}
-                </li>
+                    {brand?.name}
+                  </li>
                 ))}
               </ul>
             )}
           </li>
           <li className="underline-animation"><Link to='/blog'>BLOG</Link></li>
           <li className="underline-animation"><Link to='/contact-us'>CONTACT US</Link></li>
-        </ul>       
+        </ul>
       </div>
     </nav>
   );

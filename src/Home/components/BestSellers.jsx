@@ -68,7 +68,7 @@ const BestSellers = () => {
                                 <img
                                     src={product.image}
                                     alt={product.name}
-                                    className="w-full h-64 object-cover rounded-lg"
+                                    className="w-full h-64 2xl:h-72 object-contain  rounded-lg"
                                 />
                             </div>
                             <p className="text-lg font-semibold mt-4 link block text-ellipsis truncate overflow-hidden whitespace-nowrap">{product.name}</p>

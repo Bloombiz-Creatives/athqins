@@ -125,9 +125,6 @@ export const ProductDetailsContents = () => {
 
         try {
              await dispatch(addEnquiry(dataToSubmit));
-            // if (response.status === 200) {
-            //     setSuccessMessage('Your enquiry has been successfully submitted.');
-            // }
         } catch (error) {
             console.error('Error submitting enquiry:', error);
         }
