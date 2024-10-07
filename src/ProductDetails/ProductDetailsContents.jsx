@@ -49,11 +49,11 @@ export const ProductDetailsContents = () => {
     }, [id, dispatch]);
     const [isOpen, setIsOpen] = useState(false);
 
-    const { product , productss} = useSelector((state) => state.ecomState);
+    const { product, productss } = useSelector((state) => state.ecomState);
     const ProductsDatas = product?.product || {};
     const AllProducts = productss?.productss || []
-    console.log(AllProducts,'All...');
-    
+    console.log(AllProducts, 'All...');
+
 
     const toggleModal = () => {
         setIsOpen(!isOpen);
@@ -121,10 +121,10 @@ export const ProductDetailsContents = () => {
         }
 
         const dataToSubmit = { ...formData };
-        clearForm(); 
+        clearForm();
 
         try {
-             await dispatch(addEnquiry(dataToSubmit));
+            await dispatch(addEnquiry(dataToSubmit));
         } catch (error) {
             console.error('Error submitting enquiry:', error);
         }
@@ -238,7 +238,7 @@ export const ProductDetailsContents = () => {
     ]
 
 
-   
+
 
     const testimonials = [
         {
@@ -319,16 +319,16 @@ export const ProductDetailsContents = () => {
         console.log('Product:', pro);
         console.log('Brand ID:', brandId);
         if (brandId === '66fa5515128cbdb0a930d04e' || brandId === '66fa552c128cbdb0a930d052') {
-          navigate(`/product_details/${pro?._id}`); 
+            navigate(`/product_details/${pro?._id}`);
         } else {
-          navigate(`/products/details/${pro?._id}`); 
+            navigate(`/products/details/${pro?._id}`);
         }
         window.scrollTo({
             top: 0,
             behavior: 'smooth', // This adds a smooth scrolling effect
         });
-      };
-    
+    };
+
 
     return (
         <div >
@@ -381,7 +381,9 @@ export const ProductDetailsContents = () => {
                         <div className="lg:w-1/2 text-center">
                             <h2 className="text-3xl font-semibold">Amazing Features</h2>
                             <p className="mt-4 text-gray-600">
-                            Experience unmatched precision and versatility with advanced imaging technology, designed for superior diagnostics across multiple specialties. Portable, user-friendly, and equipped with seamless connectivity, our systems enhance healthcare efficiency. </p>
+                                {/* Experience unmatched precision and versatility with advanced imaging technology, designed for superior diagnostics across multiple specialties. Portable, user-friendly, and equipped with seamless connectivity, our systems enhance healthcare efficiency. */}
+                                {ProductsDatas?.description}
+                            </p>
                         </div>
                     </div>
 
@@ -492,8 +494,7 @@ export const ProductDetailsContents = () => {
                                     <img
                                         src={ProductsDatas?.gallery2}
                                         alt="list feature"
-                                        // className="animate-bounce"
-                                        className='animate-upndown'
+                                        className='animate-upndown lg:block hidden'
                                     />
                                 </div>
                             </div>
@@ -611,7 +612,7 @@ export const ProductDetailsContents = () => {
                                             <h4 className="text-xl font-semibold mb-2">
                                                 <a href="#" className="hover:text-blue-600 link block text-ellipsis truncate overflow-hidden whitespace-nowrap">{product.name}</a>
                                             </h4>
-                                           
+
                                             <button className="bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-800 transition duration-300" onClick={() => handleViewClick(product)}>
                                                 Buy Now
                                             </button>
@@ -619,7 +620,7 @@ export const ProductDetailsContents = () => {
                                     </div>
                                 </SwiperSlide>
                             ))}
-                        </Swiper>  
+                        </Swiper>
 
                     </div>
                 </div>
@@ -816,9 +817,9 @@ export const ProductDetailsContents = () => {
                         {/* Right Section: Contact Form */}
                         <div className="w-full lg:w-1/2 px-4">
                             <div className="contact-form-area">
-                                    <div className="flex flex-wrap -mx-4">
-                                        <form onSubmit={handleSubmit} className='w-full'>
-                                            <div className='md:flex w-full'> 
+                                <div className="flex flex-wrap -mx-4">
+                                    <form onSubmit={handleSubmit} className='w-full'>
+                                        <div className='md:flex w-full'>
                                             <div className="w-full lg:w-1/2 px-4 mb-4">
                                                 <input
                                                     type="text"
@@ -841,40 +842,40 @@ export const ProductDetailsContents = () => {
                                                     onChange={handleChange}
                                                 />
                                             </div>
-                                            </div>
+                                        </div>
 
-                                            <div className="w-full px-4 mb-4">
-                                                <input
-                                                    type="text"
-                                                    id="subject"
-                                                    name="phone"
-                                                    className="form-control w-full p-4 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                                    placeholder="your phone number..."
-                                                    value={formData.phone}
-                                                    onChange={handleChange}
-                                                />
-                                            </div>
-                                            <div className="w-full px-4 mb-4">
-                                                <textarea
-                                                    id="message"
-                                                    name="companyname"
-                                                    className="form-control w-full p-4 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                                    placeholder="Message"
-                                                    value={formData.companyname}
-                                                    onChange={handleChange}
-                                                    rows="6"
-                                                ></textarea>
-                                            </div>
-                                            <div className="w-full px-4">
-                                                <button
-                                                    className="submit-btn w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition duration-300"
-                                                    type="submit"
-                                                >
-                                                    Submit Now
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                        <div className="w-full px-4 mb-4">
+                                            <input
+                                                type="text"
+                                                id="subject"
+                                                name="phone"
+                                                className="form-control w-full p-4 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                                placeholder="your phone number..."
+                                                value={formData.phone}
+                                                onChange={handleChange}
+                                            />
+                                        </div>
+                                        <div className="w-full px-4 mb-4">
+                                            <textarea
+                                                id="message"
+                                                name="companyname"
+                                                className="form-control w-full p-4 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                                placeholder="Message"
+                                                value={formData.companyname}
+                                                onChange={handleChange}
+                                                rows="6"
+                                            ></textarea>
+                                        </div>
+                                        <div className="w-full px-4">
+                                            <button
+                                                className="submit-btn w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition duration-300"
+                                                type="submit"
+                                            >
+                                                Submit Now
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
