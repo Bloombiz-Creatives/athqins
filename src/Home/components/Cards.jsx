@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import {  Machinaries } from '../../action/ecomAction';
+import { Machinaries } from '../../action/ecomAction';
 import { useNavigate } from 'react-router-dom';
 
 const Cards = () => {
@@ -15,26 +15,29 @@ const Cards = () => {
     const { Machinary } = useSelector((state) => state.ecomState);
     const products = Machinary?.Machinary || [];
     console.log();
-    
+
 
     const handleViewClick = (pro) => {
         const brandId = pro?.brand;
         console.log('Product:', pro);
         console.log('Brand ID:', brandId);
         if (brandId === '66fa5515128cbdb0a930d04e' || brandId === '66fa552c128cbdb0a930d052') {
-          navigate(`/product_details/${pro?._id}`); 
+            navigate(`/product_details/${pro?._id}`);
         } else {
-          navigate(`/products/details/${pro?._id}`); 
+            navigate(`/products/details/${pro?._id}`);
         }
-      };
+    };
 
 
     return (
         <div className='container mx-auto'>
             <div className='px-4 md:px-8 lg:px-16'>
-                <h2 className='relative flex justify-center items-center mt-4 md:mt-6 lg:mt-8 text-[24px] sm:text-[30px] md:text-[35px] lg:text-[40px] font-semibold text-gray-900 text-center'>
+                {/* <h2 className='relative flex justify-center items-center mt-4 md:mt-6 lg:mt-8 text-[24px] sm:text-[30px] md:text-[35px] lg:text-[40px] font-semibold text-gray-900 text-center'>
                     Empowering Healthcare with Advanced Hospital Machinery
-                </h2>
+                </h2> */}
+
+                <div className="text-center text-4xl font-semibold mt-8">Empowering Healthcare</div>
+                <div className="text-center text-2xl font-medium text-opacity-70 mb-8">Innovating Medical Technology for a Healthier Tomorrow</div>
             </div>
 
 
@@ -51,7 +54,7 @@ const Cards = () => {
                                 className="max-w-4/5 h-auto mx-auto"
                             />
                             <div className="font-bold mt-2">{product?.name}</div>
-                            <div className="text-sm text-gray-600  block overflow-hidden"  style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{product?.description}</div>
+                            <div className="text-sm text-gray-600  block overflow-hidden" style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{product?.description}</div>
                         </div>
                     </div>
                 ))}
