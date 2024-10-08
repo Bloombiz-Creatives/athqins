@@ -52,7 +52,6 @@ export const ProductDetailsContents = () => {
     const { product, productss } = useSelector((state) => state.ecomState);
     const ProductsDatas = product?.product || {};
     const AllProducts = productss?.productss || []
-    console.log(AllProducts, 'All...');
 
 
     const toggleModal = () => {
@@ -68,15 +67,12 @@ export const ProductDetailsContents = () => {
     });
 
     const [errors, setErrors] = useState({});
-    // const [successMessage, setSuccessMessage] = useState('');
 
-    // const dispatch = useDispatch();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
         setErrors({ ...errors, [name]: '' });
-        // setSuccessMessage('');
     };
 
     const validateEmail = (email) => {
@@ -125,6 +121,15 @@ export const ProductDetailsContents = () => {
 
         try {
             await dispatch(addEnquiry(dataToSubmit));
+
+            const { name, email, phone, companyname } = dataToSubmit;
+
+            const whatsappNumber = '919946555605';
+            const whatsappMessage = `Hello, my name is ${name}.\nphone: ${phone}.\n email: ${email}.\n Message : ${companyname}.`;
+
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappUrl, '_blank');
+
         } catch (error) {
             console.error('Error submitting enquiry:', error);
         }
@@ -311,13 +316,10 @@ export const ProductDetailsContents = () => {
     };
 
     const similarProducts = AllProducts.filter(product => product.brand === ProductsDatas.brand);
-    console.log(similarProducts, 'similar');
 
 
     const handleViewClick = (pro) => {
         const brandId = pro?.brand;
-        console.log('Product:', pro);
-        console.log('Brand ID:', brandId);
         if (brandId === '66fa5515128cbdb0a930d04e' || brandId === '66fa552c128cbdb0a930d052') {
             navigate(`/product_details/${pro?._id}`);
         } else {
@@ -325,7 +327,7 @@ export const ProductDetailsContents = () => {
         }
         window.scrollTo({
             top: 0,
-            behavior: 'smooth', // This adds a smooth scrolling effect
+            behavior: 'smooth',
         });
     };
 
@@ -415,7 +417,6 @@ export const ProductDetailsContents = () => {
                             <img
                                 src={ProductsDatas?.gallery1}
                                 alt="list feature"
-                                // className="animate-bounce"
                                 className='animate-upndown'
                             />
                         </div>

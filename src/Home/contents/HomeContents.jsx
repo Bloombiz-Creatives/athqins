@@ -21,7 +21,6 @@ const HomeContents = () => {
 
     // Listen for the 'newProduct' event from the server
     socket.on('newProduct', (data) => {
-      console.log('New product received:', data);
       setNewProduct(data);
 
       // Automatically hide the popup after 9 seconds

@@ -34,7 +34,6 @@ const Products = () => {
 
     useEffect(() => {
         if (location.state?.selectedCategory) {
-            console.log("Setting selected category:", location.state.selectedCategory);
             setSelectedCategory(location.state.selectedCategory);
         }
     }, [location.state]);
@@ -49,7 +48,6 @@ const Products = () => {
                 brand: selectedBrand,
                 name: debouncedQuery,
             };
-            console.log("Fetching products with query:", query);
             dispatch(fetchProduct(query));
         }
     }, [selectedCategory, selectedSubCategory, selectedBrand, debouncedQuery, dispatch]);
@@ -67,8 +65,6 @@ const Products = () => {
 
     const handleViewClick = (pro) => {
         const brandId = pro?.brand;
-        console.log('Product:', pro);
-        console.log('Brand ID:', brandId);
         if (brandId === '66fa5515128cbdb0a930d04e' || brandId === '66fa552c128cbdb0a930d052') {
             navigate(`/product_details/${pro?._id}`);
         } else {

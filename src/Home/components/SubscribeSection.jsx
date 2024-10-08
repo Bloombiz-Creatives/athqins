@@ -72,10 +72,20 @@ const SubscribeSection = () => {
       if (response.status === 200) {
         setSuccessMessage('Your enquiry has been successfully submitted.');
       }
+      const { name, email, phone, companyname } = dataToSubmit;
+
+      const whatsappNumber = '919946555605';
+      const whatsappMessage = `Hello, my name is ${name}.\nphone: ${phone}.\n email: ${email}.\n company : ${companyname}.`;
+
+      const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappMessage)}`;
+      window.open(whatsappUrl, '_blank');
+      
     } catch (error) {
       console.error('Error submitting enquiry:', error);
     }
   };
+
+ 
 
   return (
     <div
@@ -136,7 +146,6 @@ const SubscribeSection = () => {
               {successMessage && (
                 <p className="mt-4 text-green-500 font-bold">{successMessage}</p>
               )}
-
 
             </div>
             <button
