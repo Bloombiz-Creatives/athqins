@@ -155,7 +155,7 @@ const ProductOverview = () => {
                                     src={ProductsDatas?.gallery1}
                                     alt="thumbnail"
                                     onClick={() => handleImageClick(ProductsDatas?.gallery1)}
-                                    className="md:w-20 md:h-20 h-12 w-12 object-cover border cursor-pointer"
+                                    className="md:w-20 md:h-20 h-12 w-12 object-contain border cursor-pointer"
                                 />
                             )}
                             {ProductsDatas?.gallery2 && (
@@ -163,7 +163,7 @@ const ProductOverview = () => {
                                     src={ProductsDatas?.gallery2}
                                     alt="thumbnail"
                                     onClick={() => handleImageClick(ProductsDatas?.gallery2)}
-                                    className="md:w-20 md:h-20 h-12 w-12 object-cover border cursor-pointer"
+                                    className="md:w-20 md:h-20 h-12 w-12 object-contain border cursor-pointer"
                                 />
                             )}
                             {ProductsDatas?.gallery3 && (
@@ -171,7 +171,7 @@ const ProductOverview = () => {
                                     src={ProductsDatas?.gallery3}
                                     alt="thumbnail"
                                     onClick={() => handleImageClick(ProductsDatas?.gallery3)}
-                                    className="md:w-20 md:h-20 h-12 w-12 object-cover border cursor-pointer"
+                                    className="md:w-20 md:h-20 h-12 w-12 object-contain border cursor-pointer"
                                 />
                             )}
                             {ProductsDatas?.gallery4 && (
@@ -179,7 +179,7 @@ const ProductOverview = () => {
                                     src={ProductsDatas?.gallery4}
                                     alt="thumbnail"
                                     onClick={() => handleImageClick(ProductsDatas?.gallery4)}
-                                    className="md:w-20 md:h-20 h-12 w-12 object-cover border cursor-pointer"
+                                    className="md:w-20 md:h-20 h-12 w-12 object-contain border cursor-pointer"
                                 />
                             )}
                             {ProductsDatas?.gallery5 && (
@@ -187,7 +187,7 @@ const ProductOverview = () => {
                                     src={ProductsDatas?.gallery5}
                                     alt="thumbnail"
                                     onClick={() => handleImageClick(ProductsDatas?.gallery5)}
-                                    className="md:w-20 md:h-20 h-12 w-12 object-cover border cursor-pointer"
+                                    className="md:w-20 md:h-20 h-12 w-12 object-contain border cursor-pointer"
                                 />
                             )}
                         </div>
