@@ -35,7 +35,7 @@ const WhyChooseUs = () => {
                     <div>
                       <h3 className="text-xl font-extrabold lg:text-black text-white">Mission</h3>
                       <p className="text-[#999] lg:w-[290px]">
-                        To provide cutting-edge equipment and solutions that empower healthcare professionals to deliver precise and life-saving diagnoses.
+                        We foster healthcare innovation by providing comprehensive bio-medical solution with exceptional service and application support.
                       </p>
                     </div>
                   </div>
@@ -49,7 +49,7 @@ const WhyChooseUs = () => {
                     <div>
                       <h3 className="text-xl font-extrabold lg:text-black text-white">Vision</h3>
                       <p className="text-[#999] lg:w-[290px]">
-                        To be a global leader in medical equipment driving advancement in healthcare technology and improving patient outcomes worldwide.
+                        Empowering healthcare. Every step of the way. As your trusted partner.
                       </p>
                     </div>
                   </div>
