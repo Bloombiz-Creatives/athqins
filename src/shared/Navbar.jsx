@@ -13,7 +13,6 @@ const Navbar = () => {
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
-
   const solutionsRef = useRef(null);
   const servicesRef = useRef(null);
 
@@ -40,6 +39,14 @@ const Navbar = () => {
     navigate('/products/services', { state: { selectedBrand: brandId } })
     setIsNavOpen(false);
     setIsSolutionsDropdownOpen(false);
+  }
+
+  const toggleDropdownSolutions = () => {
+    setIsSolutionsDropdownOpen((prev) => !prev);
+  };
+
+  const toggleDropdownServices = () => {
+    setIsServicesDropdownOpen((prev) => !prev);
   }
 
 
@@ -229,8 +236,9 @@ const Navbar = () => {
 
           <li
             className="relative underline-animation"
-            onMouseEnter={() => setIsSolutionsDropdownOpen(true)}
-            onMouseLeave={() => setIsSolutionsDropdownOpen(false)}
+            // onMouseEnter={() => setIsSolutionsDropdownOpen(true)}
+            // onMouseLeave={() => setIsSolutionsDropdownOpen(false)}
+            onClick={toggleDropdownSolutions}
             ref={solutionsRef}
           >
             <Link>SOLUTIONS</Link>
@@ -249,8 +257,9 @@ const Navbar = () => {
 
           <li
             className="relative underline-animation"
-            onMouseEnter={() => setIsServicesDropdownOpen(true)}
-            onMouseLeave={() => setIsServicesDropdownOpen(false)}
+            // onMouseEnter={() => setIsServicesDropdownOpen(true)}
+            // onMouseLeave={() => setIsServicesDropdownOpen(false)}
+            onClick={toggleDropdownServices}
             ref={servicesRef}
           >
             <Link>SERVICES</Link>

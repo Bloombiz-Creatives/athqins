@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBrand, fetchCategory, fetchProduct, fetchSubCategory } from '../action/ecomAction';
 import { useNavigate } from 'react-router-dom';
+import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
 
 const OurProductsContainer = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const OurProductsContainer = () => {
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedQuery(query);
-    }, 300); // 300ms debounce time
+    }, 300);
 
     return () => {
       clearTimeout(handler);
@@ -53,24 +54,30 @@ const OurProductsContainer = () => {
   const SubCategory = subcategory?.subcategory || [];
   const prdcts = productss?.productss || [];
 
-    const handleViewClick = (pro) => {
-      const brandId = pro?.brand;
-      if (brandId === '66fa5515128cbdb0a930d04e' || brandId === '66fa552c128cbdb0a930d052') {
-        navigate(`/product_details/${pro?._id}`); 
-      } else {
-        navigate(`/products/details/${pro?._id}`); 
-      }
-    };
+  const handleViewClick = (pro) => {
+    const brandId = pro?.brand;
+    if (brandId === '66fa5515128cbdb0a930d04e' || brandId === '66fa552c128cbdb0a930d052') {
+      navigate(`/product_details/${pro?._id}`);
+    } else {
+      navigate(`/products/details/${pro?._id}`);
+    }
+  };
 
-
-      // Function to scroll to the top if screen width is less than 768px
+  // Function to scroll to the top if screen width is less than 768px
   const scrollToTopOnMobile = () => {
     if (window.innerWidth < 768) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
-  
+
+  const handleClearFilters = () => {
+    setSelectedCategory('');
+    setSelectedSubCategory('');
+    setSelectedBrand('');
+    setQuery('');
+  };
+
 
   return (
     <div className='container mx-auto'>
@@ -81,6 +88,78 @@ const OurProductsContainer = () => {
             <div className="w-full lg:w-1/4 px-4 order-1 lg:order-none">
               <div className="shop-sidebar relative">
                 {/* Product Category Sidebar */}
+
+                <button
+                  onClick={handleClearFilters}
+                  className="w-full mb-6 bg-[#e0e0e0] text-[#333] hover:text-white py-2 px-4 rounded-lg hover:bg-[#81D8D0] transition duration-200 cursor-pointer"
+                >
+                  <DeleteForeverOutlinedIcon /> Clear All Filters
+                </button>
+
+                {/* Brand Filter Sidebar */}
+                <div className="shop-sidebar__box border border-gray-100 rounded-lg p-4 mb-8">
+                  <h6 className="text-xl border-b border-gray-100 pb-6 mb-6">Filter by Brand</h6>
+                  <ul className=" overflow-y-auto max-h-80 scrollbar-thin">
+                    {Brands.map((brand, index) => (
+                      <li className="mb-6" key={index}>
+                        <div className="form-check">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="brand"
+                            id={`brand${index + 1}`}
+                            value={brand._id}
+                            checked={selectedBrand === brand._id}
+                            onChange={() => {
+                              selectedBrand === brand?._id
+                                ? setSelectedBrand('') // Unselect if clicked again
+                                : setSelectedBrand(brand?._id);
+                              scrollToTopOnMobile();
+                            }}
+                            onDoubleClick={() => setSelectedBrand('')} // Handle double-click to unselect
+                          />
+                          <label className="form-check-label ml-2" htmlFor={`brand${index + 1}`}>
+                            {brand?.name}
+                          </label>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* SubCategory Filter Sidebar */}
+                <div className="shop-sidebar__box border border-gray-100 rounded-lg p-4 mb-8">
+                  <h6 className="text-xl border-b border-gray-100 pb-6 mb-6">Filter by SubCategory</h6>
+                  {/* <ul className="max-h-135 overflow-y-auto scrollbar-thin"> */}
+                  <ul className=" overflow-y-auto max-h-[380px] scrollbar-thin">
+                    {SubCategory.map((subCategory, index) => (
+                      <li className="mb-6" key={index}>
+                        <div className="form-check">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="subCategory"
+                            id={`subCategory${index + 1}`}
+                            value={subCategory?._id}
+                            checked={selectedSubCategory === subCategory?._id}
+                            onChange={() => {
+                              selectedSubCategory === subCategory?._id
+                                ? setSelectedSubCategory('') // Unselect if double-click
+                                : setSelectedSubCategory(subCategory?._id);
+                              scrollToTopOnMobile();
+                            }}
+                            onDoubleClick={() => setSelectedSubCategory('')} // Handle double-click to unselect
+                          />
+                          <label className="form-check-label ml-2" htmlFor={`subCategory${index + 1}`}>
+                            {subCategory?.name}
+                          </label>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+
                 <div className="shop-sidebar__box border border-gray-100 rounded-lg p-4 mb-8">
                   <h6 className="text-xl border-b border-gray-100 pb-6 mb-6">Product Category</h6>
                   <ul className=" overflow-y-auto max-h-[450px] scrollbar-thin">
@@ -111,68 +190,6 @@ const OurProductsContainer = () => {
                   </ul>
                 </div>
 
-                {/* SubCategory Filter Sidebar */}
-                <div className="shop-sidebar__box border border-gray-100 rounded-lg p-4 mb-8">
-                  <h6 className="text-xl border-b border-gray-100 pb-6 mb-6">Filter by SubCategory</h6>
-                  {/* <ul className="max-h-135 overflow-y-auto scrollbar-thin"> */}
-                  <ul className=" overflow-y-auto max-h-[380px] scrollbar-thin">
-                    {SubCategory.map((subCategory, index) => (
-                      <li className="mb-6" key={index}>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="radio"
-                            name="subCategory"
-                            id={`subCategory${index + 1}`}
-                            value={subCategory?._id}
-                            checked={selectedSubCategory === subCategory?._id}
-                            onChange={() =>{
-                              selectedSubCategory === subCategory?._id
-                                ? setSelectedSubCategory('') // Unselect if double-click
-                                : setSelectedSubCategory(subCategory?._id);
-                                scrollToTopOnMobile();
-                            }}
-                            onDoubleClick={() => setSelectedSubCategory('')} // Handle double-click to unselect
-                          />
-                          <label className="form-check-label ml-2" htmlFor={`subCategory${index + 1}`}>
-                            {subCategory?.name}
-                          </label>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Brand Filter Sidebar */}
-                <div className="shop-sidebar__box border border-gray-100 rounded-lg p-4 mb-8">
-                  <h6 className="text-xl border-b border-gray-100 pb-6 mb-6">Filter by Brand</h6>
-                  <ul className=" overflow-y-auto max-h-80 scrollbar-thin">
-                    {Brands.map((brand, index) => (
-                      <li className="mb-6" key={index}>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="radio"
-                            name="brand"
-                            id={`brand${index + 1}`}
-                            value={brand._id}
-                            checked={selectedBrand === brand._id}
-                            onChange={() =>{
-                              selectedBrand === brand?._id
-                                ? setSelectedBrand('') // Unselect if clicked again
-                                : setSelectedBrand(brand?._id);
-                                scrollToTopOnMobile();
-                            }}
-                            onDoubleClick={() => setSelectedBrand('')} // Handle double-click to unselect
-                          />
-                          <label className="form-check-label ml-2" htmlFor={`brand${index + 1}`}>
-                            {brand?.name}
-                          </label>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
             </div>
             {/* Sidebar End */}
@@ -239,12 +256,11 @@ const OurProductsContainer = () => {
         </div>
       </section>
 
-
-      
     </div>
   );
 };
 
 export default OurProductsContainer;
+
 
 

@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBrand, fetchCategory, fetchProduct, fetchSubCategory } from '../action/ecomAction';
 import { useLocation, useNavigate } from 'react-router-dom';
+import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
+
 
 const Services = () => {
 
     const dispatch = useDispatch();
     const location = useLocation();
     const navigate = useNavigate();
-
 
     const [selectedCategory, setSelectedCategory] = useState('');
     const [selectedSubCategory, setSelectedSubCategory] = useState('');
@@ -76,6 +77,20 @@ const Services = () => {
         }
     };
 
+    const handleClearFilters = () => {
+        setSelectedCategory('');
+        setSelectedSubCategory('');
+        setSelectedBrand('');
+        setQuery('');
+        
+        dispatch(fetchProduct({
+            category: '',
+            sub_cat: '',
+            brand: '',
+            name: '',
+        }));
+    };
+
 
 
 
@@ -87,6 +102,78 @@ const Services = () => {
                         {/* Sidebar Start */}
                         <div className="w-full lg:w-1/4 px-4  order-1 lg:order-none">
                             <div className="shop-sidebar relative">
+
+                            <button
+                                    onClick={handleClearFilters}
+                                    className="w-full mb-6 bg-[#e0e0e0] text-[#333] hover:text-white py-2 px-4 rounded-lg hover:bg-[#81D8D0] transition duration-200 cursor-pointer"
+                                >
+                                    <DeleteForeverOutlinedIcon /> Clear All Filters
+                                </button>
+
+
+                                  {/* Brand Filter Sidebar */}
+                                  <div className="shop-sidebar__box border border-gray-100 rounded-lg p-8 mb-8">
+                                    <h6 className="text-xl border-b border-gray-100 pb-6 mb-6">Filter by Brand</h6>
+                                    <ul className=" overflow-y-auto max-h-80 scrollbar-thin">
+                                    {Brands.map((brand, index) => (
+                                            <li className="mb-6" key={index}>
+                                                <div className="form-check">
+                                                    <input
+                                                        className="form-check-input"
+                                                        type="radio"
+                                                        name="brand"
+                                                        id={`brand${index + 1}`}
+                                                        value={brand._id}
+                                                        checked={selectedBrand === brand._id}
+                                                        // onChange={() => setSelectedBrand(brand._id)}
+                                                        onChange={() =>{
+                                                            selectedBrand === brand?._id
+                                                                ? setSelectedBrand('') // Unselect if clicked again
+                                                                : setSelectedBrand(brand?._id);
+                                                                scrollToTopOnMobile();
+                                                        }}
+                                                        onDoubleClick={() => setSelectedBrand('')} // Handle double-click to unselect
+                                                    />
+                                                    <label className="form-check-label ml-2" htmlFor={`brand${index + 1}`}>
+                                                        {brand?.name}
+                                                    </label>
+                                                </div>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                  {/* SubCategory Filter Sidebar */}
+                                  <div className="shop-sidebar__box border border-gray-100 rounded-lg p-8 mb-8">
+                                    <h6 className="text-xl border-b border-gray-100 pb-6 mb-6">Filter by SubCategory</h6>
+                                    <ul className=" overflow-y-auto max-h-[380px] scrollbar-thin">
+                                    {SubCategory.map((subCategory, index) => (
+                                            <li className="mb-6" key={index}>
+                                                <div className="form-check">
+                                                    <input
+                                                        className="form-check-input"
+                                                        type="radio"
+                                                        name="subCategory"
+                                                        id={`subCategory${index + 1}`}
+                                                        value={subCategory?._id}
+                                                        checked={selectedSubCategory === subCategory?._id}
+                                                        onChange={() =>{
+                                                            selectedSubCategory === subCategory?._id
+                                                                ? setSelectedSubCategory('') // Unselect if double-click
+                                                                : setSelectedSubCategory(subCategory?._id);
+                                                                scrollToTopOnMobile();
+                                                        }}
+                                                        onDoubleClick={() => setSelectedSubCategory('')} // Handle double-click to unselect
+                                                    />
+                                                    <label className="form-check-label ml-2" htmlFor={`subCategory${index + 1}`}>
+                                                        {subCategory?.name}
+                                                    </label>
+                                                </div>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
                                 {/* Product Category Sidebar */}
                                 <div className="shop-sidebar__box border border-gray-100 rounded-lg p-8 mb-8">
                                     <h6 className="text-xl border-b border-gray-100 pb-6 mb-6">Product Category</h6>
@@ -119,68 +206,7 @@ const Services = () => {
 
                                 </div>
 
-                                {/* SubCategory Filter Sidebar */}
-                                <div className="shop-sidebar__box border border-gray-100 rounded-lg p-8 mb-8">
-                                    <h6 className="text-xl border-b border-gray-100 pb-6 mb-6">Filter by SubCategory</h6>
-                                    <ul className=" overflow-y-auto max-h-[380px] scrollbar-thin">
-                                    {SubCategory.map((subCategory, index) => (
-                                            <li className="mb-6" key={index}>
-                                                <div className="form-check">
-                                                    <input
-                                                        className="form-check-input"
-                                                        type="radio"
-                                                        name="subCategory"
-                                                        id={`subCategory${index + 1}`}
-                                                        value={subCategory?._id}
-                                                        checked={selectedSubCategory === subCategory?._id}
-                                                        onChange={() =>{
-                                                            selectedSubCategory === subCategory?._id
-                                                                ? setSelectedSubCategory('') // Unselect if double-click
-                                                                : setSelectedSubCategory(subCategory?._id);
-                                                                scrollToTopOnMobile();
-                                                        }}
-                                                        onDoubleClick={() => setSelectedSubCategory('')} // Handle double-click to unselect
-                                                    />
-                                                    <label className="form-check-label ml-2" htmlFor={`subCategory${index + 1}`}>
-                                                        {subCategory?.name}
-                                                    </label>
-                                                </div>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                                {/* Brand Filter Sidebar */}
-                                <div className="shop-sidebar__box border border-gray-100 rounded-lg p-8 mb-8">
-                                    <h6 className="text-xl border-b border-gray-100 pb-6 mb-6">Filter by Brand</h6>
-                                    <ul className=" overflow-y-auto max-h-80 scrollbar-thin">
-                                    {Brands.map((brand, index) => (
-                                            <li className="mb-6" key={index}>
-                                                <div className="form-check">
-                                                    <input
-                                                        className="form-check-input"
-                                                        type="radio"
-                                                        name="brand"
-                                                        id={`brand${index + 1}`}
-                                                        value={brand._id}
-                                                        checked={selectedBrand === brand._id}
-                                                        // onChange={() => setSelectedBrand(brand._id)}
-                                                        onChange={() =>{
-                                                            selectedBrand === brand?._id
-                                                                ? setSelectedBrand('') // Unselect if clicked again
-                                                                : setSelectedBrand(brand?._id);
-                                                                scrollToTopOnMobile();
-                                                        }}
-                                                        onDoubleClick={() => setSelectedBrand('')} // Handle double-click to unselect
-                                                    />
-                                                    <label className="form-check-label ml-2" htmlFor={`brand${index + 1}`}>
-                                                        {brand?.name}
-                                                    </label>
-                                                </div>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
+                              
                             </div>
                         </div>
                         {/* Sidebar End */}
