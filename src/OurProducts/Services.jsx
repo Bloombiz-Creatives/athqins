@@ -41,14 +41,16 @@ const Services = () => {
     }, [location.state]);
 
     useEffect(() => {
-        const query = {
-            category: selectedCategory,
-            sub_cat: selectedSubCategory,
-            brand: selectedBrand,
-            name: debouncedQuery,
-        };
+        if (selectedBrand || selectedCategory || selectedSubCategory || debouncedQuery) {
+            const query = {
+                category: selectedCategory,
+                sub_cat: selectedSubCategory,
+                brand: selectedBrand,
+                name: debouncedQuery,
+            };
+            dispatch(fetchProduct(query));
 
-        dispatch(fetchProduct(query));
+        }
     }, [selectedCategory, selectedSubCategory, selectedBrand, debouncedQuery, dispatch]);
 
     const handleSearchChange = (e) => {
@@ -82,7 +84,7 @@ const Services = () => {
         setSelectedSubCategory('');
         setSelectedBrand('');
         setQuery('');
-        
+
         dispatch(fetchProduct({
             category: '',
             sub_cat: '',
@@ -103,7 +105,7 @@ const Services = () => {
                         <div className="w-full lg:w-1/4 px-4  order-1 lg:order-none">
                             <div className="shop-sidebar relative">
 
-                            <button
+                                <button
                                     onClick={handleClearFilters}
                                     className="w-full mb-6 bg-[#e0e0e0] text-[#333] hover:text-white py-2 px-4 rounded-lg hover:bg-[#81D8D0] transition duration-200 cursor-pointer"
                                 >
@@ -111,11 +113,11 @@ const Services = () => {
                                 </button>
 
 
-                                  {/* Brand Filter Sidebar */}
-                                  <div className="shop-sidebar__box border border-gray-100 rounded-lg p-8 mb-8">
+                                {/* Brand Filter Sidebar */}
+                                <div className="shop-sidebar__box border border-gray-100 rounded-lg p-8 mb-8">
                                     <h6 className="text-xl border-b border-gray-100 pb-6 mb-6">Filter by Brand</h6>
                                     <ul className=" overflow-y-auto max-h-80 scrollbar-thin">
-                                    {Brands.map((brand, index) => (
+                                        {Brands.map((brand, index) => (
                                             <li className="mb-6" key={index}>
                                                 <div className="form-check">
                                                     <input
@@ -126,11 +128,11 @@ const Services = () => {
                                                         value={brand._id}
                                                         checked={selectedBrand === brand._id}
                                                         // onChange={() => setSelectedBrand(brand._id)}
-                                                        onChange={() =>{
+                                                        onChange={() => {
                                                             selectedBrand === brand?._id
                                                                 ? setSelectedBrand('') // Unselect if clicked again
                                                                 : setSelectedBrand(brand?._id);
-                                                                scrollToTopOnMobile();
+                                                            scrollToTopOnMobile();
                                                         }}
                                                         onDoubleClick={() => setSelectedBrand('')} // Handle double-click to unselect
                                                     />
@@ -143,11 +145,11 @@ const Services = () => {
                                     </ul>
                                 </div>
 
-                                  {/* SubCategory Filter Sidebar */}
-                                  <div className="shop-sidebar__box border border-gray-100 rounded-lg p-8 mb-8">
+                                {/* SubCategory Filter Sidebar */}
+                                <div className="shop-sidebar__box border border-gray-100 rounded-lg p-8 mb-8">
                                     <h6 className="text-xl border-b border-gray-100 pb-6 mb-6">Filter by SubCategory</h6>
                                     <ul className=" overflow-y-auto max-h-[380px] scrollbar-thin">
-                                    {SubCategory.map((subCategory, index) => (
+                                        {SubCategory.map((subCategory, index) => (
                                             <li className="mb-6" key={index}>
                                                 <div className="form-check">
                                                     <input
@@ -157,11 +159,11 @@ const Services = () => {
                                                         id={`subCategory${index + 1}`}
                                                         value={subCategory?._id}
                                                         checked={selectedSubCategory === subCategory?._id}
-                                                        onChange={() =>{
+                                                        onChange={() => {
                                                             selectedSubCategory === subCategory?._id
                                                                 ? setSelectedSubCategory('') // Unselect if double-click
                                                                 : setSelectedSubCategory(subCategory?._id);
-                                                                scrollToTopOnMobile();
+                                                            scrollToTopOnMobile();
                                                         }}
                                                         onDoubleClick={() => setSelectedSubCategory('')} // Handle double-click to unselect
                                                     />
@@ -178,7 +180,7 @@ const Services = () => {
                                 <div className="shop-sidebar__box border border-gray-100 rounded-lg p-8 mb-8">
                                     <h6 className="text-xl border-b border-gray-100 pb-6 mb-6">Product Category</h6>
                                     <ul className=" overflow-y-auto max-h-[450px] scrollbar-thin">
-                                    {Category.map((category, index) => (
+                                        {Category.map((category, index) => (
                                             <li className="mb-6 " key={index}>
                                                 <div className="form-check">
                                                     <input
@@ -206,7 +208,7 @@ const Services = () => {
 
                                 </div>
 
-                              
+
                             </div>
                         </div>
                         {/* Sidebar End */}
@@ -251,8 +253,8 @@ const Services = () => {
                                         </a>
                                         <div className="product-card__content mt-4">
                                             <h6 className="title text-lg font-semibold mt-3 mb-2">
-                                            <a className="link block text-ellipsis truncate overflow-hidden whitespace-nowrap cursor-pointer" onClick={() => handleViewClick(pro)}>
-                                            {pro?.name}
+                                                <a className="link block text-ellipsis truncate overflow-hidden whitespace-nowrap cursor-pointer" onClick={() => handleViewClick(pro)}>
+                                                    {pro?.name}
                                                 </a>
                                             </h6>
                                             <div className="product-card__price my-5">

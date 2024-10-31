@@ -38,7 +38,8 @@ const Navbar = () => {
   const handleBrandClick = (brandId) => {
     navigate('/products/services', { state: { selectedBrand: brandId } })
     setIsNavOpen(false);
-    setIsSolutionsDropdownOpen(false);
+    // setIsSolutionsDropdownOpen(false);
+    setIsServicesDropdownOpen(false);
   }
 
   const toggleDropdownSolutions = () => {
