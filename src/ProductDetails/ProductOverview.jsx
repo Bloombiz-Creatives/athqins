@@ -96,7 +96,7 @@ const ProductOverview = () => {
         } else if (formData.phone.length < 10) {
             newErrors.phone = 'Phone number must be at least 10 digits';
         }
-        if (!formData.companyname) newErrors.companyname = 'Company name is required';
+        // if (!formData.companyname) newErrors.companyname = 'Company name is required';
         return newErrors;
     };
 

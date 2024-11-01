@@ -41,7 +41,7 @@ const SubscribeSection = () => {
     } else if (formData.phone.length < 10) {
       newErrors.phone = 'Phone number must be at least 10 digits';
     }
-    if (!formData.companyname) newErrors.companyname = 'Company name is required';
+    // if (!formData.companyname) newErrors.companyname = 'Company name is required';
     return newErrors;
   };
 
@@ -140,7 +140,7 @@ const SubscribeSection = () => {
                 placeholder="Enter your company name..."
                 value={formData.companyname}
                 onChange={handleChange}
-                className={`px-4 py-3 w-full text-gray-900 rounded-lg focus:outline-none ${errors.companyname ? 'border-2 border-red-500' : 'border'}`}
+                className= " px-4 py-3 w-full text-gray-900 rounded-lg focus:outline-none"
               />
 
               {successMessage && (

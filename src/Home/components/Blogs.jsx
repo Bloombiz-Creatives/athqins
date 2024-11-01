@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import im1 from '../../assets/blogs/1.jpg';
 import im2 from '../../assets/blogs/2.jpg';
 import im3 from '../../assets/blogs/3.jpg';
@@ -62,10 +63,10 @@ const Blogs = () => {
                 </div>
                 {/* <a href="blog.html" className="text-uppercase mt-2 md:mt-4 pxp-animate">Read More</a> */}
                 <div className="flex items-center mt-4">
-                        <a href="#" className="text-black font-bold uppercase tracking-wider group flex items-center">
+                        <Link to='/blog' className="text-black font-bold uppercase tracking-wider group flex items-center">
                         Read More
                             <span className="ml-2 inline-block h-0.5 w-10 bg-black transition-all duration-300 ease-in-out group-hover:w-20"></span>
-                        </a>
+                        </Link>
                     </div>
             </div>
         </div>
