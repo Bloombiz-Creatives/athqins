@@ -126,7 +126,7 @@ const ProductOverview = () => {
             await dispatch(addEnquiry(dataToSubmit));
             const { name, email, phone, companyname } = dataToSubmit;
 
-            const whatsappNumber = '919946555605';
+            const whatsappNumber = '918891136222';
             const whatsappMessage = `Hello, my name is ${name}.\nphone: ${phone}.\n email: ${email}.\n Message : ${companyname}.`;
 
             const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappMessage)}`;
@@ -239,7 +239,7 @@ const ProductOverview = () => {
 
 
                         <a
-                            href={`https://wa.me/919946555605?text=${encodeURIComponent(
+                            href={`https://wa.me/918891136222?text=${encodeURIComponent(
                                 `Hi, I would like to inquire about the product: ${ProductsDatas?.name}.\n\n Description: ${ProductsDatas?.description}\n\n Category: ${getCategoryName(ProductsDatas?.category)}\n\n Subcategory: ${getSubCategoryName(ProductsDatas?.sub_cat)}\n\n Brand: ${getBrandName(ProductsDatas?.brand)}\n\n You can view the product here: ${window.location.href}`
                             )}`}
                             target="_blank"

@@ -3,8 +3,10 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { Link } from 'react-router-dom';
 import Logo from "../assets/Atqins.png";
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+// import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { useEffect, useState } from 'react';
+import { IoLogoWhatsapp } from "react-icons/io";
+
 
 
 
@@ -103,12 +105,12 @@ const Footer = () => {
 
       <div className={`w-full flex justify-end col-span-4 z-10 ${isSticky ? 'fixed bottom-36' : ''}`}>
         <a
-          href="https://wa.me/919946555605"
+          href="https://wa.me/918891136222"
           target="_blank"
           rel="noopener noreferrer"
-          className='w-[64px] rounded-full bg-green-500 h-16 cursor-pointer flex items-center justify-center hover:transform hover:scale-105 mr-6 animate-upndown'
+          className='w-[64px] rounded-full bg-white h-16 cursor-pointer flex items-center justify-center hover:transform hover:scale-105 mr-6 animate-upndown'
         >
-          <WhatsAppIcon className='text-white' style={{ fontSize: '36px' }} />
+          <IoLogoWhatsapp className='text-green-500' style={{ fontSize: '50px' }} />
         </a>
       </div>
 
