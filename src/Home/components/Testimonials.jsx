@@ -22,9 +22,12 @@ const Testimonials = () => {
     
     return (
         <div
-            className="relative bg-center bg-cover bg-no-repeat py-24 px-4 "
+            className="relative bg-center bg-cover bg-no-repeat py-24 px-4   "
             style={{ backgroundImage: `url(${testimBg})` }}
         >
+
+      {/* <div className="absolute inset-0 bg-black bg-opacity-50"></div>    */}
+
 
             <div className="container mx-auto flex flex-col lg:flex-row items-start overflow-hidden">
                 <div className="lg:w-1/4 w-full mb-8 lg:mb-0 lg:mr-8 md:ml-10 lg:px-4 ">

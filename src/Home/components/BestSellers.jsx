@@ -49,10 +49,10 @@ const BestSellers = () => {
                         slidesPerView: 1,
                     },
                     425: {
-                        slidesPerView: 2, // 2 slides per view on mobile devices
+                        slidesPerView: 2, 
                     },
                     768: {
-                        slidesPerView: 3, // 3 slides per view on tablets
+                        slidesPerView: 3, 
                     },
                     1024: {
                         slidesPerView: 3.5, 
@@ -61,7 +61,7 @@ const BestSellers = () => {
             >
                 {Products.map((product) => (
                     <SwiperSlide key={product._id} className="swiper-slide" style={{ paddingBottom: '40px' }}>
-                        <div className="border border-gray-300 rounded-xl p-6 cursor-pointer " onClick={() => handleViewClick(product)}>
+                        <div className="shadow-2xl rounded-xl p-4 cursor-pointer ">
                             <div className="flex justify-center items-center ">
                                 <img
                                     src={product.image}
@@ -69,7 +69,10 @@ const BestSellers = () => {
                                     className="w-full h-64 2xl:h-72 object-contain  rounded-lg"
                                 />
                             </div>
-                            <p className="text-lg font-semibold mt-4 link block text-ellipsis truncate overflow-hidden whitespace-nowrap">{product.name}</p>
+                            <div className='flex flex-col justify-center items-center gap-2'>
+                            <p className="text-[20px] font-semibold  link block text-ellipsis truncate overflow-hidden whitespace-nowrap">{product.name}</p>
+                            <button className='bg-blue-950 py-2 px-3 text-sm text-white rounded-md' onClick={() => handleViewClick(product)}>VIEW IN DETAIL</button>
+                            </div>
                         </div>
                     </SwiperSlide>
                 ))}

@@ -51,6 +51,9 @@ export default {
       screens: {
         '2.5xl': '2560px', // Custom breakpoint for 2560px screens
       },
+      fontFamily: {
+        sans: ['Cabinet Grotesk', 'sans-serif'], 
+      },
     },
   },
   plugins: [],

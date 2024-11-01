@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchHomeHero } from '../../action/ecomAction';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
     const [activeSlide, setActiveSlide] = useState(0);
@@ -62,9 +63,9 @@ const Hero = () => {
         setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length);
     };
 
-    const handleThumbnailClick = (index) => {
-        setActiveSlide(index);
-    };
+    // const handleThumbnailClick = (index) => {
+    //     setActiveSlide(index);
+    // };
 
     return (
         <div className="relative h-screen">
@@ -94,7 +95,7 @@ const Hero = () => {
                         </p>
                     </div>
 
-                    <div className="absolute flex space-x-2 p-4 gap-2">
+                    {/* <div className="absolute flex space-x-2 p-4 gap-2">
                         {slides.map((slide, index) => (
                             <img
                                 key={index}
@@ -104,19 +105,19 @@ const Hero = () => {
                                 onClick={() => handleThumbnailClick(index)}
                             />
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
             <div className="absolute bottom-0 left-0 w-[70%] md:w-1/2 h-32 bg-black bg-opacity-80 flex items-center justify-between md:px-16 px-7">
-                <div className="text-white">
+                {/* <div className="text-white">
                     <span className="md:text-3xl font-bold text-[12px]">${slides[activeSlide]?.price}</span>
-                </div>
+                </div> */}
                 <div className="flex items-center">
-                    <a href="#" className="relative text-white font-light md:font-bold uppercase tracking-wider group flex items-center">
+                    <Link to='/our_products' className="relative text-white font-light md:font-bold uppercase tracking-wider group flex items-center">
                         View Details
                         <span className="ml-2 inline-block h-0.5 w-5 md:w-10 bg-white transition-all duration-300 ease-in-out md:group-hover:w-20 group-hover:w-10"></span>
-                    </a>
+                    </Link>
                 </div>
             </div>
 
