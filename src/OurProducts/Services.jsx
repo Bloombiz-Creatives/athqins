@@ -101,8 +101,6 @@ const Services = () => {
         <div>
             <div className="bg-cover bg-center relative z-1 text-center py-[60px] sm:min-h-[300px] md:py-[60px] lg:py-[170px]"
                 style={{ backgroundImage: `url(${Bannerproducts})` }}>
-
-
                 <div className="container mx-auto">
                     <h2 className="text-white text-[38px] md:text-[32px] mb-[15px] md:mb-[12px] uppercase font-bold">
                         Services
@@ -274,7 +272,7 @@ const Services = () => {
                                                     <span className="text-gray-900 font-semibold text-lg"></span>
                                                 </div>
                                                 <div className='w-full'>
-                                                    <button className="bg-gray-200 w-full text-black font-semibold py-2 px-4 rounded-lg hover:bg-blue-950 hover:text-white" onClick={() => handleViewClick(pro)}>
+                                                    <button className="bg-gray-200 w-full cursor-pointer text-black font-semibold py-2 px-4 rounded-lg hover:bg-blue-950 hover:text-white" onClick={() => handleViewClick(pro)}>
                                                         View
                                                     </button>
                                                 </div>

@@ -55,6 +55,7 @@ const OurProductsContainer = () => {
   const Category = category?.category || [];
   const SubCategory = subcategory?.subcategory || [];
   const prdcts = productss?.productss || [];
+  
 
   const handleViewClick = (pro) => {
     const brandId = pro?.brand;
@@ -260,7 +261,7 @@ const OurProductsContainer = () => {
                           <span className="text-gray-900 font-semibold text-lg"></span>
                         </div>
                         <div className='w-full'>
-                          <button className="bg-gray-200 w-full text-black font-semibold py-2 px-4 rounded-lg hover:bg-blue-950 hover:text-white" onClick={() => handleViewClick(pro)}>
+                          <button className="bg-gray-200 w-full cursor-pointer text-black font-semibold py-2 px-4 rounded-lg hover:bg-blue-950 hover:text-white" onClick={() => handleViewClick(pro)}>
                             View
                           </button>
                         </div>
