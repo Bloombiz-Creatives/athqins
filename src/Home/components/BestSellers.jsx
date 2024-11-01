@@ -24,12 +24,12 @@ const BestSellers = () => {
 
     const handleViewClick = (pro) => {
         const brandId = pro?.brand;
-        if (brandId === '66fa5515128cbdb0a930d04e' || brandId === '66fa552c128cbdb0a930d052') {
-          navigate(`/product_details/${pro?._id}`); 
+        if (brandId === '6724c41a046fdd50c6c85161' || brandId === '6724c43e046fdd50c6c85168') {
+            navigate(`/product_details/${pro?._id}`);
         } else {
-          navigate(`/products/details/${pro?._id}`); 
+            navigate(`/products/details/${pro?._id}`);
         }
-      };
+    };
 
 
     return (
@@ -49,13 +49,13 @@ const BestSellers = () => {
                         slidesPerView: 1,
                     },
                     425: {
-                        slidesPerView: 2, 
+                        slidesPerView: 2,
                     },
                     768: {
-                        slidesPerView: 3, 
+                        slidesPerView: 3,
                     },
                     1024: {
-                        slidesPerView: 3.5, 
+                        slidesPerView: 3.5,
                     },
                 }}
             >
@@ -70,8 +70,8 @@ const BestSellers = () => {
                                 />
                             </div>
                             <div className='flex flex-col justify-center items-center gap-2'>
-                            <p className="text-[20px] font-semibold  link block text-ellipsis truncate overflow-hidden whitespace-nowrap">{product.name}</p>
-                            <button className='bg-blue-950 py-2 px-3 text-sm text-white rounded-md' onClick={() => handleViewClick(product)}>VIEW IN DETAIL</button>
+                                <p className="text-[20px] font-semibold  link block text-ellipsis truncate overflow-hidden whitespace-nowrap">{product.name}</p>
+                                <button className='bg-blue-950 py-2 px-3 text-sm text-white rounded-md' onClick={() => handleViewClick(product)}>VIEW IN DETAIL</button>
                             </div>
                         </div>
                     </SwiperSlide>

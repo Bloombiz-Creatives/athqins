@@ -66,7 +66,7 @@ const Services = () => {
 
     const handleViewClick = (pro) => {
         const brandId = pro?.brand;
-        if (brandId === '66fa5515128cbdb0a930d04e' || brandId === '66fa552c128cbdb0a930d052') {
+        if (brandId === '6724c41a046fdd50c6c85161' || brandId === '6724c43e046fdd50c6c85168') {
             navigate(`/product_details/${pro?._id}`);
         } else {
             navigate(`/products/details/${pro?._id}`);

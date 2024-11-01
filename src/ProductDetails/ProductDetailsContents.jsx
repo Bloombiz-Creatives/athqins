@@ -320,7 +320,7 @@ export const ProductDetailsContents = () => {
 
     const handleViewClick = (pro) => {
         const brandId = pro?.brand;
-        if (brandId === '66fa5515128cbdb0a930d04e' || brandId === '66fa552c128cbdb0a930d052') {
+        if (brandId === '6724c41a046fdd50c6c85161' || brandId === '6724c43e046fdd50c6c85168') {
             navigate(`/product_details/${pro?._id}`);
         } else {
             navigate(`/products/details/${pro?._id}`);
@@ -400,7 +400,7 @@ export const ProductDetailsContents = () => {
                                     </div>
                                     <div className="content flex flex-col items-center justify-center">
                                         <h4 className="text-xl font-semibold mb-2 transition-colors hover:text-blue-600 md:text-[15px] xl:text-[20px]">{feature.title}</h4>
-                                        <p className="text-gray-500 text-center md:text-[14px] xl:text-[18px]">{ProductsDatas?.brand === "66fa5515128cbdb0a930d04e" ? feature.description_sono : feature.description_eden}</p>
+                                        <p className="text-gray-500 text-center md:text-[14px] xl:text-[18px]">{ProductsDatas?.brand === "6724c41a046fdd50c6c85161" ? feature.description_sono : feature.description_eden}</p>
                                     </div>
                                 </div>
                             </div>
