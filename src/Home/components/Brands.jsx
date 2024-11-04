@@ -20,9 +20,11 @@ const Brands = () => {
 
   return (
 
-    <div className="container mx-auto py-32">
+    <div className="container mx-auto md:py-44 py-24">
       <div className=" text-center mb-12 h-full">
-        <h2 className="text-[35px] font-semibold text-gray-800">Our Brands</h2>
+        <h2 className="text-[35px] font-semibold text-gray-800"><span className="text-blue-900">Brands</span> We Deal</h2>
+        <p className="text-[20px] md:text-[25px] font-semibold md:px-12 px-4">We are proud to partner with leading manufacturers in the biomedical equipment 
+        industry to provide you with the most advanced and reliable solutions</p>
       </div>
       <div className="w-full overflow-hidden px-4 md:px-8 lg:px-16 ">
         <Swiper

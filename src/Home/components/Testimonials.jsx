@@ -57,8 +57,8 @@ const Testimonials = () => {
                             375: {
                                 slidesPerView: 1,
                             },
-                            425: {
-                                slidesPerView: 2,
+                            428: {
+                                slidesPerView: 1,
                             },
                             768: {
                                 slidesPerView: 3,

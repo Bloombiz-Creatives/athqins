@@ -33,7 +33,7 @@ const Blogs = () => {
             <div className="px-12 py-11">
                 <h2 className="text-3xl font-bold">From Our Blog</h2>
                 <p className="text-gray-600">Read our latest articles on real estate.</p>
-                <div className="flex flex-wrap gap-6 mt-4 md:mt-5">
+                <div className="md:flex flex-wrap gap-6 mt-4 md:mt-5">
                     {posts.map((post, index) => (
                         <div key={index} className="flex-1 xl:min-w-[300px] lg:min-w-[270px]">
                             <a href={post.link} className="block mb-[30px] group">

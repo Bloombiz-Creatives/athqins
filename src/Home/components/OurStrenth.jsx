@@ -7,26 +7,26 @@ const OurStrenth = () => {
 
     const features = [
         {
-            title: 'Reliable',
-            description: 'Over 15 years of experience in medical equipment manufacturing.',
+            title: 'Enduring Integrity',
+            description: "Trust is paramount. We operate ethically and transparently, building lasting partnerships",
             imgSrc: im1,
             alt: 'Reliable',
         },
         {
-            title: 'Quality',
-            description: 'The best medical equipment quality Consistent and reliable.',
+            title: 'Unmatched Quality',
+            description: "We deliver premium equipment and exceptional service, minimizing downtime and maximizing your productivity.",
             imgSrc: im2,
             alt: 'Quality',
         },
         {
-            title: 'Flexible',
-            description: 'We can customize your solution to meet the different needs of your customers.',
+            title: 'Empowered Expertise',
+            description:"We invest in our team's growth, providing you with experts dedicated to exceeding your expectations.",
             imgSrc: im4,
             alt: 'Flexible',
         },
         {
             title: 'Economy',
-            description: 'Our factory’s production capacity achieves full efficiency in the use of raw materials.',
+            description: "Our manufacturing process focuses on delivering hospital machinery that balances quality with cost-effectiveness. ",
             imgSrc: im3,
             alt: 'Economy',
         },
@@ -34,7 +34,7 @@ const OurStrenth = () => {
 
     return (
         <div className='container mx-auto'>
-            <div className="py-10 mt-5 px-8 ">
+            <div className="py-10  md:py-20 mt-5 px-8 ">
                 <div className="text-center mb-10">
                     <h2 className="text-3xl font-semibold text-gray-800">Our Strengths</h2>
                 </div>
@@ -42,11 +42,6 @@ const OurStrenth = () => {
                     {features.map((feature, index) => (
                         <div key={index} className="flex-basis-[calc(25%-20px)] text-center mb-8  ">
                             <div className="mb-4 flex justify-center items-center">
-                                {/* <img
-                                src={feature.imgSrc}
-                                alt={feature.alt}
-                                className="w-16 h-16 object-cover object-center  "
-                            /> */}
                                 <img
                                     src={feature.imgSrc}
                                     alt={feature.alt}
@@ -55,7 +50,7 @@ const OurStrenth = () => {
                                 />
                             </div>
                             <h3 className="text-xl font-semibold text-gray-800 mb-2">{feature.title}</h3>
-                            <p className="text-sm text-gray-600  md:w-[270px]">{feature.description}</p>
+                            <p className="text-sm text-gray-600  md:w-[260px]">{feature.description}</p>
                         </div>
                     ))}
                 </div>

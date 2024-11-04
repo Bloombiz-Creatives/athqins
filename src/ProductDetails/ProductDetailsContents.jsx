@@ -365,7 +365,7 @@ export const ProductDetailsContents = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="md:flex absolute right-[5%]  wow fadeInUp w-[30%]  hidden">
+                            <div className="md:flex absolute right-[5%]  wow fadeInUp w-[30%]  ">
                                 <div className="header-right-image-animation  animate-upndown">
                                     <img src={ProductsDatas?.image} alt="" />
                                 </div>

@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
 import Cards from '../components/Cards';
 import Brands from '../components/Brands';
+import OurClients from '../components/OurClients';
 
 const HomeContents = () => {
 
@@ -48,6 +49,7 @@ const HomeContents = () => {
       <Cards />
       <OurStrenth />
       <Blogs />
+      <OurClients/>
       <SubscribeSection />
 
 
